@@ -12,6 +12,8 @@ import AVFoundation
 
 class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDelegate {
     @IBOutlet private var scanCameraView: ScanCameraView!
+    @IBOutlet weak var statusView: UILabel!
+    @IBOutlet weak var progressView: UIView!
     private var scanManager: ScanManager!
     private var product: Product?
     private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
@@ -70,22 +72,27 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
     }
 
     func onScanResult(result: RezolveScanResult) {
-
+        
     }
 
     func onError(error: String) {
         print(error)
+        progressView.isHidden = true
     }
 
     func onStartRecognizeImage() {
-
+        progressView.isHidden = false
+        statusView.text = "Identification..."
+        print("onStartRecognizeImage")
     }
 
     func onFinishRecognizeImage() {
-
+        print("onFinishRecognizeImage")
+        statusView.text = "Processing..."
     }
 
     func onProductResult(product: Product) {
+        progressView.isHidden = true
         scanManager.stop()
         self.product = product
         self.performSegue(withIdentifier: "showProduct", sender: self)
