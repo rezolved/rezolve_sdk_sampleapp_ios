@@ -10,19 +10,27 @@ import UIKit
 import RezolveSDK
 import AVFoundation
 
-class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDelegate {
+class ScanViewController: UIViewController {
+    
+    // MARK: - Outlets
+    
     @IBOutlet private var scanCameraView: ScanCameraView!
     @IBOutlet weak var statusView: UILabel!
     @IBOutlet weak var progressView: UIView!
+    
+    // MARK: - Private properties
+    
     private var scanManager: ScanManager!
     private var product: Product?
-    private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
+    private lazy var rezolveSession = (UIApplication.shared.delegate as! AppDelegate).rezolveSession!
+    
+    // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scanManager = session.getScanManager(environment: ResolverEnvironment.productionResolver)
-        scanManager.rezolveScanResultDelegate = self
-        scanManager.productResultDelegate = self
+        
+        openSession()
+        registerDelegates()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -34,13 +42,17 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
         super.viewDidDisappear(animated)
         scanManager.stop()
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let product = self.product, segue.identifier == "showProduct" {
-            let productViewController = segue.destination as! ProductViewController
-            productViewController.product = product
-            self.product = nil
-        }
+    
+    // MARK: - ScanManager methods
+    
+    private func openSession() {
+        self.scanManager = rezolveSession.getScanManager(env: Config.env.rawValue)
+    }
+    
+    private func registerDelegates() {
+        self.scanManager.productResultDelegate = self
+        self.scanManager.rezolveScanResultDelegate = self
+        self.scanManager.autoDetectManagerDelegate = self
     }
 
     private func askPermission() {
@@ -63,26 +75,16 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
         if Platform.isSimulator {
             return
         }
-        scanManager.startVideoScan(scanCameraView: scanCameraView) { (error) in
-            print(error)
-        }
-        scanManager.startAudioScan(errorHandler: { (error) in
-            print(error)
-        })
-    }
-
-    func onScanResult(result: RezolveScanResult) {
         
-    }
-
-    func onError(error: String) {
-        print(error)
-        progressView.isHidden = true
+        scanManager.startVideoScan(scanCameraView: scanCameraView)
+        scanManager.startAudioScan()
     }
 
     func onStartRecognizeImage() {
-        progressView.isHidden = false
-        statusView.text = "Identification..."
+        UIUpdate { [weak self] in
+            self?.progressView.isHidden = false
+            self?.statusView.text = "Identification..."
+        }
         print("onStartRecognizeImage")
     }
 
@@ -92,17 +94,66 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
     }
 
     func onProductResult(product: Product) {
-        progressView.isHidden = true
+        UIUpdate { [weak self] in
+            self?.progressView.isHidden = true
+        }
+       
         scanManager.stop()
         self.product = product
         self.performSegue(withIdentifier: "showProduct", sender: self)
     }
-
-    func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
-
+    
+    // MARK: - Prepare for Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let product = self.product, segue.identifier == "showProduct" {
+            let productViewController = segue.destination as! ProductViewController
+            productViewController.product = product
+            self.product = nil
+        }
     }
 
-    func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
+}
 
+// MARK: - ProductDelegate
+
+extension ScanViewController: ProductDelegate {
+    
+    func onCategoryResult(merchantId: String, category: RezolveCategory) {
+        
     }
+    
+    func onCategoryProductsResult(merchantId: String, category: RezolveCategory, productsPage: PageResult<DisplayProduct>) {
+        
+    }
+}
+
+// MARK: - RezolveScanResultDelegate
+
+extension ScanViewController: RezolveScanResultDelegate {
+    
+    func onScanResult(result: RezolveScanResult) {
+        
+    }
+    
+    func onError(error: String) {
+        print(error)
+        progressView.isHidden = true
+    }
+    
+}
+
+// MARK: - AutoDetectManagerDelegate
+
+extension ScanViewController: AutoDetectManagerDelegate {
+    
+    func onAutoDetectStopListening(resolved: [AutoDetectResult]) {
+        
+    }
+    
+    func onAutoDetectError(error: String) {
+        print(error)
+        progressView.isHidden = true
+    }
+    
 }

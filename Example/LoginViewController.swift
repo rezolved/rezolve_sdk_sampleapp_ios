@@ -10,31 +10,44 @@ import UIKit
 import RezolveSDK
 
 class LoginViewController: UIViewController {
-
-    private let rezolveSdk = Rezolve(apiKey: Config.rezolveApiKey, partnerId: Config.partnerId, subPartnerId: nil, environment: Config.env, config: nil)
-
+    
+    private let rezolveSdk = RezolveSDK(apiKey: Config.rezolveApiKey,
+                                        env: "sandbox-api-tw.rzlvtest.co",
+                                        config: nil,
+                                        subPartnerId: nil,
+                                        dataClient: nil)
+    
+    // MARK: - ViewController Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let authenticationmanager = rezolveSdk.authenticationManager
-        authenticationmanager.login(entityId: Config.entityId, partnerId: Config.partnerId, device: DeviceProfile.current) { (result: Result<LoginResponse?, Error>) in
-            switch result {
-            case .success(let result):
-                self.createSession(accessToken: result!.accessToken)
-            case .failure(let error):
-                print("\(error)")
-            }
-        }
+        createSession()
     }
-
-    func createSession(accessToken: String) {
-        rezolveSdk.createSession(accessToken: accessToken, entityId: Config.entityId, partnerId: Config.partnerId) { (session, error) in
-            if let session = session {
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                appDelegate.session = session
-                self.performSegue(withIdentifier: "loginSuccessful", sender: self)
-            } else if let error = error {
-                print("\(error)")
-            }
-        }
+    
+    // MARK: - Helper methods
+    
+    private func createSession() {
+        // Create a new Device Initializer
+        let device = DeviceProfile(
+            deviceId: UIDevice.current.identifierForVendor!.uuidString,
+            make: "Apple",
+            osType: "iOS",
+            osVersion: UIDevice.current.systemVersion,
+            locale: TimeZone.current.abbreviation()!
+        )
+        
+        rezolveSdk.createSession(entityId: Config.entityId, partnerId: Config.partnerId, device: device, callback: { rezolveSession in
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.rezolveSession = rezolveSession
+            self.performSegue(withIdentifier: "loginSuccessful", sender: self)
+            
+            // Use the new `session` provided
+            print("OK -> \(rezolveSession)")
+            
+        }, errorCallback: { error in
+            // Handle potential error
+            print("Error -> \(error)")
+        })
     }
+    
 }
