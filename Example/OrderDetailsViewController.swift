@@ -17,6 +17,7 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var orderIdLabel: UILabel!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var progressView: UIView!
     
     // MARK: - Private properties
 
@@ -32,6 +33,8 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        progressView.isHidden = false
+        
         // Waiting for last transaction processing on server
         DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
             self?.getOrders()
@@ -45,6 +48,7 @@ class OrderDetailsViewController: UIViewController {
         rezolveSession.userActivityManager.getOrders(callback: { [weak self] transactions in
             for order in transactions {
                 if order.orderId == self?.orderId {
+                    self?.progressView.isHidden = true
                     self?.showDetails(order)
                 }
             }
