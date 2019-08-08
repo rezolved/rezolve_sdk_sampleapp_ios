@@ -31,23 +31,35 @@ class OrderDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        rezolveSession.userActivityManager.getOrders { (result) in
-//            switch result {
-//            case .success(let orders):
-//                let order = orders!.first(where: { (order) -> Bool in order.orderId == self.orderId})
-//                self.showDetails(order!)
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
+        
+        // Waiting for last transaction processing on server
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
+            self?.getOrders()
+        })
+        
     }
     
-//    func showDetails(_ order: HistoryTransactionDetails) {
-//        statusLabel.text = order.status
-//        orderIdLabel.text = order.orderId
-//        productNameLabel.text = product.title
-//        totalLabel.text = String(order.price.finalPrice)
-//    }
+    // MARK: - Helpers methods
+    
+    private func getOrders() {
+        rezolveSession.userActivityManager.getOrders(callback: { [weak self] transactions in
+            for order in transactions {
+                if order.orderId == self?.orderId {
+                    self?.showDetails(order)
+                }
+            }
+            
+            }, errorCallback: { error in
+                print(error)
+        })
+    }
+    
+    private func showDetails(_ order: HistoryTransaction) {
+        statusLabel.text = order.status
+        orderIdLabel.text = order.orderId
+        productNameLabel.text = product.title
+        totalLabel.text = String(order.finalPrice.finalPrice.asAppCurrency)
+    }
     
     // MARK: - User Interactions
     

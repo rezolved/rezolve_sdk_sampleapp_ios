@@ -23,12 +23,18 @@ class ProductViewController: UIViewController {
     // MARK: - Private properties
     
     private lazy var rezolveSession = (UIApplication.shared.delegate as! AppDelegate).rezolveSession!
+    private var checkoutOrder: Order?
     private var orderId: String? = nil
-    private var checkoutBundle: CheckoutBundle? = nil
+    private var checkoutBundleV2: CheckoutBundleV2? = nil
+    
+    private var card: PaymentCard?
+    private var phone: Phone?
+    private var address: Address?
+    private var checkoutProduct: CheckoutProduct?
     
     // MARK: - Public properties
     
-    var product: Product!
+    var scannedProduct: Product!
     
      // MARK: - ViewController Lifecycle
 
@@ -43,25 +49,31 @@ class ProductViewController: UIViewController {
     // MARK: - User Interactions
     
     @IBAction private func buyClick(_ sender: Any) {
-        //        self.rezolveSession.checkoutManager.buy(bundle: checkoutBundle!) { result in
-        //            switch result {
-        //            case .success(let order):
-        //                self.orderId = order!.id
-        //                self.performSegue(withIdentifier: "showOrderDetails", sender: self)
-        //            case .failure(let error):
-        //                print("\(error)")
-        //            }
-        //        }
+        let location = Location(longitude: 80.0, latitude: 80.0)
+        rezolveSession.checkoutManager.buyProduct(merchantId: scannedProduct.merchantId,
+                                                  checkoutProduct: checkoutProduct!,
+                                                  address: address!,
+                                                  paymentRequest: PaymentRequest(paymentCard: card!, cvv: "123"),
+                                                  location: location as? RezolveLocation,
+                                                  phone: phone!,
+                                                  
+        callback: { checkoutOrder in
+            self.orderId = checkoutOrder.id
+            self.performSegue(withIdentifier: "showOrderDetails", sender: self)
+        }, errorCallback: { error in
+            print(error)
+        })
+        
     }
     
     // MARK: - Helper methods
     
     private func sepupUI() {
-        navigationItem.title = product.title
-        priceLabel.text = "$\(product.price)"
-        imageView.imageFromUrl(urlString: product.images[0])
+        navigationItem.title = scannedProduct.title
+        priceLabel.text = "$\(scannedProduct.price)"
+        imageView.imageFromUrl(urlString: scannedProduct.images[0])
         
-        if let attributedString = try? NSAttributedString(data: Data(product.description.utf8),
+        if let attributedString = try? NSAttributedString(data: Data(scannedProduct.description.utf8),
                                                           options: [.documentType: NSAttributedString.DocumentType.html],
                                                           documentAttributes: nil) {
             descriptionLabel.attributedText = attributedString
@@ -81,89 +93,113 @@ class ProductViewController: UIViewController {
         
         let placement = ProductPlacement(adID: nil, placementID: nil)
         
-        let checkoutProduct = CheckoutProduct(id: product.id,
+        let checkoutProduct = CheckoutProduct(id: scannedProduct.id,
                                               qty: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1),
                                               productPlacement: placement,
                                               configurableOptions: [],
                                               customOptions: [])
         
         rezolveSession.paymentOptionManager.getProductOptions(checkoutProduct: checkoutProduct,
-            merchantId: product.merchantId,
+            merchantId: scannedProduct.merchantId,
             callback: { newPaymentOption in
-                print("Dupa")
+                self.createPhone(checkoutProduct, newPaymentOption)
                 
             }, errorCallback: { error in
                print(error)
         })
         
-//        rezolveSession.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct, merchantId: product.merchantId) { result in
-//            switch result {
-//            case .success(let option):
-//                self.createPhone(checkoutProduct, option!)
-//                print("\(option!)")
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
     }
 
     private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-//        rezolveSession.phonebookManager.getAll { result in
-//            switch result {
-//            case .success(let phone):
-//                self.createAddress(phone![0], product, option)
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
+        
+        rezolveSession.phonebookManager.getAll(callback: { phones in
+            self.createAddress(phones[0], product, option)
+            
+        }, errorCallback: { error in
+            print(error)
+        })
     }
 
     private func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
-//        let address = Address(id: "", shortName: "John Smith", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB")
-//        rezolveSession.addressbookManager.create(address: address) { result in
-//            switch result {
-//            case .success(let address):
-//                self.createCard(phone, address!, product, option)
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
+        let address = Address()
+        address.id = ""
+        address.shortName = "John Smith"
+        address.line1 = "Lambeth"
+        address.line2 = ""
+        address.city = "London"
+        address.state = ""
+        address.zip = "SE1 7PB"
+        address.country = "GB"
+        address.phoneID = phone.id
+        
+        rezolveSession.addressbookManager.create(address: address, callback: { newAddress in
+            self.createCard(phone, newAddress, product, option)
+            
+        }, errorCallback: { error in
+            print(error)
+        })
     }
 
     private func createCard(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption) {
-//        let paymentCard = PaymentCard(id: "", type: "debit", cardHolderName: "John Curtis", expiresOn: "0817", validFrom: "0817", brand: "visa", addressId: address.id, shortName: "black amex", pan4: "1234", pan6: "123456", pan: "123456")
-//        self.rezolveSession.walletManager.create(paymentCard: paymentCard) { result in
-//            switch result {
-//            case .success(let card):
-//                self.checkout(phone, address, product, option, PaymentRequest(paymentCard: card!, cvv: "123"))
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
+        let validationErrorCallback: (Array<String>) -> Void = { errors in
+            print(errors)
+        }
+        
+        let paymentCard = PaymentCard(id: "",
+                                      type: "debit",
+                                      cardHolderName: "John Curtis",
+                                      expiresOn: "0817",
+                                      validFrom: "0817",
+                                      brand: "visa",
+                                      addressId: address.id,
+                                      shortName: "black amex",
+                                      pan4: "1234",
+                                      pan6: "123456",
+                                      pan: "123456")
+        
+        
+        
+        rezolveSession.walletManager.create(paymentCard: paymentCard, callback: { newPaymentCard in
+            self.card = newPaymentCard
+            self.checkout(phone, address, product, option, PaymentRequest(paymentCard: newPaymentCard, cvv: "123"))
+            
+        }, validationErrorCallback: validationErrorCallback,
+           errorCallback: { error in
+            print(error)
+        })
     }
 
     private func checkout(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption, _ paymentRequest: PaymentRequest) {
-//        let shippingMethod = CheckoutShippingMethod(type: "flatrate", addressId: address.id)
-//        let location = Location(longitude: 80.0, latitude: 80.0)
-//        let checkoutBundle = CheckoutBundle(
-//                checkoutProduct: product, shippingMethod: shippingMethod, merchantId: self.product.merchantId,
-//                optionId: option.id, paymentMethod: option.supportedPaymentMethods![0],
-//                paymentRequest: paymentRequest, phoneId: phone.id, location: location)
-//
-//        self.rezolveSession.checkoutManager.checkout(bundle: checkoutBundle) { result in
-//            switch result {
-//            case .success(let checkoutResult):
-//                var princeInfo = ""
-//                checkoutResult!.breakdown.forEach({ (price) in
-//                    princeInfo += "\(price.type): \(price.amount)\n"
-//                })
-//                self.finalPriceLabel.text = "\(princeInfo)total: $\(checkoutResult!.finalPrice)"
-//                self.buyButton.isEnabled = true
-//                self.checkoutBundle = checkoutBundle
-//            case .failure(let error):
-//                print("\(error)")
-//            }
-//        }
+        
+        self.phone = phone
+        self.address = address
+        self.checkoutProduct = product
+        
+        let location = Location(longitude: 80.0, latitude: 80.0)
+        let deliveryMethod = DeliveryMethod(addressId: address.id, type: "flatrate")
+        
+        let checkoutBundle = createProductCheckoutBundleV2(checkoutProduct: product,
+                                                           deliveryMethod: deliveryMethod,
+                                                           merchantId: scannedProduct.merchantId,
+                                                           optionId: option.id,
+                                                           paymentMethod: option.supportedPaymentMethods.first,
+                                                           phoneId: phone.id,
+                                                           location: location as? RezolveLocation)
+        
+        
+        
+        rezolveSession.checkoutManagerV2.checkout(bundle: checkoutBundle, callback: { order in
+            self.checkoutOrder = order
+            var princeInfo = ""
+            order.breakdown.forEach({ (price) in
+                princeInfo += "\(price.type): \(price.amount)\n"
+            })
+            self.finalPriceLabel.text = "\(princeInfo)total: $\(order.finalPrice)"
+            self.buyButton.isEnabled = true
+            self.checkoutBundleV2 = checkoutBundle
+        }, errorCallback: { error in
+            print(error)
+        })
     }
     
     // MARK: - Prepare for Segue
@@ -172,7 +208,7 @@ class ProductViewController: UIViewController {
         if let orderId = self.orderId, segue.identifier == "showOrderDetails" {
             let orderDetailsViewController = segue.destination as! OrderDetailsViewController
             orderDetailsViewController.orderId = orderId
-            orderDetailsViewController.product = product
+            orderDetailsViewController.product = scannedProduct
         }
     }
    

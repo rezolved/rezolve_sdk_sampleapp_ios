@@ -108,7 +108,7 @@ class ScanViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let product = self.product, segue.identifier == "showProduct" {
             let productViewController = segue.destination as! ProductViewController
-            productViewController.product = product
+            productViewController.scannedProduct = product
             self.product = nil
         }
     }
