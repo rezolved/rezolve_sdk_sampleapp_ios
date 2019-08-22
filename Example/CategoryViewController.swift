@@ -10,29 +10,28 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     @IBOutlet weak var productCategoryCollectionView: UICollectionView!
-    @IBOutlet weak var categoryImageView: UIImageView!
-    var category: Category!
+    private var presentationData: CategoryPresentationData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryImageView.contentMode = .scaleAspectFit
-        categoryImageView.imageFromUrl(urlString: category.image)
-        let nib = UINib(nibName: Constant.catergoryCollectionCellID, bundle: nil)
-        productCategoryCollectionView.register(nib, forCellWithReuseIdentifier: Constant.catergoryCollectionCellID)
-        productCategoryCollectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+        let nibCollectionCel = UINib(nibName: Constant.catergoryCollectionCellID, bundle: nil)
+        productCategoryCollectionView.register(nibCollectionCel, forCellWithReuseIdentifier: Constant.catergoryCollectionCellID)
+        
+        let categorySectionHeaderNIB = UINib(nibName: Constant.catergoryCollectionHeaderID, bundle: nil)
+        productCategoryCollectionView.register(categorySectionHeaderNIB, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constant.catergoryCollectionHeaderID)
     }
 
+    func set(category presentationData: CategoryPresentationData) {
+        self.presentationData = presentationData
+    }
 }
-
-
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-//
-            return UICollectionReusableView()
-        default:
+        if let categoryHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constant.catergoryCollectionHeaderID, for: indexPath) as? CategoryCollectionReusableView {
+            categoryHeader.categoryImage.imageFromUrl(urlString: presentationData.categoryImage)
+            return categoryHeader
+        } else {
             return UICollectionReusableView()
         }
         
@@ -43,7 +42,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return category.products.items.count
+        return presentationData.products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -53,7 +52,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     private func getConfiguredProductCatergoryCell(forForItemAt indexPath: IndexPath) -> ProductCatergoryCollectionViewCell? {
         guard let categoryCell = productCategoryCollectionView.dequeueReusableCell(withReuseIdentifier: Constant.catergoryCollectionCellID,
                                                                                    for: indexPath) as? ProductCatergoryCollectionViewCell else { return nil }
-        categoryCell.productItem = category.products.items[indexPath.row]
+        categoryCell.productItem = presentationData.products[indexPath.row]
         
         return categoryCell
     }
@@ -64,25 +63,24 @@ extension CategoryViewController: UICollectionViewDataSource {
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let viewWidth = view.bounds.size.width
+        let viewWidth = collectionView.bounds.size.width
         let sparator: CGFloat = 5.0
         let viewWdthSplit = viewWidth / 2
         let collectionWidth = viewWdthSplit - sparator
+        let cellHeight: CGFloat = 200
         
-        return CGSize(width: collectionWidth, height: 400)
+        return CGSize(width: collectionWidth, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 180.0)
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.width / 2)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 60.0, height: 30.0)
-    }
 }
 
 extension CategoryViewController {
     enum Constant {
         static let catergoryCollectionCellID = "CatergoryCollectionViewCell"
+        static let catergoryCollectionHeaderID = "CategoryCollectionReusableView"
     }
 }

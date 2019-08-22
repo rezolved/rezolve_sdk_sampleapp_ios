@@ -12,15 +12,15 @@ class ProductCatergoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var categoryUIImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var productItem: Item? {
+    var productItem: CategoryProduct? {
         willSet {
             conifgureCell(with: newValue)
         }
     }
     
-    private func conifgureCell(with item: Item?) {
+    private func conifgureCell(with item: CategoryProduct?) {
         guard let item = item else { return }
-        categoryUIImageView.imageFromUrl(urlString: item.imageThumbs?.first ?? item.image)
+        categoryUIImageView.imageFromUrl(urlString: item.image)
         titleLabel.text = item.name
     }
     
