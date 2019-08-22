@@ -17,6 +17,22 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
     private var scanManager: ScanManager!
     private var product: Product?
     private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
+    // MARK: For testing
+    private lazy var categoryMockData: Category? = {
+        let fileName = "CatergoyJSONMock"
+        let fileType = "json"
+        guard let catergoyMockPath = Bundle.main.path(forResource: fileName, ofType: fileType) else { return nil }
+        let catergoyMockDataFromURL = URL(fileURLWithPath: catergoyMockPath)
+        
+        do {
+            let mockedCatergoyData = try Data(contentsOf: catergoyMockDataFromURL)
+            let mockedCatergoy = try JSONDecoder().decode(Category.self, from: mockedCatergoyData)
+            return mockedCatergoy
+        } catch {
+            return nil
+        }
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,25 +40,29 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         askPermission()
+        createTabBar()
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         scanManager.stop()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let product = self.product, segue.identifier == "showProduct" {
+        if let product = self.product, segue.identifier == Constant.SegueIdentifier.product {
             let productViewController = segue.destination as! ProductViewController
             productViewController.product = product
             self.product = nil
+        } else if segue.identifier == Constant.SegueIdentifier.category {
+            let categoryVC = segue.destination as! CategoryViewController
+            categoryVC.category = categoryMockData
         }
     }
-
+    
     private func askPermission() {
         if Platform.isSimulator {
             return
@@ -58,7 +78,7 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
             }
         }
     }
-
+    
     func startScanning() {
         if Platform.isSimulator {
             return
@@ -70,39 +90,62 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
             print(error)
         })
     }
-
+    
     func onScanResult(result: RezolveScanResult) {
         
     }
-
+    
     func onError(error: String) {
         print(error)
         progressView.isHidden = true
     }
-
+    
     func onStartRecognizeImage() {
         progressView.isHidden = false
         statusView.text = "Identification..."
         print("onStartRecognizeImage")
     }
-
+    
     func onFinishRecognizeImage() {
         print("onFinishRecognizeImage")
         statusView.text = "Processing..."
     }
-
+    
     func onProductResult(product: Product) {
         progressView.isHidden = true
         scanManager.stop()
         self.product = product
-        self.performSegue(withIdentifier: "showProduct", sender: self)
+        self.performSegue(withIdentifier: Constant.SegueIdentifier.product, sender: self)
     }
-
+    
     func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
-
+        
     }
-
+    
     func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
+        self.performSegue(withIdentifier: Constant.SegueIdentifier.category, sender: self)
+    }
+    
+    // Debug
+    
+    private func createTabBar() {
+        let tabBar = UIBarButtonItem(title: "push",
+                                     style: .plain,
+                                     target: self,
+                                     action: #selector(push))
+        navigationItem.rightBarButtonItems = [tabBar]
+    }
+    
+    @objc func push() {
+        self.performSegue(withIdentifier: Constant.SegueIdentifier.category, sender: self)
+    }
+}
 
+extension ScanViewController {
+    enum Constant {
+        enum SegueIdentifier {
+            static let product = "showProduct"
+            static let category = "showCategory"
+        }
     }
 }

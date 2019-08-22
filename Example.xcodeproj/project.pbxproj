@@ -3,13 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
+		75DA223C230BFCA200C8D82B /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA223B230BFCA100C8D82B /* CategoryViewController.swift */; };
+		75DA223F230C00AC00C8D82B /* ProductCatergoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DA223D230C00AC00C8D82B /* ProductCatergoryCollectionViewCell.swift */; };
+		75DA2240230C00AC00C8D82B /* CatergoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75DA223E230C00AC00C8D82B /* CatergoryCollectionViewCell.xib */; };
+		75E4508A230D0CFE0018E50C /* CatergoyJSONMock.json in Resources */ = {isa = PBXBuildFile; fileRef = 75E45089230D0CFE0018E50C /* CatergoyJSONMock.json */; };
+		75E4508C230D0D560018E50C /* CategoriesJSONSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E4508B230D0D560018E50C /* CategoriesJSONSchema.swift */; };
 		A2261F30502AFDE2617DE2C9 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EA191373B68612C152F605A /* Pods_Example.framework */; };
 		D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE25F22676AE6001E11D1 /* ProductViewController.swift */; };
 		D48FE2632267746F001E11D1 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE2622267746F001E11D1 /* UIImageView.swift */; };
@@ -27,6 +32,11 @@
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		75DA223B230BFCA100C8D82B /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		75DA223D230C00AC00C8D82B /* ProductCatergoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCatergoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		75DA223E230C00AC00C8D82B /* CatergoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatergoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		75E45089230D0CFE0018E50C /* CatergoyJSONMock.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = CatergoyJSONMock.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.json; };
+		75E4508B230D0D560018E50C /* CategoriesJSONSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesJSONSchema.swift; sourceTree = "<group>"; };
 		AF0C7763FE279F8385484724 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D48FE25722676435001E11D1 /* DMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DMSDK.framework; sourceTree = "<group>"; };
 		D48FE25F22676AE6001E11D1 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -59,20 +69,32 @@
 				AF0C7763FE279F8385484724 /* Pods-Example.debug.xcconfig */,
 				4A297FB46572A0619710DDCA /* Pods-Example.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		6A23EDDA224BE5DE18995D23 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				75E4508E230D471D0018E50C /* mock */,
 				6A23E958E6F1676634C2DB4D /* Main.storyboard */,
 				6A23E808AED379C3EDAD1395 /* LoginViewController.swift */,
 				D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */,
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
+				75DA223B230BFCA100C8D82B /* CategoryViewController.swift */,
+				75DA223D230C00AC00C8D82B /* ProductCatergoryCollectionViewCell.swift */,
+				75DA223E230C00AC00C8D82B /* CatergoryCollectionViewCell.xib */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		75E4508E230D471D0018E50C /* mock */ = {
+			isa = PBXGroup;
+			children = (
+				75E45089230D0CFE0018E50C /* CatergoyJSONMock.json */,
+				75E4508B230D0D560018E50C /* CategoriesJSONSchema.swift */,
+			);
+			name = mock;
 			sourceTree = "<group>";
 		};
 		A536A5AFCD9448C75FBABE9B /* Frameworks */ = {
@@ -195,7 +217,9 @@
 			files = (
 				D49F4484225B98EC006FB59B /* LaunchScreen.storyboard in Resources */,
 				D49F4481225B98EC006FB59B /* Assets.xcassets in Resources */,
+				75E4508A230D0CFE0018E50C /* CatergoyJSONMock.json in Resources */,
 				6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */,
+				75DA2240230C00AC00C8D82B /* CatergoryCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,20 +254,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${PODS_ROOT}/RezolveSDK/RezolveSDK.framework",
-				"${PODS_ROOT}/RezolveSDK/DMSDK.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RezolveSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DMSDK.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,7 +279,10 @@
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
+				75DA223C230BFCA200C8D82B /* CategoryViewController.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
+				75E4508C230D0D560018E50C /* CategoriesJSONSchema.swift in Sources */,
+				75DA223F230C00AC00C8D82B /* ProductCatergoryCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,13 +431,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6X49575X8;
+				DEVELOPMENT_TEAM = NTR6788A69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -439,13 +458,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B6X49575X8;
+				DEVELOPMENT_TEAM = NTR6788A69;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
