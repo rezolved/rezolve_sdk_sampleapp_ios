@@ -11,7 +11,6 @@ import RezolveSDK
 import AVFoundation
 
 class ScanViewController: UIViewController {
-    
     // MARK: - Outlets
     
     @IBOutlet private var scanCameraView: ScanCameraView!
@@ -22,25 +21,26 @@ class ScanViewController: UIViewController {
     
     private var scanManager: ScanManager!
     private var product: Product?
+    private var categoryPresantationData: CategoryPresentationData?
     private lazy var rezolveSession = (UIApplication.shared.delegate as! AppDelegate).rezolveSession!
     
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         openSession()
         registerDelegates()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         askPermission()
     }
-
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         scanManager.stop()
+        progressView.isHidden = true
     }
     
     // MARK: - ScanManager methods
@@ -54,7 +54,7 @@ class ScanViewController: UIViewController {
         self.scanManager.rezolveScanResultDelegate = self
         self.scanManager.autoDetectManagerDelegate = self
     }
-
+    
     private func askPermission() {
         if Platform.isSimulator {
             return
@@ -70,7 +70,7 @@ class ScanViewController: UIViewController {
             }
         }
     }
-
+    
     func startScanning() {
         if Platform.isSimulator {
             return
@@ -79,40 +79,62 @@ class ScanViewController: UIViewController {
         scanManager.startVideoScan(scanCameraView: scanCameraView)
         scanManager.startAudioScan()
     }
-
+    
     func onStartRecognizeImage() {
         UIUpdate { [weak self] in
             self?.progressView.isHidden = false
-            self?.statusView.text = "Identification..."
+            self?.statusView.text = Constant.StatusText.identification
         }
         print("onStartRecognizeImage")
     }
-
+    
     func onFinishRecognizeImage() {
         print("onFinishRecognizeImage")
-        statusView.text = "Processing..."
+        statusView.text = Constant.StatusText.processing
     }
-
+    
     func onProductResult(product: Product) {
         UIUpdate { [weak self] in
             self?.progressView.isHidden = true
         }
-       
+        
         scanManager.stop()
         self.product = product
-        self.performSegue(withIdentifier: "showProduct", sender: self)
+        self.performSegue(withIdentifier: Constant.SegueIdentifier.product, sender: self)
     }
     
     // MARK: - Prepare for Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let product = self.product, segue.identifier == "showProduct" {
-            let productViewController = segue.destination as! ProductViewController
-            productViewController.scannedProduct = product
-            self.product = nil
+        configure(destination: segue.destination, identifier: segue.identifier)
+    }
+    
+    private func configure(destination viewController: UIViewController, identifier: String?) {
+        switch identifier {
+        case Constant.SegueIdentifier.product:
+            configure(product: viewController)
+        case Constant.SegueIdentifier.category:
+            configure(category: viewController)
+        default: return
         }
     }
-
+    
+    private func configure(product viewController: UIViewController) {
+        guard let productViewController = viewController as? ProductViewController else { return }
+        productViewController.scannedProduct = product
+        self.product = nil
+    }
+    
+    private func configure(category viewController: UIViewController) {
+        guard
+            let categoryVC = viewController as? CategoryViewController,
+            let categoryPresantationData = categoryPresantationData
+            else {
+                return
+        }
+        categoryVC.set(category: categoryPresantationData)
+        self.categoryPresantationData = nil
+    }
 }
 
 // MARK: - ProductDelegate
@@ -120,6 +142,11 @@ class ScanViewController: UIViewController {
 extension ScanViewController: ProductDelegate {
     
     func onCategoryResult(merchantId: String, category: RezolveCategory) {
+        let loader = ProductCategoryLoader(merchantId: merchantId, category: category)
+        loader.loadCategoryPresentationData(with: rezolveSession) { categoryPresantationData in
+            self.categoryPresantationData = categoryPresantationData
+            self.performSegue(withIdentifier: Constant.SegueIdentifier.category, sender: self)
+        }
         
     }
     
@@ -156,4 +183,20 @@ extension ScanViewController: AutoDetectManagerDelegate {
         progressView.isHidden = true
     }
     
+}
+
+// MARK: - Constants
+
+extension ScanViewController {
+    enum Constant {
+        enum SegueIdentifier {
+            static let product = "showProduct"
+            static let category = "showCategory"
+        }
+        
+        enum StatusText {
+            static let processing = "Processing..."
+            static let identification = "Identification..."
+        }
+    }
 }

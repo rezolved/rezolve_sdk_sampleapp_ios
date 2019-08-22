@@ -82,11 +82,53 @@
                         <outlet property="scanCameraView" destination="nj3-n5-lMq" id="fJa-kf-6tp"/>
                         <outlet property="statusView" destination="P3H-nX-X6v" id="Wyn-c7-RVX"/>
                         <segue destination="Rf3-17-JWC" kind="show" identifier="showProduct" id="T7h-Cp-y9S"/>
+                        <segue destination="Tvh-Gz-wl3" kind="show" identifier="showCategory" id="C1p-pX-7Rk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZX-KF-Wqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2502.898550724638" y="20.758928571428569"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="aSw-qJ-7r4">
+            <objects>
+                <viewController id="Tvh-Gz-wl3" customClass="CategoryViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cXp-Ns-i3E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5Op-Kb-Nmy">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EwJ-wk-l1t">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tvh-Gz-wl3" id="zGM-Fv-5fL"/>
+                                    <outlet property="delegate" destination="Tvh-Gz-wl3" id="arA-X3-fSI"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5Op-Kb-Nmy" firstAttribute="top" secondItem="aOd-iJ-mzv" secondAttribute="top" id="2rd-Bn-ZW1"/>
+                            <constraint firstItem="aOd-iJ-mzv" firstAttribute="trailing" secondItem="5Op-Kb-Nmy" secondAttribute="trailing" id="E75-Gl-ccB"/>
+                            <constraint firstItem="aOd-iJ-mzv" firstAttribute="bottom" secondItem="5Op-Kb-Nmy" secondAttribute="bottom" id="Mf2-ec-r3i"/>
+                            <constraint firstItem="5Op-Kb-Nmy" firstAttribute="leading" secondItem="aOd-iJ-mzv" secondAttribute="leading" id="d01-ew-uOh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aOd-iJ-mzv"/>
+                    </view>
+                    <connections>
+                        <outlet property="productCategoryCollectionView" destination="5Op-Kb-Nmy" id="rKT-o3-FE5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVp-2n-KZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2501" y="1000"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="GdK-3N-qJh">
