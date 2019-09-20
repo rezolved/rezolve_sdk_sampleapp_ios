@@ -6,5 +6,5 @@ target 'Example' do
   use_frameworks!
 
   # Pods for Example
-  pod 'RezolveSDK', '2.0.0-beta1529'
+  pod 'RezolveSDK', '2.0.0-beta1537'
 end

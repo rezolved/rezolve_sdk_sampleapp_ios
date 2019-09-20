@@ -81,7 +81,7 @@ class ProductViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 
     private func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
-        let address = Address(id: "", shortName: "John Smith", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB")
+        let address = Address(id: "", fullName: "John Smith", shortName: "JS", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB", phoneId: phone.id)
         session.addressbookManager.create(address: address) { result in
             switch result {
             case .success(let address):
