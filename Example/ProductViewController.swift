@@ -176,7 +176,8 @@ class ProductViewController: UIViewController {
         self.checkoutProduct = product
         
         let location = Location(longitude: 80.0, latitude: 80.0)
-        let deliveryMethod = DeliveryMethod(addressId: address.id, type: "flatrate")
+        let freePaymentMethod = (option.supportedPaymentMethods.first)?.type == "free"
+        let deliveryMethod = freePaymentMethod ? nil : DeliveryMethod(addressId: address.id, type: "flatrate")
         
         let checkoutBundle = createProductCheckoutBundleV2(checkoutProduct: product,
                                                            deliveryMethod: deliveryMethod,
@@ -185,8 +186,6 @@ class ProductViewController: UIViewController {
                                                            paymentMethod: option.supportedPaymentMethods.first,
                                                            phoneId: phone.id,
                                                            location: location as? RezolveLocation)
-        
-        
         
         rezolveSession.checkoutManagerV2.checkout(bundle: checkoutBundle, callback: { order in
             self.checkoutOrder = order

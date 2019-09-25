@@ -7,5 +7,5 @@ target 'Example' do
 
   # Pods for Example
 #  pod 'RezolveSDK', '2.0.0-beta1529'
-  pod 'RezolveSDK', '1.11.25-beta1438'
+  pod 'RezolveSDK', '1.11.25-beta1442'
 end
