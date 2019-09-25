@@ -1,12 +1,12 @@
 PODS:
-  - RezolveSDK (2.0.0-beta1538):
+  - RezolveSDK (2.0.0-beta1539):
     - SwiftyRSA (~> 1.5.0)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
   - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
-  - RezolveSDK (= 2.0.0-beta1538)
+  - RezolveSDK (= 2.0.0-beta1539)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -14,9 +14,9 @@ SPEC REPOS:
     - SwiftyRSA
 
 SPEC CHECKSUMS:
-  RezolveSDK: 68316d22e36c0bcf79a019be321c4c9590cddf80
+  RezolveSDK: 151adfbab593ef853475bed5ba8d9393ccf66d4d
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 774499d38d7280f09efa79a0157c541e78c20dfc
+PODFILE CHECKSUM: e700686f3f10d089c95e444cd61a1ccec94ce8b3
 
 COCOAPODS: 1.7.5

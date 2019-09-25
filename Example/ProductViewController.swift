@@ -105,13 +105,16 @@ class ProductViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
 
     private func checkout(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption, _ paymentRequest: PaymentRequest) {
-        let shippingMethod = CheckoutShippingMethod(type: "flatrate", addressId: address.id)
+        
+        let freePaymentMethod = (option.supportedPaymentMethods?.first)?.type == "free"
+        let shippingMethod = freePaymentMethod ? nil : CheckoutShippingMethod(type: "flatrate", addressId: address.id)
         let location = Location(longitude: 80.0, latitude: 80.0)
+        
         let checkoutBundle = CheckoutBundle(
                 checkoutProduct: product, shippingMethod: shippingMethod, merchantId: self.product.merchantId,
                 optionId: option.id, paymentMethod: option.supportedPaymentMethods![0],
                 paymentRequest: paymentRequest, phoneId: phone.id, location: location)
-
+        
         self.session.checkoutManager.checkout(bundle: checkoutBundle) { result in
             switch result {
             case .success(let checkoutResult):
@@ -127,7 +130,6 @@ class ProductViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
     }
-
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
