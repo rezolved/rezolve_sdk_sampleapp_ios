@@ -111,10 +111,16 @@ class ProductViewController: UIViewController {
     }
 
     private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-        
-        rezolveSession.phonebookManager.getAll(callback: { phones in
-            self.createAddress(phones[0], product, option)
-            
+        rezolveSession.phonebookManager.getAll(callback: { [weak self] phones in
+            if phones.indices.contains(0) {
+                self?.createAddress(phones[0], product, option)
+            }
+            else {
+                let phone = Phone(name: "user_phone", phone: "+443069510069")
+                self?.rezolveSession.phonebookManager.create(phone: phone, callback: { [weak self] phone in
+                    self?.createAddress(phone, product, option)
+                })
+            }
         }, errorCallback: { error in
             print(error)
         })

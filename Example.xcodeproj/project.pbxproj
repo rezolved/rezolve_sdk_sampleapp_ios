@@ -80,7 +80,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6A23EDDA224BE5DE18995D23 /* controllers */ = {
+		6A23EDDA224BE5DE18995D23 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				75C5E1AA230E800C008EB467 /* Category */,
@@ -90,7 +90,7 @@
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 			);
-			name = controllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		75C5E1AA230E800C008EB467 /* Category */ = {
@@ -138,7 +138,7 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		D48FE26122677452001E11D1 /* extensions */ = {
+		D48FE26122677452001E11D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D48FE2622267746F001E11D1 /* UIImageView.swift */,
@@ -146,7 +146,7 @@
 				38CD0C5D22FC28D800BFCC9F /* SignedNumericExtentions.swift */,
 				38CD0C5F22FC290300BFCC9F /* DecimalExtensions.swift */,
 			);
-			name = extensions;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D49F446D225B98EB006FB59B = {
@@ -171,8 +171,8 @@
 		D49F4478225B98EB006FB59B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				D48FE26122677452001E11D1 /* extensions */,
-				6A23EDDA224BE5DE18995D23 /* controllers */,
+				D48FE26122677452001E11D1 /* Extensions */,
+				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				D49F4480225B98EC006FB59B /* Assets.xcassets */,
 				D49F4482225B98EC006FB59B /* LaunchScreen.storyboard */,

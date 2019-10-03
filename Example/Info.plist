@@ -45,5 +45,7 @@
     <string>Example Camera usage</string>
     <key>NSMicrophoneUsageDescription</key>
     <string>Example Microphone usage</string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
 </dict>
 </plist>
