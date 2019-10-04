@@ -68,18 +68,28 @@ class ProductViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             }
         }
     }
-
+    
     private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-        session.phonebookManager.getAll { result in
+        session.phonebookManager.getAll { [weak self] result in
             switch result {
             case .success(let phone):
-                self.createAddress(phone![0], product, option)
+                if let phones = phone {
+                    if phones.indices.contains(0) {
+                        self?.createAddress(phones[0], product, option)
+                    }
+                    else {
+                        let phone = Phone(name: "user_phone", phone: "+443069510069")
+                        self?.session.phonebookManager.create(phoneToCreate: phone, completionHandler: { [weak self] _ in
+                            self?.createAddress(phone, product, option)
+                        })
+                    }
+                }
             case .failure(let error):
                 print("\(error)")
             }
         }
     }
-
+    
     private func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
         let address = Address(id: "", fullName: "John Smith", shortName: "JS", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB", phoneId: phone.id)
         session.addressbookManager.create(address: address) { result in

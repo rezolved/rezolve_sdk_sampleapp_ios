@@ -62,7 +62,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6A23EDDA224BE5DE18995D23 /* controllers */ = {
+		6A23EDDA224BE5DE18995D23 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6A23E958E6F1676634C2DB4D /* Main.storyboard */,
@@ -71,7 +71,7 @@
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 			);
-			name = controllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A536A5AFCD9448C75FBABE9B /* Frameworks */ = {
@@ -90,12 +90,12 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		D48FE26122677452001E11D1 /* extensions */ = {
+		D48FE26122677452001E11D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				D48FE2622267746F001E11D1 /* UIImageView.swift */,
 			);
-			name = extensions;
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D49F446D225B98EB006FB59B = {
@@ -120,12 +120,12 @@
 		D49F4478225B98EB006FB59B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				D48FE26122677452001E11D1 /* extensions */,
+				D48FE26122677452001E11D1 /* Extensions */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				D49F4480225B98EC006FB59B /* Assets.xcassets */,
 				D49F4482225B98EC006FB59B /* LaunchScreen.storyboard */,
 				D49F4485225B98EC006FB59B /* Info.plist */,
-				6A23EDDA224BE5DE18995D23 /* controllers */,
+				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				6A23EAB40B8438B4261CE317 /* Config.swift */,
 				D4DC43AA2267370D0060DDD2 /* Platform.swift */,
 			);
