@@ -1,6 +1,6 @@
 PODS:
   - JSONWebToken (2.2.0)
-  - RezolveSDK (2.0.0-beta1539):
+  - RezolveSDK (2.0.0-beta1543):
     - SwiftyRSA (~> 1.5.0)
   - SwiftyRSA (1.5.0):
     - SwiftyRSA/ObjC (= 1.5.0)
@@ -8,10 +8,10 @@ PODS:
 
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
-  - RezolveSDK (= 2.0.0-beta1539)
+  - RezolveSDK (= 2.0.0-beta1543)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - RezolveSDK
     - SwiftyRSA
 
@@ -26,9 +26,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
-  RezolveSDK: 151adfbab593ef853475bed5ba8d9393ccf66d4d
+  RezolveSDK: bd7ba2bf7e0a508ae6593ffc27cc8a90cad9e126
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 964f578ab4df5564a229cfbb2116ae2c8a05d10a
+PODFILE CHECKSUM: 76876dee5c06f33260b64e21155f98c9d31b9afa
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.3

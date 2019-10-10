@@ -1,9 +1,12 @@
+source 'https://cdn.cocoapods.org/'
+
 platform :ios, '10.0'
 
-target 'Example' do
-  use_frameworks!
+use_frameworks!
+inhibit_all_warnings!
 
+target 'Example' do
   # Pods for Example
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
-  pod 'RezolveSDK', '2.0.0-beta1539'
+  pod 'RezolveSDK', '2.0.0-beta1543'
 end
