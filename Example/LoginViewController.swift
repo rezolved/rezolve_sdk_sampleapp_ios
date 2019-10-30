@@ -27,6 +27,40 @@ class LoginViewController: UIViewController {
     
     // MARK: - Helper methods
     
+    private func registerUser() {
+        
+        // Initialize Authentication Manager
+        let dataClient = rezolveSdk.getHttpClient()
+        let authenticationManager = AuthenticationManager(httpClient: dataClient)
+        
+        // Form the SignUp Request (Mock data, replace with real values)
+        let signUpRequest = SignUpRequest(
+            email: "test_email_1@example.com",
+            firtName: "John",
+            lastName: "Doe",
+            name: "John Doe",
+            device: DeviceProfile (
+                deviceId: "123",
+                make: "Apple",
+                osType: "iOS",
+                osVersion: "10.0",
+                locale: "Europe/London"
+            )
+        )
+        
+        // Register user
+        authenticationManager.register(request: signUpRequest, callback: { (partnerId, entityId) in
+            
+            // Success, proceed providing these values for creating a new session
+            print("Success: partnerId -> \(partnerId) | entityId -> \(entityId)")
+        }, errorCallback: { error in
+            
+            // Error
+            print("Error: status code -> \(String(describing: error.statusCode))")
+            print(String(describing: error.responseString))
+        })
+    }
+    
     private func createBearer() -> String {
         let KEY_AUTH = "v2"
         let KEY_ALG = "alg"

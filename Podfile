@@ -1,3 +1,5 @@
+source 'https://cdn.cocoapods.org/'
+
 platform :ios, '10.0'
 
 target 'Example' do
@@ -5,5 +7,5 @@ target 'Example' do
 
   # Pods for Example
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
-  pod 'RezolveSDK', '1.11.25-beta1442'
+  pod 'RezolveSDK', '1.11.26-beta1460'
 end
