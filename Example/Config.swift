@@ -1,6 +1,9 @@
 //
-// Created by Jakub Bogacki on 2019-04-15.
-// Copyright (c) 2019 Jakub Bogacki. All rights reserved.
+//  Config.swift
+//  Example
+//
+//  Created by Jakub Bogacki on 2019-04-15.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import Foundation

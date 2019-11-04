@@ -10,6 +10,7 @@
 		38CD0C5B22FADA2800BFCC9F /* NSObjectExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5A22FADA2800BFCC9F /* NSObjectExtentions.swift */; };
 		38CD0C5E22FC28D800BFCC9F /* SignedNumericExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5D22FC28D800BFCC9F /* SignedNumericExtentions.swift */; };
 		38CD0C6022FC290300BFCC9F /* DecimalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5F22FC290300BFCC9F /* DecimalExtensions.swift */; };
+		4291049B2370552D00BF70CD /* AuthenticationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4291049A2370552D00BF70CD /* AuthenticationController.swift */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
@@ -35,6 +36,7 @@
 		38CD0C5A22FADA2800BFCC9F /* NSObjectExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtentions.swift; sourceTree = "<group>"; };
 		38CD0C5D22FC28D800BFCC9F /* SignedNumericExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedNumericExtentions.swift; sourceTree = "<group>"; };
 		38CD0C5F22FC290300BFCC9F /* DecimalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtensions.swift; sourceTree = "<group>"; };
+		4291049A2370552D00BF70CD /* AuthenticationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationController.swift; sourceTree = "<group>"; };
 		4A297FB46572A0619710DDCA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			children = (
 				75C5E1AA230E800C008EB467 /* Category */,
 				6A23E958E6F1676634C2DB4D /* Main.storyboard */,
+				4291049A2370552D00BF70CD /* AuthenticationController.swift */,
 				6A23E808AED379C3EDAD1395 /* LoginViewController.swift */,
 				D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */,
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
@@ -131,13 +134,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D450024D22676338008D1932 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		D48FE26122677452001E11D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +151,6 @@
 				D49F4478225B98EB006FB59B /* Example */,
 				D49F4477225B98EB006FB59B /* Products */,
 				A536A5AFCD9448C75FBABE9B /* Frameworks */,
-				D450024D22676338008D1932 /* Recovered References */,
 				5100700EAA1B39B735314D28 /* Pods */,
 			);
 			sourceTree = "<group>";
@@ -313,6 +308,7 @@
 				38CD0C5E22FC28D800BFCC9F /* SignedNumericExtentions.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
 				75C5E1A3230E6D93008EB467 /* CategoryViewController.swift in Sources */,
+				4291049B2370552D00BF70CD /* AuthenticationController.swift in Sources */,
 				38CD0C6022FC290300BFCC9F /* DecimalExtensions.swift in Sources */,
 				75C5E1A9230E6D9D008EB467 /* ProductCatergoryCollectionViewCell.swift in Sources */,
 			);

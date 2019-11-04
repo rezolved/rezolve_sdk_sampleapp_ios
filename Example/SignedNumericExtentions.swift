@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Vasyl Skop on 08/08/2019.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import Foundation
