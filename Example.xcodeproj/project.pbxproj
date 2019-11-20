@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		386C2BED2385668A003E12DF /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386C2BEC2385668A003E12DF /* GuestResponse.swift */; };
 		38CD0C5B22FADA2800BFCC9F /* NSObjectExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5A22FADA2800BFCC9F /* NSObjectExtentions.swift */; };
 		38CD0C5E22FC28D800BFCC9F /* SignedNumericExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5D22FC28D800BFCC9F /* SignedNumericExtentions.swift */; };
 		38CD0C6022FC290300BFCC9F /* DecimalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CD0C5F22FC290300BFCC9F /* DecimalExtensions.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		2EA191373B68612C152F605A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		386C2BEC2385668A003E12DF /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		38CD0C5A22FADA2800BFCC9F /* NSObjectExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtentions.swift; sourceTree = "<group>"; };
 		38CD0C5D22FC28D800BFCC9F /* SignedNumericExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedNumericExtentions.swift; sourceTree = "<group>"; };
 		38CD0C5F22FC290300BFCC9F /* DecimalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtensions.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				75C5E1AC230E81A3008EB467 /* CategoryPresentationData.swift */,
+				386C2BEC2385668A003E12DF /* GuestResponse.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				38CD0C5B22FADA2800BFCC9F /* NSObjectExtentions.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
 				75C5E1B0230E8550008EB467 /* CategoryCollectionReusableView.swift in Sources */,
+				386C2BED2385668A003E12DF /* GuestResponse.swift in Sources */,
 				38CD0C5E22FC28D800BFCC9F /* SignedNumericExtentions.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
 				75C5E1A3230E6D93008EB467 /* CategoryViewController.swift in Sources */,
