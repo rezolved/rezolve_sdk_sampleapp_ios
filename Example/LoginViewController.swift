@@ -25,7 +25,6 @@ import RezolveSDK
     Please discuss authentication options with your project lead and/or your Rezolve representative.
 */
 
-
 class LoginViewController: UIViewController {
     
     // A string containing a formatted UUID code of device.
@@ -33,7 +32,7 @@ class LoginViewController: UIViewController {
 
     // An instance of Rezolve SDK
     private let rezolveSdk = RezolveSDK(apiKey: Config.rezolveApiKey,
-                                        env: "sandbox-api-tw.rzlvtest.co",
+                                        env: Config.DemoCoreServer,
                                         config: nil,
                                         subPartnerId: nil,
                                         dataClient: nil)

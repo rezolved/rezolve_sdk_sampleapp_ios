@@ -25,9 +25,14 @@ import RezolveSDK
 */
 
 class Config {
-    static let DemoAuthServer = "https://sandbox-rua-tw.rzlvtest.co"
-    static let DemoAuthUser = "ruadev@example.com"
-    static let DemoAuthPassword = "ruadev99"
+    // DemoAuthServer need to be filled with data provided by Rezolve, example https://example.com
+    static let DemoAuthServer = ""
+    // DemoCoreServer need to be filled with data provided by Rezolve, example 'example.com'. Please write DemoCoreServer URL without 'https://'
+    static let DemoCoreServer = ""
+    // DemoAuthUser need to be filled with data provided by Rezolve, example user@example.com
+    static let DemoAuthUser = ""
+    // DemoAuthPassword need to be filled with data provided by Rezolve
+    static let DemoAuthPassword = ""
     
     static let rezolveApiKey = "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c"
     static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
