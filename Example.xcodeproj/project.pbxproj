@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		2EA191373B68612C152F605A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		4A297FB46572A0619710DDCA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -121,13 +123,14 @@
 			isa = PBXGroup;
 			children = (
 				D48FE26122677452001E11D1 /* Extensions */,
+				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				D49F4480225B98EC006FB59B /* Assets.xcassets */,
 				D49F4482225B98EC006FB59B /* LaunchScreen.storyboard */,
 				D49F4485225B98EC006FB59B /* Info.plist */,
-				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				6A23EAB40B8438B4261CE317 /* Config.swift */,
 				D4DC43AA2267370D0060DDD2 /* Platform.swift */,
+				389CB6EE2385399B0012E155 /* GuestResponse.swift */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
 				D4DC43AB2267370D0060DDD2 /* Platform.swift in Sources */,
