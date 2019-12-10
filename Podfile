@@ -8,5 +8,5 @@ inhibit_all_warnings!
 target 'Example' do
   # Pods for Example
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
-  pod 'RezolveSDK', '2.0.0-beta1543'
+  pod 'RezolveSDK', '2.0.0-beta1561'
 end
