@@ -76,8 +76,8 @@ class ScanViewController: UIViewController {
             return
         }
         
-        scanManager.startVideoScan(scanCameraView: scanCameraView)
-        scanManager.startAudioScan()
+        try? scanManager.startVideoScan(scanCameraView: scanCameraView)
+        try? scanManager.startAudioScan()
     }
     
     func onStartRecognizeImage() {
