@@ -71,7 +71,9 @@ class ProductViewController: UIViewController {
     private func sepupUI() {
         navigationItem.title = scannedProduct.title
         priceLabel.text = "$\(scannedProduct.price)"
-        imageView.imageFromUrl(urlString: scannedProduct.images[0])
+        if scannedProduct.images.count > 0 {
+            imageView.imageFromUrl(urlString: scannedProduct.images[0])
+        }
         
         if let attributedString = try? NSAttributedString(data: Data(scannedProduct.description.utf8),
                                                           options: [.documentType: NSAttributedString.DocumentType.html],

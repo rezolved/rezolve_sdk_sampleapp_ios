@@ -7,5 +7,5 @@ target 'Example' do
 
   # Pods for Example
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
-  pod 'RezolveSDK', '1.11.30'
+  pod 'RezolveSDK', '1.11.31'
 end
