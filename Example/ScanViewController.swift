@@ -18,18 +18,23 @@ class ScanViewController: UIViewController {
     @IBOutlet weak var progressView: UIView!
     
     // Class variables
-    private var scanManager: ScanManager!
-    private var product: Product?
-    private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
+    var scanManager: ScanManager!
+    var product: Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scanManager = session.getScanManager()
+        
+        guard let scanManagerInstance = rezolveSession?.getScanManager() else {
+            return
+        }
+        scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
+        
         askPermission()
     }
     
+    // Expand camera preview to container
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -47,7 +52,6 @@ class ScanViewController: UIViewController {
         if let product = self.product, segue.identifier == "showProduct" {
             let productViewController = segue.destination as! ProductViewController
             productViewController.product = product
-            self.product = nil
         }
     }
     
@@ -55,9 +59,11 @@ class ScanViewController: UIViewController {
         if Platform.isSimulator {
             return
         }
+        
         let permissionFor = { (mediaType: AVMediaType, next: @escaping ((Bool) -> Void)) in
             AVCaptureDevice.requestAccess(for: mediaType, completionHandler: next)
         }
+        
         permissionFor(AVMediaType.video as AVMediaType) { allowedVideo in
             permissionFor(AVMediaType.audio as AVMediaType) { allowedAudio in
                 DispatchQueue.main.async {
@@ -77,15 +83,23 @@ class ScanViewController: UIViewController {
     }
 }
 
+extension ScanViewController: RezolveScanResultDelegate {
+    func onScanResult(result: RezolveScanResult) {
+    }
+    
+    func onError(error: String) {
+        progressView.isHidden = true
+        print(error)
+    }
+}
+
 extension ScanViewController: ProductDelegate {
     func onStartRecognizeImage() {
         progressView.isHidden = false
         statusView.text = "Identification..."
-        print("onStartRecognizeImage")
     }
     
     func onFinishRecognizeImage() {
-        print("onFinishRecognizeImage")
         statusView.text = "Processing..."
     }
     
@@ -113,15 +127,5 @@ extension ScanViewController: ProductDelegate {
     }
     
     func onSspCategoryResult(category: SspResolverCategory) {
-    }
-}
-
-extension ScanViewController: RezolveScanResultDelegate {
-    func onScanResult(result: RezolveScanResult) {
-    }
-    
-    func onError(error: String) {
-        print(error)
-        progressView.isHidden = true
     }
 }

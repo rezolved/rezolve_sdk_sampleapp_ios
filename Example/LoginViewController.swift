@@ -9,47 +9,43 @@
 import UIKit
 import JWT
 import RezolveSDK
-import CoreLocation
 
 class LoginViewController: UIViewController {
-    // A string containing a formatted UUID code of device.
-    let deviceId = "\(UIDevice.current.identifierForVendor!.uuidString)"
     
     // An instance of Rezolve SDK
-    private let rezolveSdk = Rezolve(apiKey: Config.rezolveApiKey,
-                                     partnerId: Config.partnerId,
-                                     subPartnerId: nil,
-                                     environment: Config.env,
-                                     config: nil,
-                                     sspActManagerSettings: nil,
-                                     coordinatesConverter: CoordinatesConverter.default)
-    
-    // MARK: - ViewController Lifecycle
+    let rezolveSdk = Rezolve(apiKey: Config.rezolveApiKey,
+                             partnerId: Config.partnerId,
+                             subPartnerId: nil,
+                             environment: Config.env,
+                             config: nil,
+                             sspActManagerSettings: nil,
+                             coordinatesConverter: CoordinatesConverter.default)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loginUser(deviceId: deviceId,
-                       userName: Config.DemoAuthUser,
-                       password: Config.DemoAuthPassword) { (result: Result<GuestResponse?, Error>) in
+        // The device's UUID
+        let deviceId = "\(UIDevice.current.identifierForVendor!.uuidString)"
+        loginUser(deviceId: deviceId,
+                  userName: Config.demoAuthUser,
+                  password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
                                                 
             switch result {
             case .success(let result):
-                self.createSession(entityId: result!.entityId, partnerId: result!.partnerId)
+                self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
+                
             case .failure(let error):
-                print("\(error.localizedDescription)")
+                print(error.localizedDescription)
             }
         }
     }
     
-    // MARK: - Login method
-    
     func loginUser(deviceId: String,
                    userName: String,
-                   password: String, completionHandler: @escaping (Result<GuestResponse?, Error>) -> Void) {
+                   password: String, completionHandler: @escaping (Result<GuestResponse, Error>) -> Void) {
         
         let urlSession = URLSession.shared
-        let urlString = Config.DemoAuthServer + "/v2/credentials/login"
+        let urlString = Config.demoAuthServer + "/v2/credentials/login"
         
         let url = URL(string: urlString)!
         var request = URLRequest(url: url)
@@ -66,7 +62,11 @@ class LoginViewController: UIViewController {
         request.httpBody = paramsData
         
         let task = urlSession.dataTask(with: request) { (data, response, error) in
-            guard let dataResponse = data, error == nil else { completionHandler(.failure(error!)); return }
+            guard let dataResponse = data, error == nil else {
+                completionHandler(.failure(error!))
+                return
+            }
+            
             do {
                 let response = try JSONDecoder().decode(GuestResponse.self, from: dataResponse)
                 completionHandler(.success(response))
@@ -77,48 +77,36 @@ class LoginViewController: UIViewController {
         task.resume()
     }
     
-    // MARK: - Helper methods
-    
-    private func createSession(entityId: String, partnerId: String) {
-        let accessToken = createBearer(entityId: entityId, partnerId: partnerId)
-        
-        DispatchQueue.main.async { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.rezolveSdk.createSession(accessToken: accessToken, username: Config.DemoAuthUser, entityId: entityId, partnerId: partnerId) { (session, error) in
-                if let session = session {
-                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                    appDelegate.session = session
-                    strongSelf.performSegue(withIdentifier: "loginSuccessful", sender: self)
-                    
-                    // Use the new `session` provided
-                    print("OK -> \(session)")
-                }
-            }
-        }
-    }
-    
-    private func createBearer(entityId: String, partnerId: String) -> String {
-        let KEY_AUTH = "v2"
-        let KEY_ALG = "alg"
-        let KEY_TYPE = "typ"
-        let KEY_REZOLVE_ENTITY_ID = "rezolve_entity_id"
-        let KEY_PARTNER_ENTITY_ID = "partner_entity_id"
-        let KEY_EXPIRATION_TIME = "exp"
-        let KEY_DEVICE_ID = "device_id"
-        let EXPIRATION_TIME_MIN: Double = 30
-        
+    func createBearer(entityId: String, partnerId: String) -> String {
         let claims: [String: Any] = [
-            KEY_REZOLVE_ENTITY_ID: entityId,
-            KEY_PARTNER_ENTITY_ID: partnerId,
-            KEY_EXPIRATION_TIME: Date().timeIntervalSince1970 + (EXPIRATION_TIME_MIN * 60),
-            KEY_DEVICE_ID: UIDevice.current.identifierForVendor!.uuidString
+            "rezolve_entity_id": entityId,
+            "partner_entity_id": partnerId,
+            "exp": Date().timeIntervalSince1970 + (30 * 60),
+            "device_id": UIDevice.current.identifierForVendor!.uuidString
         ]
         
         let headers = [
-            KEY_AUTH: "v2",
-            KEY_ALG: "HS512",
-            KEY_TYPE: "JWT"
+            "auth": "v2",
+            "alg": "HS512",
+            "typ": "JWT"
         ]
-        return JWT.encode(claims: claims, algorithm: .hs512(Config.tokenSecret.data(using: .utf8)!), headers: headers)
+        
+        return JWT.encode(claims: claims,
+                          algorithm: .hs512(Config.tokenSecret.data(using: .utf8)!),
+                          headers: headers)
+    }
+    
+    func createSession(entityId: String, partnerId: String) {
+        let accessToken = createBearer(entityId: entityId, partnerId: partnerId)
+        
+        self.rezolveSdk.createSession(accessToken: accessToken,
+                                       username: Config.demoAuthUser,
+                                       entityId: entityId,
+                                       partnerId: partnerId) { [weak self] (session, error) in
+            
+            rezolveSession = session
+            self?.performSegue(withIdentifier: "loginSuccessful", sender: self)
+            print("New session started -> \(session.debugDescription)")
+        }
     }
 }

@@ -140,8 +140,8 @@
 		D49F4478225B98EB006FB59B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				D48FE26122677452001E11D1 /* Extensions */,
 				429C19F92456F81D00686657 /* Interface */,
+				D48FE26122677452001E11D1 /* Extensions */,
 				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				429C19FB2456F89800686657 /* Models */,
 				429C19FA2456F83E00686657 /* Support */,

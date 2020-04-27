@@ -20,10 +20,9 @@ class ProductViewController: UIViewController {
     @IBOutlet private weak var finalPriceLabel: UILabel!
     
     // Class variables
-    private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
-    private var orderId: String? = nil
-    private var checkoutBundle: CheckoutBundle? = nil
+    var orderId: String? = nil
     var product: Product!
+    var checkoutBundle: CheckoutBundle? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +31,7 @@ class ProductViewController: UIViewController {
         guard let description = product.description else {
             return
         }
-        
         let modifiedFont = String(format:"<span style=\"font-family: 'AvenirNext-Regular'; font-size: 14px\">%@</span>", description)
-        
         if let attributedString = try? NSAttributedString(data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             descriptionLabel.attributedText = attributedString
         }
@@ -54,35 +51,8 @@ class ProductViewController: UIViewController {
         }
     }
     
-    private func checkout() {
-        finalPriceLabel.text = "Loading..."
-        buyButton.isEnabled = false
-        let checkoutProduct = CheckoutProduct(id: product.id, quantity: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1))
-        session.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct, merchantId: product.merchantId) { result in
-            switch result {
-            case .success(let option):
-                self.createPhone(checkoutProduct, option)
-                print("\(option)")
-            case .failure(let error):
-                print("\(error)")
-            }
-        }
-    }
-    
-    @IBAction private func buyClick(_ sender: Any) {
-        self.session.checkoutManager.buy(bundle: checkoutBundle!) { result in
-            switch result {
-            case .success(let order):
-                self.orderId = order.id
-                self.performSegue(withIdentifier: "showOrderDetails", sender: self)
-            case .failure(let error):
-                print("\(error)")
-            }
-        }
-    }
-    
-    private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-        session.phonebookManager.getAll { [weak self] result in
+    func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
+        rezolveSession?.phonebookManager.getAll { [weak self] result in
             switch result {
             case .success(let phones):
                 if phones.indices.contains(0) {
@@ -90,63 +60,103 @@ class ProductViewController: UIViewController {
                 }
                 else {
                     let phone = Phone(name: "user_phone", phone: "+443069510069")
-                    self?.session.phonebookManager.create(phoneToCreate: phone, completionHandler: { [weak self] _ in
+                    rezolveSession?.phonebookManager.create(phoneToCreate: phone, completionHandler: { [weak self] _ in
                         self?.createAddress(phone, product, option)
                     })
                 }
             case .failure(let error):
-                print("\(error)")
+                print("Create phone error -> \(error)")
             }
         }
     }
     
-    private func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
+    func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
         let address = Address(id: "", fullName: "John Smith", shortName: "JS", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB", phoneId: phone.id)
-        session.addressbookManager.create(address: address) { result in
+        
+        rezolveSession?.addressbookManager.create(address: address) { [weak self] result in
             switch result {
             case .success(let address):
-                self.createCard(phone, address, product, option)
+                self?.createCard(phone, address, product, option)
+                
             case .failure(let error):
-                print("\(error)")
+                print("Create address error -> \(error)")
             }
         }
     }
     
-    private func createCard(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption) {
+    func createCard(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption) {
         let paymentCard = PaymentCard(id: "", type: "debit", cardHolderName: "John Curtis", expiresOn: "0817", validFrom: "0817", brand: "visa", addressId: address.id, shortName: "black amex", pan4: "1234", pan6: "123456", pan: "123456")
-        self.session.walletManager.create(paymentCard: paymentCard) { result in
+        
+        rezolveSession?.walletManager.create(paymentCard: paymentCard) { [weak self] result in
             switch result {
             case .success(let card):
-                self.checkout(phone, address, product, option, PaymentRequest(paymentCard: card, cvv: "123"))
+                self?.checkout(phone, address, product, option, PaymentRequest(paymentCard: card, cvv: "123"))
+                
             case .failure(let error):
-                print("\(error)")
+                print("Create credit card error -> \(error)")
             }
         }
     }
     
-    private func checkout(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption, _ paymentRequest: PaymentRequest) {
+    func checkout(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption, _ paymentRequest: PaymentRequest) {
         
         let freePaymentMethod = (option.supportedPaymentMethods?.first)?.type == "free"
         let shippingMethod = freePaymentMethod ? nil : CheckoutShippingMethod(type: "flatrate", addressId: address.id)
         let location = Location(longitude: 80.0, latitude: 80.0)
         
         let checkoutBundle = CheckoutBundle(
-                checkoutProduct: product, shippingMethod: shippingMethod, merchantId: self.product.merchantId,
-                optionId: option.id, paymentMethod: option.supportedPaymentMethods![0],
-                paymentRequest: paymentRequest, phoneId: phone.id, location: location)
+                checkoutProduct: product,
+                shippingMethod: shippingMethod,
+                merchantId: self.product.merchantId,
+                optionId: option.id,
+                paymentMethod: option.supportedPaymentMethods![0],
+                paymentRequest: paymentRequest,
+                phoneId: phone.id,
+                location: location
+        )
         
-        self.session.checkoutManager.checkout(bundle: checkoutBundle) { result in
+        rezolveSession?.checkoutManager.checkout(bundle: checkoutBundle) { [weak self] result in
             switch result {
             case .success(let checkoutResult):
                 var princeInfo = ""
                 checkoutResult.breakdown.forEach({ (price) in
                     princeInfo += "\(price.type.uppercaseFirstLetter): $\(price.amount.toDouble.rounded(toPlaces: 2))\n"
                 })
-                self.finalPriceLabel.text = "\(princeInfo)Total: $\(checkoutResult.finalPrice.rounded(toPlaces: 2))"
-                self.buyButton.isEnabled = true
-                self.checkoutBundle = checkoutBundle
+                self?.finalPriceLabel.text = "\(princeInfo)Total: $\(checkoutResult.finalPrice.rounded(toPlaces: 2))"
+                self?.buyButton.isEnabled = true
+                self?.checkoutBundle = checkoutBundle
+                
             case .failure(let error):
-                print("\(error)")
+                print("Checkout error -> \(error)")
+            }
+        }
+    }
+    
+    func checkout() {
+        finalPriceLabel.text = "Loading..."
+        buyButton.isEnabled = false
+        let checkoutProduct = CheckoutProduct(id: product.id, quantity: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1))
+        
+        rezolveSession?.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct, merchantId: product.merchantId) { [weak self] result in
+            switch result {
+            case .success(let option):
+                self?.createPhone(checkoutProduct, option)
+                
+            case .failure(let error):
+                print("Get options error -> \(error)")
+            }
+        }
+    }
+    
+    @IBAction private func buyClick(_ sender: Any) {
+        rezolveSession?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
+            switch result {
+            case .success(let order):
+                self?.orderId = order.id
+                self?.performSegue(withIdentifier: "showOrderDetails", sender: self)
+                
+            case .failure(let error):
+                print("Purchase error -> \(error)")
             }
         }
     }

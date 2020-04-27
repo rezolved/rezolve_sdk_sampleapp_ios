@@ -25,20 +25,14 @@ Please discuss authentication options with your project lead and/or your Rezolve
 */
 
 class Config {
-    // DemoAuthServer need to be filled with data provided by Rezolve
-    static let DemoAuthServer = ""
+    // Data provided by Rezolve admin
+    static let demoAuthServer = ""
+    static let demoAuthUser = ""
+    static let demoAuthPassword = ""
     
-    // DemoAuthUser need to be filled with data provided by Rezolve
-    static let DemoAuthUser = ""
-    
-    // DemoAuthPassword need to be filled with data provided by Rezolve
-    static let DemoAuthPassword = ""
-    
-    static let rezolveApiKey = "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c"
-    static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
-    static let entityId = "1c5e499c-efad-4902-a3c3-1878e8b3e4bc"
-    static let partnerId = "2"
     static let env = RezolveEnv.sandbox
-    static let digimarcUser = ""
-    static let digimarcPassword = ""
+    static let rezolveApiKey = "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c"
+    static let partnerId = "2"
+    static let entityId = "1c5e499c-efad-4902-a3c3-1878e8b3e4bc"
+    static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
 }

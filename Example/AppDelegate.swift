@@ -13,9 +13,11 @@ import RezolveSDK
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var session: RezolveSession!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 }
+
+// Store this value inside a class to be reused throughout the app
+var rezolveSession: RezolveSession?

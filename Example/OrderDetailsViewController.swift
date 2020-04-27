@@ -18,19 +18,24 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var totalLabel: UILabel!
     
     // Class variables
-    private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
     var orderId: String!
     var product: Product!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        session.userActivityManager.getOrders { (result) in
+        
+        rezolveSession?.userActivityManager.getOrders { [weak self] result in
             switch result {
             case .success(let orders):
-                let order = orders.first(where: { (order) -> Bool in order.orderId == self.orderId})
-                self.showDetails(order!)
+                guard let order = orders.first(where: { order -> Bool in
+                    order.orderId == self?.orderId
+                }) else {
+                    return
+                }
+                self?.showDetails(order)
+                
             case .failure(let error):
-                print("\(error)")
+                print("Get orders error -> \(error)")
             }
         }
     }
