@@ -2,7 +2,7 @@
 //  Platform.swift
 //  Example
 //
-//  Created by Jakub Bogacki on 17/04/2019.
+//  Modified by Dennis Koluris on 27/04/2020.
 //  Copyright © 2019 Jakub Bogacki. All rights reserved.
 //
 

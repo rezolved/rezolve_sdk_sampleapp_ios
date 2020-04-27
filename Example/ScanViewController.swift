@@ -2,7 +2,7 @@
 //  ScanViewController.swift
 //  Example
 //
-//  Created by Jakub Bogacki on 16/04/2019.
+//  Modified by Dennis Koluris on 27/04/2020.
 //  Copyright © 2019 Jakub Bogacki. All rights reserved.
 //
 
@@ -10,31 +10,39 @@ import UIKit
 import RezolveSDK
 import AVFoundation
 
-class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDelegate {
+class ScanViewController: UIViewController {
+    
+    // Interface Builder
     @IBOutlet private var scanCameraView: ScanCameraView!
     @IBOutlet weak var statusView: UILabel!
     @IBOutlet weak var progressView: UIView!
+    
+    // Class variables
     private var scanManager: ScanManager!
     private var product: Product?
     private lazy var session = (UIApplication.shared.delegate as! AppDelegate).session!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        scanManager = session.getScanManager(environment: ResolverEnvironment.productionResolver)
+        scanManager = session.getScanManager()
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         askPermission()
     }
-
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if case .some(let preview) = scanCameraView.layer as? AVCaptureVideoPreviewLayer {
+            preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        }
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         scanManager.stop()
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let product = self.product, segue.identifier == "showProduct" {
             let productViewController = segue.destination as! ProductViewController
@@ -42,7 +50,7 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
             self.product = nil
         }
     }
-
+    
     private func askPermission() {
         if Platform.isSimulator {
             return
@@ -58,51 +66,62 @@ class ScanViewController: UIViewController, ProductDelegate, RezolveScanResultDe
             }
         }
     }
-
+    
     func startScanning() {
         if Platform.isSimulator {
             return
         }
-        scanManager.startVideoScan(scanCameraView: scanCameraView) { (error) in
-            print(error)
-        }
-        scanManager.startAudioScan(errorHandler: { (error) in
-            print(error)
-        })
-    }
-
-    func onScanResult(result: RezolveScanResult) {
         
+        try? scanManager.startVideoScan(scanCameraView: scanCameraView)
+        try? scanManager?.startAudioScan()
     }
+}
 
-    func onError(error: String) {
-        print(error)
-        progressView.isHidden = true
-    }
-
+extension ScanViewController: ProductDelegate {
     func onStartRecognizeImage() {
         progressView.isHidden = false
         statusView.text = "Identification..."
         print("onStartRecognizeImage")
     }
-
+    
     func onFinishRecognizeImage() {
         print("onFinishRecognizeImage")
         statusView.text = "Processing..."
     }
-
+    
+    // MARK: - RCE
+    
     func onProductResult(product: Product) {
         progressView.isHidden = true
         scanManager.stop()
         self.product = product
         self.performSegue(withIdentifier: "showProduct", sender: self)
     }
-
+    
     func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
-
     }
-
+    
     func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
+    }
+    
+    // MARK: - SSP
+    
+    func onSspActResult(act: SspResolverAct) {
+    }
+    
+    func onSspProductResult(product: SspResolverProduct) {
+    }
+    
+    func onSspCategoryResult(category: SspResolverCategory) {
+    }
+}
 
+extension ScanViewController: RezolveScanResultDelegate {
+    func onScanResult(result: RezolveScanResult) {
+    }
+    
+    func onError(error: String) {
+        print(error)
+        progressView.isHidden = true
     }
 }

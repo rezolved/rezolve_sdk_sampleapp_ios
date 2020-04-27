@@ -1,41 +1,28 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Example
 //
-//  Created by Jakub Bogacki on 08/04/2019.
+//  Modified by Dennis Koluris on 27/04/2020.
 //  Copyright © 2019 Jakub Bogacki. All rights reserved.
 //
 
 import UIKit
 import JWT
 import RezolveSDK
-
-/*      This sample code comes configured to use a Rezolve-hosted authentication server, referred to by Rezolve as a RUA server (Rezolve User Authentication).
-    You SHOULD NOT use this server for production apps, it is for testing and Sandbox use only. This sample auth configuration is provided so that:
- 
-    1) you may compile and test the sample code immediately upon receipt, without having to configure your own auth server
- 
-    2) so that the partner developer may see an example of how the SDK will utilize an external auth server to obtain permission to talk with the Rezolve APIs.
- 
-        If you have an existing app with an existing authenticating user base, you will want to utilize YOUR auth server to issue JWT tokens, which the Rezolve
-    API will accept. Details on this process are available here:  http://docs.rezolve.com/docs/#jwt-authentication
- 
-        If you do not have an existing app, or do not have an existing app server, you have the option to either implement your own auth server and use JWT
-    authentication as described above, or to have Rezolve install a RUA server for you (the same type auth server this sample code is configured to use).
-    Please discuss authentication options with your project lead and/or your Rezolve representative.
-*/
+import CoreLocation
 
 class LoginViewController: UIViewController {
-    
     // A string containing a formatted UUID code of device.
     let deviceId = "\(UIDevice.current.identifierForVendor!.uuidString)"
-
+    
     // An instance of Rezolve SDK
     private let rezolveSdk = Rezolve(apiKey: Config.rezolveApiKey,
                                      partnerId: Config.partnerId,
                                      subPartnerId: nil,
                                      environment: Config.env,
-                                     config: nil)
+                                     config: nil,
+                                     sspActManagerSettings: nil,
+                                     coordinatesConverter: CoordinatesConverter.default)
     
     // MARK: - ViewController Lifecycle
     
@@ -53,11 +40,10 @@ class LoginViewController: UIViewController {
                 print("\(error.localizedDescription)")
             }
         }
-        
     }
     
     // MARK: - Login method
-
+    
     func loginUser(deviceId: String,
                    userName: String,
                    password: String, completionHandler: @escaping (Result<GuestResponse?, Error>) -> Void) {
@@ -88,7 +74,6 @@ class LoginViewController: UIViewController {
                 completionHandler(.failure(error))
             }
         }
-        
         task.resume()
     }
     
@@ -99,12 +84,12 @@ class LoginViewController: UIViewController {
         
         DispatchQueue.main.async { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.rezolveSdk.createSession(accessToken: accessToken, entityId: entityId, partnerId: partnerId) { (session, error) in
+            strongSelf.rezolveSdk.createSession(accessToken: accessToken, username: Config.DemoAuthUser, entityId: entityId, partnerId: partnerId) { (session, error) in
                 if let session = session {
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.session = session
                     strongSelf.performSegue(withIdentifier: "loginSuccessful", sender: self)
-
+                    
                     // Use the new `session` provided
                     print("OK -> \(session)")
                 }
@@ -134,8 +119,6 @@ class LoginViewController: UIViewController {
             KEY_ALG: "HS512",
             KEY_TYPE: "JWT"
         ]
-        
         return JWT.encode(claims: claims, algorithm: .hs512(Config.tokenSecret.data(using: .utf8)!), headers: headers)
     }
-    
 }
