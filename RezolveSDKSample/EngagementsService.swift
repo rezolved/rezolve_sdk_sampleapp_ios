@@ -24,7 +24,6 @@ class EngagementsService {
     
     func startMonitoring() {
         nearbyEngagementsManager?.startMonitoringForNearbyEngagements()
-        //nearbyEngagementsManager?.startUpdatingDistanceFromNerbyEngagements()
         nearbyEngagementsManager?.debugNotifications = false
         nearbyEngagementsManager?.delegate = self
     }

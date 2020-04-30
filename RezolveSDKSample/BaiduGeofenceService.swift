@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RezolveSDK
 
 class BaiduGeofenceService: NSObject {
     
@@ -18,7 +19,7 @@ class BaiduGeofenceService: NSObject {
     override init() {
         super.init()
         
-        BMKLocationAuth.sharedInstance()?.checkPermision(withKey: "nRciTWqM3R3uGnOV6VBIc1IH6RevTKuK", authDelegate: self)
+        BMKLocationAuth.sharedInstance()?.checkPermision(withKey: "6SgDo9iiXSISzKywa0uw34XyoiFwzxGK", authDelegate: self)
         manager.activeAction = [.stayed, .inside, .outside]
         manager.allowsBackgroundLocationUpdates = true
         manager.pausesLocationUpdatesAutomatically = false
@@ -28,8 +29,7 @@ class BaiduGeofenceService: NSObject {
     func replaceAllRegions(with circularRegions: [CLCircularRegion], centerCoordinate: CLLocationCoordinate2D) {
         removeAllRegions()
         circularRegions.forEach { region in
-            let distance = region.center.distance(from: centerCoordinate)
-            if distance <= maxDistance {
+            if region.center.distance(from: centerCoordinate) <= maxDistance {
                 manager.addCircleRegionForMonitoring(withCenter: region.center, radius: region.radius + 5, coorType: .WGS84, customID: region.identifier)
             }
         }
@@ -43,7 +43,7 @@ class BaiduGeofenceService: NSObject {
 extension BaiduGeofenceService: BMKLocationAuthDelegate {
     
     func onCheckPermissionState(_ iError: BMKLocationAuthErrorCode) {
-        print("onCheckPermissionState error: \(iError.rawValue)")
+        print("Baidu AK error -> \(iError.rawValue)")
     }
 }
 
@@ -53,14 +53,23 @@ extension BaiduGeofenceService: BMKGeoFenceManagerDelegate {
         locationManager.requestAlwaysAuthorization()
     }
     
-    func bmkGeoFenceManager(_ manager: BMKGeoFenceManager, didAddRegionForMonitoringFinished regions: [BMKGeoFenceRegion]?, customID: String?, error: Error?) {
-    }
-    
     func bmkGeoFenceManager(_ manager: BMKGeoFenceManager, didGeoFencesStatusChangedFor region: BMKGeoFenceRegion?, customID: String?, error: Error?) {
-        if let region = region, let customID = customID, error == nil {
+        
+        if error == nil {
+            guard
+                let region = region,
+                let customID = customID else {
+                    return
+            }
+            
             if region.fenceStatus == .inside {
-                let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0), radius: 0, identifier: customID)
-                engagementsService?.rezolveSsp?.nearbyEngagementsManager.handle(enteringTo: region, systemGeofenceRegion: false, debugLabel: "Ba")
+                let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+                                              radius: 0,
+                                              identifier: customID)
+                
+                engagementsService?.rezolveSsp?.nearbyEngagementsManager.handle(enteringTo: region,
+                                                                                systemGeofenceRegion: false,
+                                                                                debugLabel: "Ba")
             }
         }
     }

@@ -33,6 +33,7 @@ class ProductViewController: UIViewController {
         guard let description = product.description else {
             return
         }
+        
         let modifiedFont = String(format:"<span style=\"font-family: 'AvenirNext-Regular'; font-size: 14px\">%@</span>", description)
         if let attributedString = try? NSAttributedString(data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             descriptionLabel.attributedText = attributedString
@@ -40,8 +41,8 @@ class ProductViewController: UIViewController {
         
         priceLabel.text = "$\(product.price.toDouble.rounded(toPlaces: 2))"
         imageView.imageFromUrl(url: product.images[0])
-        quantityPicker.dataSource = self
         quantityPicker.delegate = self
+        quantityPicker.dataSource = self
         checkout()
     }
     
