@@ -40,8 +40,8 @@ class Config {
         auth0ClientId: "XYfvox79WGNRlwgKZehGXek44fnx2yHy",
         auth0Secret: "Iu5MgXhFk08jWcisMNZffTSjfHa18LrgCSFhqjoGHZfJXABfcgyuTyXvxlv41lWV",
         auth0Audience: "REZOLVE-API-URLID",
-        auth0Endpoint: "https://services.rzlvtest.cn/dev/oauth-proxy-svc",
-        sspEndpoint: "https://services.rzlvtest.cn/dev",
+        auth0Endpoint: "https://services.rzlvtest.co/demo/oauth-proxy-svc",
+        sspEndpoint: "https://services.rzlvtest.co/demo",
         sspWidth: "50"
     )
 }

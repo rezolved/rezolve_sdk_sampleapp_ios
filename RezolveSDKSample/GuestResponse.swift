@@ -8,10 +8,10 @@
 
 import Foundation
 
-public class GuestResponse: Codable {
+class GuestResponse: Codable {
     
-    public var entityId: String
-    public var partnerId: String
+    let entityId: String
+    let partnerId: String
     
     enum CodingKeys: String, CodingKey {
         case entityId = "sdkEntity"

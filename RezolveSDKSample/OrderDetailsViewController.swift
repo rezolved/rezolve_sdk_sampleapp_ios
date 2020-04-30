@@ -44,7 +44,7 @@ class OrderDetailsViewController: UIViewController {
     
     // MARK: - Private methods
     
-    func showDetails(_ order: HistoryTransactionDetails) {
+    private func showDetails(_ order: HistoryTransactionDetails) {
         statusLabel.text = order.status
         orderIdLabel.text = order.orderId
         productNameLabel.text = product.title

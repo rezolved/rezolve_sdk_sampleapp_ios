@@ -6,5 +6,6 @@ inhibit_all_warnings!
 target 'RezolveSDKSample' do
   # Common
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
+  pod 'BMKLocationKit', '1.8.5'
   pod 'RezolveSDK', '2.0.6.1-beta1489'
 end

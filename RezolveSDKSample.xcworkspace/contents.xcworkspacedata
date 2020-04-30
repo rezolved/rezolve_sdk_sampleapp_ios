@@ -2,12 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Library/WebServer/Documents/rezolve_sdk_sampleapp_ios/RezolveSDKSample.xcodeproj">
+      location = "group:RezolveSDKSample.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:RezolveSDKSample.xcodeproj">
    </FileRef>
 </Workspace>
