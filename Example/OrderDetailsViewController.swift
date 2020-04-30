@@ -21,10 +21,12 @@ class OrderDetailsViewController: UIViewController {
     var orderId: String!
     var product: Product!
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rezolveSession?.userActivityManager.getOrders { [weak self] result in
+        RezolveShared.session?.userActivityManager.getOrders { [weak self] result in
             switch result {
             case .success(let orders):
                 guard let order = orders.first(where: { order -> Bool in
@@ -40,6 +42,8 @@ class OrderDetailsViewController: UIViewController {
         }
     }
     
+    // MARK: - Private methods
+    
     func showDetails(_ order: HistoryTransactionDetails) {
         statusLabel.text = order.status
         orderIdLabel.text = order.orderId
@@ -47,7 +51,12 @@ class OrderDetailsViewController: UIViewController {
         totalLabel.text = String("$\(order.price.finalPrice.rounded(toPlaces: 2))")
     }
     
+    // MARK: - Actions
+    
     @IBAction func continueShoppingClick(_ sender: Any) {
-        navigationController!.popToViewController(navigationController!.viewControllers[0], animated: true)
+        guard let scanViewController = navigationController?.viewControllers.first as? ScanViewController else {
+            return
+        }
+        navigationController?.popToViewController(scanViewController, animated: true)
     }
 }

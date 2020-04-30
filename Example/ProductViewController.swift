@@ -24,6 +24,8 @@ class ProductViewController: UIViewController {
     var product: Product!
     var checkoutBundle: CheckoutBundle? = nil
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = product.title
@@ -51,8 +53,10 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-        rezolveSession?.phonebookManager.getAll { [weak self] result in
+    // MARK: - Private methods
+    
+    private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
+        RezolveShared.session?.phonebookManager.getAll { [weak self] result in
             switch result {
             case .success(let phones):
                 if phones.indices.contains(0) {
@@ -60,7 +64,8 @@ class ProductViewController: UIViewController {
                 }
                 else {
                     let phone = Phone(name: "user_phone", phone: "+443069510069")
-                    rezolveSession?.phonebookManager.create(phoneToCreate: phone, completionHandler: { [weak self] _ in
+                    RezolveShared.session?.phonebookManager.create(phoneToCreate: phone,
+                                                                   completionHandler: { [weak self] _ in
                         self?.createAddress(phone, product, option)
                     })
                 }
@@ -70,10 +75,19 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
-        let address = Address(id: "", fullName: "John Smith", shortName: "JS", line1: "Lambeth", line2: "", city: "London", state: "", zip: "SE1 7PB", country: "GB", phoneId: phone.id)
+    private func createAddress(_ phone: Phone, _ product: CheckoutProduct, _ option: PaymentOption) {
+        let address = Address(id: "",
+                              fullName: "John Smith",
+                              shortName: "JS",
+                              line1: "Lambeth",
+                              line2: "",
+                              city: "London",
+                              state: "",
+                              zip: "SE1 7PB",
+                              country: "GB",
+                              phoneId: phone.id)
         
-        rezolveSession?.addressbookManager.create(address: address) { [weak self] result in
+        RezolveShared.session?.addressbookManager.create(address: address) { [weak self] result in
             switch result {
             case .success(let address):
                 self?.createCard(phone, address, product, option)
@@ -84,10 +98,20 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func createCard(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption) {
-        let paymentCard = PaymentCard(id: "", type: "debit", cardHolderName: "John Curtis", expiresOn: "0817", validFrom: "0817", brand: "visa", addressId: address.id, shortName: "black amex", pan4: "1234", pan6: "123456", pan: "123456")
+    private func createCard(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption) {
+        let paymentCard = PaymentCard(id: "",
+                                      type: "debit",
+                                      cardHolderName: "John Curtis",
+                                      expiresOn: "0817",
+                                      validFrom: "0817",
+                                      brand: "visa",
+                                      addressId: address.id,
+                                      shortName: "black amex",
+                                      pan4: "1234",
+                                      pan6: "123456",
+                                      pan: "123456")
         
-        rezolveSession?.walletManager.create(paymentCard: paymentCard) { [weak self] result in
+        RezolveShared.session?.walletManager.create(paymentCard: paymentCard) { [weak self] result in
             switch result {
             case .success(let card):
                 self?.checkout(phone, address, product, option, PaymentRequest(paymentCard: card, cvv: "123"))
@@ -98,7 +122,11 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func checkout(_ phone: Phone, _ address: Address, _ product: CheckoutProduct, _ option: PaymentOption, _ paymentRequest: PaymentRequest) {
+    private func checkout(_ phone: Phone,
+                          _ address: Address,
+                          _ product: CheckoutProduct,
+                          _ option: PaymentOption,
+                          _ paymentRequest: PaymentRequest) {
         
         let freePaymentMethod = (option.supportedPaymentMethods?.first)?.type == "free"
         let shippingMethod = freePaymentMethod ? nil : CheckoutShippingMethod(type: "flatrate", addressId: address.id)
@@ -115,7 +143,7 @@ class ProductViewController: UIViewController {
                 location: location
         )
         
-        rezolveSession?.checkoutManager.checkout(bundle: checkoutBundle) { [weak self] result in
+        RezolveShared.session?.checkoutManager.checkout(bundle: checkoutBundle) { [weak self] result in
             switch result {
             case .success(let checkoutResult):
                 var princeInfo = ""
@@ -132,12 +160,14 @@ class ProductViewController: UIViewController {
         }
     }
     
-    func checkout() {
+    private func checkout() {
         finalPriceLabel.text = "Loading..."
         buyButton.isEnabled = false
-        let checkoutProduct = CheckoutProduct(id: product.id, quantity: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1))
+        let checkoutProduct = CheckoutProduct(id: product.id,
+                                              quantity: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1))
         
-        rezolveSession?.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct, merchantId: product.merchantId) { [weak self] result in
+        RezolveShared.session?.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct,
+                                                                        merchantId: product.merchantId) { [weak self] result in
             switch result {
             case .success(let option):
                 self?.createPhone(checkoutProduct, option)
@@ -148,8 +178,10 @@ class ProductViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    
     @IBAction private func buyClick(_ sender: Any) {
-        rezolveSession?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
+        RezolveShared.session?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
             switch result {
             case .success(let order):
                 self?.orderId = order.id
@@ -163,6 +195,7 @@ class ProductViewController: UIViewController {
 }
 
 extension ProductViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

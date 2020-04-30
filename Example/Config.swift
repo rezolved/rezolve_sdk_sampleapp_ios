@@ -35,4 +35,13 @@ class Config {
     static let partnerId = "2"
     static let entityId = "1c5e499c-efad-4902-a3c3-1878e8b3e4bc"
     static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
+    
+    static let sspActManagerSettings = SspActManagerSettings(
+        auth0ClientId: "",
+        auth0Secret: "",
+        auth0Audience: "",
+        auth0Endpoint: "",
+        sspEndpoint: "",
+        sspWidth: ""
+    )
 }

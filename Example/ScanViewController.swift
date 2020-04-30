@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import RezolveSDK
 import AVFoundation
+import RezolveSDK
 
 class ScanViewController: UIViewController {
     
@@ -21,10 +21,12 @@ class ScanViewController: UIViewController {
     var scanManager: ScanManager!
     var product: Product?
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let scanManagerInstance = rezolveSession?.getScanManager() else {
+        guard let scanManagerInstance = RezolveShared.session?.getScanManager() else {
             return
         }
         scanManager = scanManagerInstance
@@ -55,6 +57,8 @@ class ScanViewController: UIViewController {
         }
     }
     
+    // MARK: - Private methods
+    
     private func askPermission() {
         if Platform.isSimulator {
             return
@@ -73,7 +77,7 @@ class ScanViewController: UIViewController {
         }
     }
     
-    func startScanning() {
+    private func startScanning() {
         if Platform.isSimulator {
             return
         }
@@ -84,6 +88,7 @@ class ScanViewController: UIViewController {
 }
 
 extension ScanViewController: RezolveScanResultDelegate {
+    
     func onScanResult(result: RezolveScanResult) {
     }
     
@@ -94,6 +99,7 @@ extension ScanViewController: RezolveScanResultDelegate {
 }
 
 extension ScanViewController: ProductDelegate {
+    
     func onStartRecognizeImage() {
         progressView.isHidden = false
         statusView.text = "Identification..."

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
+		426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* EngagementsService.swift */; };
+		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
+		426373A72457212F00BFAA78 /* EngagementsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementsService.swift; sourceTree = "<group>"; };
+		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -54,19 +58,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		429C19F92456F81D00686657 /* Interface */ = {
+		426373A92457217F00BFAA78 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				426373A72457212F00BFAA78 /* EngagementsService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		4263AC5B2459899500A62D00 /* Mock Locations */ = {
+			isa = PBXGroup;
+			children = (
+				42DB9D6924584EC1001BD633 /* Home.gpx */,
+			);
+			name = "Mock Locations";
+			sourceTree = "<group>";
+		};
+		429C19F92456F81D00686657 /* Interface Builder */ = {
 			isa = PBXGroup;
 			children = (
 				D49F4480225B98EC006FB59B /* Assets.xcassets */,
 				D49F4482225B98EC006FB59B /* LaunchScreen.storyboard */,
 				6A23E958E6F1676634C2DB4D /* Main.storyboard */,
 			);
-			name = Interface;
+			name = "Interface Builder";
 			sourceTree = "<group>";
 		};
 		429C19FA2456F83E00686657 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				4263AC5B2459899500A62D00 /* Mock Locations */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				6A23EAB40B8438B4261CE317 /* Config.swift */,
 				D4DC43AA2267370D0060DDD2 /* Platform.swift */,
@@ -92,7 +113,7 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		6A23EDDA224BE5DE18995D23 /* Controllers */ = {
+		6A23EDDA224BE5DE18995D23 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				6A23E808AED379C3EDAD1395 /* LoginViewController.swift */,
@@ -100,7 +121,7 @@
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 			);
-			name = Controllers;
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		A536A5AFCD9448C75FBABE9B /* Frameworks */ = {
@@ -140,10 +161,11 @@
 		D49F4478225B98EB006FB59B /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				429C19F92456F81D00686657 /* Interface */,
+				429C19F92456F81D00686657 /* Interface Builder */,
 				D48FE26122677452001E11D1 /* Extensions */,
-				6A23EDDA224BE5DE18995D23 /* Controllers */,
 				429C19FB2456F89800686657 /* Models */,
+				426373A92457217F00BFAA78 /* Services */,
+				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				429C19FA2456F83E00686657 /* Support */,
 			);
 			path = Example;
@@ -212,6 +234,7 @@
 			files = (
 				D49F4484225B98EC006FB59B /* LaunchScreen.storyboard in Resources */,
 				D49F4481225B98EC006FB59B /* Assets.xcassets in Resources */,
+				42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */,
 				6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +311,7 @@
 				D4DC43AB2267370D0060DDD2 /* Platform.swift in Sources */,
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
+				426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
