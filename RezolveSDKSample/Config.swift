@@ -3,7 +3,7 @@
 //  Example
 //
 //  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import Foundation
@@ -26,9 +26,9 @@ Please discuss authentication options with your project lead and/or your Rezolve
 
 class Config {
     // Data provided by Rezolve admin
-    static let demoAuthServer = ""
-    static let demoAuthUser = ""
-    static let demoAuthPassword = ""
+    static let demoAuthServer = "https://sandbox-rua-tw.rzlvtest.co"
+    static let demoAuthUser = "ruadev@example.com"
+    static let demoAuthPassword = "ruadev99"
     
     static let env = RezolveEnv.sandbox
     static let rezolveApiKey = "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c"
@@ -37,11 +37,11 @@ class Config {
     static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
     
     static let sspActManagerSettings = SspActManagerSettings(
-        auth0ClientId: "",
-        auth0Secret: "",
-        auth0Audience: "",
-        auth0Endpoint: "",
-        sspEndpoint: "",
-        sspWidth: ""
+        auth0ClientId: "XYfvox79WGNRlwgKZehGXek44fnx2yHy",
+        auth0Secret: "Iu5MgXhFk08jWcisMNZffTSjfHa18LrgCSFhqjoGHZfJXABfcgyuTyXvxlv41lWV",
+        auth0Audience: "REZOLVE-API-URLID",
+        auth0Endpoint: "https://services.rzlvtest.cn/dev/oauth-proxy-svc",
+        sspEndpoint: "https://services.rzlvtest.cn/dev",
+        sspWidth: "50"
     )
 }

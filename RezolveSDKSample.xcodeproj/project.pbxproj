@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* EngagementsService.swift */; };
+		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
 		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
+		6E211BD63B1A7FB3603A9554 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DAEDC6A259A6731CC8D2BB5 /* libPods-RezolveSDKSample.a */; };
 		D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE25F22676AE6001E11D1 /* ProductViewController.swift */; };
 		D48FE2632267746F001E11D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE2622267746F001E11D1 /* Extensions.swift */; };
 		D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */; };
@@ -20,30 +22,28 @@
 		D49F4481225B98EC006FB59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D49F4480225B98EC006FB59B /* Assets.xcassets */; };
 		D49F4484225B98EC006FB59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D49F4482225B98EC006FB59B /* LaunchScreen.storyboard */; };
 		D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */; };
-		D4DC43AB2267370D0060DDD2 /* Platform.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DC43AA2267370D0060DDD2 /* Platform.swift */; };
-		F14A2DC8999DE01DD1DB1459 /* libPods-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E046A19BDF43CB52233EEF9 /* libPods-Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181DD6114263D16FA83BE69F /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* EngagementsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementsService.swift; sourceTree = "<group>"; };
+		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
 		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6E046A19BDF43CB52233EEF9 /* libPods-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		94604998EB52316A7AAFE42D /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C0B77921FF44B7F1807B839B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		7DAEDC6A259A6731CC8D2BB5 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1BB60DE631269461D479C22 /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
 		D48FE25F22676AE6001E11D1 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D48FE2622267746F001E11D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
-		D49F4476225B98EB006FB59B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49F4476225B98EB006FB59B /* RezolveSDKSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RezolveSDKSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49F4479225B98EB006FB59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D49F4480225B98EC006FB59B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D49F4483225B98EC006FB59B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49F4485225B98EC006FB59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		D4DC43AA2267370D0060DDD2 /* Platform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Platform.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F14A2DC8999DE01DD1DB1459 /* libPods-Example.a in Frameworks */,
+				6E211BD63B1A7FB3603A9554 /* libPods-RezolveSDKSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +61,7 @@
 		426373A92457217F00BFAA78 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				42C86676245AC980005FCB47 /* RezolveService.swift */,
 				426373A72457212F00BFAA78 /* EngagementsService.swift */,
 			);
 			name = Services;
@@ -90,7 +91,6 @@
 				4263AC5B2459899500A62D00 /* Mock Locations */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				6A23EAB40B8438B4261CE317 /* Config.swift */,
-				D4DC43AA2267370D0060DDD2 /* Platform.swift */,
 				D49F4485225B98EC006FB59B /* Info.plist */,
 			);
 			name = Support;
@@ -107,8 +107,8 @@
 		5100700EAA1B39B735314D28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				94604998EB52316A7AAFE42D /* Pods-Example.debug.xcconfig */,
-				C0B77921FF44B7F1807B839B /* Pods-Example.release.xcconfig */,
+				181DD6114263D16FA83BE69F /* Pods-RezolveSDKSample.debug.xcconfig */,
+				C1BB60DE631269461D479C22 /* Pods-RezolveSDKSample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -124,14 +124,6 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		A536A5AFCD9448C75FBABE9B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6E046A19BDF43CB52233EEF9 /* libPods-Example.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D48FE26122677452001E11D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,22 +135,22 @@
 		D49F446D225B98EB006FB59B = {
 			isa = PBXGroup;
 			children = (
-				D49F4478225B98EB006FB59B /* Example */,
+				D49F4478225B98EB006FB59B /* RezolveSDKSample */,
 				D49F4477225B98EB006FB59B /* Products */,
-				A536A5AFCD9448C75FBABE9B /* Frameworks */,
 				5100700EAA1B39B735314D28 /* Pods */,
+				D8A7B64AC88DF8A5479A103A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		D49F4477225B98EB006FB59B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D49F4476225B98EB006FB59B /* Example.app */,
+				D49F4476225B98EB006FB59B /* RezolveSDKSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D49F4478225B98EB006FB59B /* Example */ = {
+		D49F4478225B98EB006FB59B /* RezolveSDKSample */ = {
 			isa = PBXGroup;
 			children = (
 				429C19F92456F81D00686657 /* Interface Builder */,
@@ -168,30 +160,38 @@
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				429C19FA2456F83E00686657 /* Support */,
 			);
-			path = Example;
+			path = RezolveSDKSample;
+			sourceTree = "<group>";
+		};
+		D8A7B64AC88DF8A5479A103A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7DAEDC6A259A6731CC8D2BB5 /* libPods-RezolveSDKSample.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D49F4475225B98EB006FB59B /* Example */ = {
+		D49F4475225B98EB006FB59B /* RezolveSDKSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "Example" */;
+			buildConfigurationList = D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "RezolveSDKSample" */;
 			buildPhases = (
-				551AAA31616DF42B6E26B3C7 /* [CP] Check Pods Manifest.lock */,
+				65102EC8713842F6CAD48CAB /* [CP] Check Pods Manifest.lock */,
 				7D306F17A36ECF1B80DBD3F3 /* [CP] Prepare Artifacts */,
 				D49F4472225B98EB006FB59B /* Sources */,
 				D49F4473225B98EB006FB59B /* Frameworks */,
 				D49F4474225B98EB006FB59B /* Resources */,
-				FEE8328BEBC7A0C3081CC33D /* [CP] Embed Pods Frameworks */,
+				FBC7C46038F4BF3F04279B46 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Example;
+			name = RezolveSDKSample;
 			productName = Example;
-			productReference = D49F4476225B98EB006FB59B /* Example.app */;
+			productReference = D49F4476225B98EB006FB59B /* RezolveSDKSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -202,15 +202,15 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Jakub Bogacki";
+				ORGANIZATIONNAME = Rezolve;
 				TargetAttributes = {
 					D49F4475225B98EB006FB59B = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
 			};
-			buildConfigurationList = D49F4471225B98EB006FB59B /* Build configuration list for PBXProject "Example" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = D49F4471225B98EB006FB59B /* Build configuration list for PBXProject "RezolveSDKSample" */;
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -222,7 +222,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D49F4475225B98EB006FB59B /* Example */,
+				D49F4475225B98EB006FB59B /* RezolveSDKSample */,
 			);
 		};
 /* End PBXProject section */
@@ -242,7 +242,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		551AAA31616DF42B6E26B3C7 /* [CP] Check Pods Manifest.lock */ = {
+		65102EC8713842F6CAD48CAB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -257,7 +257,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-RezolveSDKSample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -270,32 +270,32 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Prepare Artifacts";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-artifacts.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FEE8328BEBC7A0C3081CC33D /* [CP] Embed Pods Frameworks */ = {
+		FBC7C46038F4BF3F04279B46 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -308,8 +308,8 @@
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
-				D4DC43AB2267370D0060DDD2 /* Platform.swift in Sources */,
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
+				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
@@ -458,7 +458,7 @@
 		};
 		D49F4489225B98EC006FB59B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 94604998EB52316A7AAFE42D /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = 181DD6114263D16FA83BE69F /* Pods-RezolveSDKSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -469,7 +469,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RezolveSDKSample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -485,7 +485,7 @@
 		};
 		D49F448A225B98EC006FB59B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C0B77921FF44B7F1807B839B /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = C1BB60DE631269461D479C22 /* Pods-RezolveSDKSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -496,7 +496,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = Example/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/RezolveSDKSample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,7 +513,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D49F4471225B98EB006FB59B /* Build configuration list for PBXProject "Example" */ = {
+		D49F4471225B98EB006FB59B /* Build configuration list for PBXProject "RezolveSDKSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D49F4486225B98EC006FB59B /* Debug */,
@@ -522,7 +522,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "Example" */ = {
+		D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "RezolveSDKSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D49F4489225B98EC006FB59B /* Debug */,

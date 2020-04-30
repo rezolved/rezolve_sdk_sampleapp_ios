@@ -3,7 +3,7 @@
 //  Example
 //
 //  Created by Dennis Koluris on 27/4/20.
-//  Copyright © 2020 Jakub Bogacki. All rights reserved.
+//  Copyright © 2020 Rezolve. All rights reserved.
 //
 
 import UIKit

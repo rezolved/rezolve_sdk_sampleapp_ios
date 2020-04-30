@@ -3,7 +3,7 @@
 //  Example
 //
 //  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import UIKit
@@ -26,7 +26,7 @@ class OrderDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        RezolveShared.session?.userActivityManager.getOrders { [weak self] result in
+        RezolveService.session?.userActivityManager.getOrders { [weak self] result in
             switch result {
             case .success(let orders):
                 guard let order = orders.first(where: { order -> Bool in

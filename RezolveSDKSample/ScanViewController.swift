@@ -3,7 +3,7 @@
 //  Example
 //
 //  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import UIKit
@@ -18,15 +18,15 @@ class ScanViewController: UIViewController {
     @IBOutlet weak var progressView: UIView!
     
     // Class variables
-    var scanManager: ScanManager!
-    var product: Product?
+    private var scanManager: ScanManager!
+    private var product: Product?
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let scanManagerInstance = RezolveShared.session?.getScanManager() else {
+        guard let scanManagerInstance = RezolveService.session?.getScanManager() else {
             return
         }
         scanManager = scanManagerInstance

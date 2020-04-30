@@ -3,7 +3,7 @@
 //  Example
 //
 //  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // The device's UUID
-        let deviceId = "\(UIDevice.current.identifierForVendor!.uuidString)"
+        let deviceId = UIDevice.current.identifierForVendor!.uuidString
         loginUser(deviceId: deviceId,
                   username: Config.demoAuthUser,
                   password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
@@ -37,28 +37,20 @@ class LoginViewController: UIViewController {
     
     private func loginUser(deviceId: String,
                            username: String,
-                           password: String, completionHandler: @escaping (Result<GuestResponse, Error>) -> Void) {
+                           password: String,
+                           completionHandler: @escaping (Result<GuestResponse, Error>) -> Void) {
         
-        let urlSession = URLSession.shared
-        let urlString = Config.demoAuthServer + "/v2/credentials/login"
-        
-        let url = URL(string: urlString)!
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: URL(string: Config.demoAuthServer + "/v2/credentials/login")!)
         request.httpMethod = "POST"
-        request.setValue("0", forHTTPHeaderField: "Content-Length")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(Config.rezolveApiKey, forHTTPHeaderField: "x-rezolve-partner-apikey")
-        
-        let paramsDict = [
+        request.httpBody = try? JSONSerialization.data(withJSONObject: [
             "deviceId": deviceId,
             "username": username,
             "password": password
-        ]
+        ])
         
-        let paramsData = try? JSONSerialization.data(withJSONObject: paramsDict)
-        request.httpBody = paramsData
-        
-        let task = urlSession.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard let dataResponse = data, error == nil else {
                 completionHandler(.failure(error!))
                 return
@@ -77,12 +69,12 @@ class LoginViewController: UIViewController {
     private func createSession(entityId: String, partnerId: String) {
         let accessToken = createBearer(entityId: entityId, partnerId: partnerId)
         
-        RezolveShared.sdk?.createSession(accessToken: accessToken,
-                                         username: Config.demoAuthUser,
-                                         entityId: entityId,
-                                         partnerId: partnerId) { [weak self] (session, error) in
+        RezolveService.sdk?.createSession(accessToken: accessToken,
+                                          username: Config.demoAuthUser,
+                                          entityId: entityId,
+                                          partnerId: partnerId) { [weak self] (session, error) in
             
-            RezolveShared.session = session
+            RezolveService.session = session
             self?.performSegue(withIdentifier: "loginSuccessful", sender: self)
             print("New session started -> \(session.debugDescription)")
         }

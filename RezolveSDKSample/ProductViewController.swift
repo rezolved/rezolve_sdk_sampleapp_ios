@@ -3,7 +3,7 @@
 //  Example
 //
 //  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Jakub Bogacki. All rights reserved.
+//  Copyright © 2019 Rezolve. All rights reserved.
 //
 
 import UIKit
@@ -20,9 +20,9 @@ class ProductViewController: UIViewController {
     @IBOutlet private weak var finalPriceLabel: UILabel!
     
     // Class variables
-    var orderId: String? = nil
+    private var orderId: String? = nil
+    private var checkoutBundle: CheckoutBundle? = nil
     var product: Product!
-    var checkoutBundle: CheckoutBundle? = nil
     
     // MARK: - Lifecycle
     
@@ -56,7 +56,7 @@ class ProductViewController: UIViewController {
     // MARK: - Private methods
     
     private func createPhone(_ product: CheckoutProduct, _ option: PaymentOption) {
-        RezolveShared.session?.phonebookManager.getAll { [weak self] result in
+        RezolveService.session?.phonebookManager.getAll { [weak self] result in
             switch result {
             case .success(let phones):
                 if phones.indices.contains(0) {
@@ -64,8 +64,8 @@ class ProductViewController: UIViewController {
                 }
                 else {
                     let phone = Phone(name: "user_phone", phone: "+443069510069")
-                    RezolveShared.session?.phonebookManager.create(phoneToCreate: phone,
-                                                                   completionHandler: { [weak self] _ in
+                    RezolveService.session?.phonebookManager.create(phoneToCreate: phone,
+                                                                    completionHandler: { [weak self] _ in
                         self?.createAddress(phone, product, option)
                     })
                 }
@@ -87,7 +87,7 @@ class ProductViewController: UIViewController {
                               country: "GB",
                               phoneId: phone.id)
         
-        RezolveShared.session?.addressbookManager.create(address: address) { [weak self] result in
+        RezolveService.session?.addressbookManager.create(address: address) { [weak self] result in
             switch result {
             case .success(let address):
                 self?.createCard(phone, address, product, option)
@@ -111,7 +111,7 @@ class ProductViewController: UIViewController {
                                       pan6: "123456",
                                       pan: "123456")
         
-        RezolveShared.session?.walletManager.create(paymentCard: paymentCard) { [weak self] result in
+        RezolveService.session?.walletManager.create(paymentCard: paymentCard) { [weak self] result in
             switch result {
             case .success(let card):
                 self?.checkout(phone, address, product, option, PaymentRequest(paymentCard: card, cvv: "123"))
@@ -143,7 +143,7 @@ class ProductViewController: UIViewController {
                 location: location
         )
         
-        RezolveShared.session?.checkoutManager.checkout(bundle: checkoutBundle) { [weak self] result in
+        RezolveService.session?.checkoutManager.checkout(bundle: checkoutBundle) { [weak self] result in
             switch result {
             case .success(let checkoutResult):
                 var princeInfo = ""
@@ -166,7 +166,7 @@ class ProductViewController: UIViewController {
         let checkoutProduct = CheckoutProduct(id: product.id,
                                               quantity: Decimal(quantityPicker.selectedRow(inComponent: 0) + 1))
         
-        RezolveShared.session?.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct,
+        RezolveService.session?.paymentOptionManager.getPaymentOptionFor(checkoutProduct: checkoutProduct,
                                                                         merchantId: product.merchantId) { [weak self] result in
             switch result {
             case .success(let option):
@@ -181,7 +181,7 @@ class ProductViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func buyClick(_ sender: Any) {
-        RezolveShared.session?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
+        RezolveService.session?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
             switch result {
             case .success(let order):
                 self?.orderId = order.id
