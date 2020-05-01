@@ -42,6 +42,7 @@ class Config {
         auth0Audience: "REZOLVE-API-URLID",
         auth0Endpoint: "https://services.rzlvtest.co/demo/oauth-proxy-svc",
         sspEndpoint: "https://services.rzlvtest.co/demo",
-        sspWidth: "50"
+        sspWidth: "50",
+        baiduLocationKey: "6SgDo9iiXSISzKywa0uw34XyoiFwzxGK"
     )
 }

@@ -1,16 +1,13 @@
 PODS:
-  - BMKLocationKit (1.8.5)
   - JSONWebToken (2.2.0)
-  - RezolveSDK (2.0.6.1-beta1489)
+  - RezolveSDK (2.0.7.1-beta1492)
 
 DEPENDENCIES:
-  - BMKLocationKit (= 1.8.5)
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
-  - RezolveSDK (= 2.0.6.1-beta1489)
+  - RezolveSDK (= 2.0.7.1-beta1492)
 
 SPEC REPOS:
   trunk:
-    - BMKLocationKit
     - RezolveSDK
 
 EXTERNAL SOURCES:
@@ -23,10 +20,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/radianttap/JSONWebToken.swift.git
 
 SPEC CHECKSUMS:
-  BMKLocationKit: fd3d6b4a9a3a1a2763819f56b780bda5fc5b8726
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
-  RezolveSDK: 0d0783b5b5809fe29407aaa9247966a4a016969a
+  RezolveSDK: 223444ed89de6d93a35c2000e8e7830a33291ed5
 
-PODFILE CHECKSUM: 31c78aa6b7c71f8e577c93cd5512fc0aba10c0bd
+PODFILE CHECKSUM: 25c5d2169bed9b27530c29038281adca9c67792c
 
 COCOAPODS: 1.9.1

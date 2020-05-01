@@ -13,13 +13,8 @@ import RezolveSDK
 class EngagementsService {
     
     var rezolveSsp: RezolveSsp?
-    private let baiduGeofenceService = BaiduGeofenceService() /* Baidu */
     private var nearbyEngagementsManager: NearbyEngagementsManager? {
         return rezolveSsp?.nearbyEngagementsManager
-    }
-    
-    init() {
-        baiduGeofenceService.engagementsService = self /* Baidu */
     }
     
     func startMonitoring() {
@@ -33,8 +28,6 @@ class EngagementsService {
         nearbyEngagementsManager?.stopUpdatingDistanceFromNerbyEngagements()
         nearbyEngagementsManager?.resetNotificationSuppressData()
         nearbyEngagementsManager?.delegate = nil
-        
-        baiduGeofenceService.removeAllRegions() /* Baidu */
     }
     
     func performFetchWithCompletionHandler(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
@@ -49,7 +42,6 @@ class EngagementsService {
 extension EngagementsService: NearbyEngagementsManagerDelegate {
     
     func didStartMonitoring(for circularRegions: [CLCircularRegion], coordinate: CLLocationCoordinate2D, radius: Int) {
-        baiduGeofenceService.replaceAllRegions(with: circularRegions, centerCoordinate: coordinate) /* Baidu */
         print("didStartMonitoring")
     }
     

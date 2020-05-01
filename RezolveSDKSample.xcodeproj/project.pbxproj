@@ -10,12 +10,11 @@
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* EngagementsService.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
-		42CF06DE245B03BA00B73454 /* BaiduGeofenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42CF06DD245B03BA00B73454 /* BaiduGeofenceService.swift */; };
 		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
-		8191192DC3AEB060DB8505EE /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F269C87F852D19C3179C1EA7 /* libPods-RezolveSDKSample.a */; };
+		A78F9A7D0D9BB93BD15C42CD /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9530A54C155E25B5ABBC5E9 /* libPods-RezolveSDKSample.a */; };
 		D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE25F22676AE6001E11D1 /* ProductViewController.swift */; };
 		D48FE2632267746F001E11D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE2622267746F001E11D1 /* Extensions.swift */; };
 		D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */; };
@@ -26,17 +25,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		29ACFEA3E9B84AF3F25BFAF6 /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* EngagementsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementsService.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
-		42CF06DD245B03BA00B73454 /* BaiduGeofenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduGeofenceService.swift; sourceTree = "<group>"; };
 		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
-		42E41E21245B05D8008969DD /* RezolveSDKSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RezolveSDKSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		944D8CB6805D4A8B787DE692 /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
+		B5D7E8E081FB2FEF2E55069D /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
+		C9530A54C155E25B5ABBC5E9 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48FE25F22676AE6001E11D1 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D48FE2622267746F001E11D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +43,7 @@
 		D49F4483225B98EC006FB59B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49F4485225B98EC006FB59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
-		F269C87F852D19C3179C1EA7 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E727CF22081D814DF8436F5B /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8191192DC3AEB060DB8505EE /* libPods-RezolveSDKSample.a in Frameworks */,
+				A78F9A7D0D9BB93BD15C42CD /* libPods-RezolveSDKSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +63,6 @@
 			children = (
 				42C86676245AC980005FCB47 /* RezolveService.swift */,
 				426373A72457212F00BFAA78 /* EngagementsService.swift */,
-				42CF06DD245B03BA00B73454 /* BaiduGeofenceService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -95,7 +91,6 @@
 				4263AC5B2459899500A62D00 /* Mock Locations */,
 				D49F4479225B98EB006FB59B /* AppDelegate.swift */,
 				6A23EAB40B8438B4261CE317 /* Config.swift */,
-				42E41E21245B05D8008969DD /* RezolveSDKSample-Bridging-Header.h */,
 				D49F4485225B98EC006FB59B /* Info.plist */,
 			);
 			name = Support;
@@ -109,19 +104,11 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		4F6681DB26E5E2EF52A165B8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F269C87F852D19C3179C1EA7 /* libPods-RezolveSDKSample.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5100700EAA1B39B735314D28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				29ACFEA3E9B84AF3F25BFAF6 /* Pods-RezolveSDKSample.debug.xcconfig */,
-				944D8CB6805D4A8B787DE692 /* Pods-RezolveSDKSample.release.xcconfig */,
+				E727CF22081D814DF8436F5B /* Pods-RezolveSDKSample.debug.xcconfig */,
+				B5D7E8E081FB2FEF2E55069D /* Pods-RezolveSDKSample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -151,7 +138,7 @@
 				D49F4478225B98EB006FB59B /* RezolveSDKSample */,
 				D49F4477225B98EB006FB59B /* Products */,
 				5100700EAA1B39B735314D28 /* Pods */,
-				4F6681DB26E5E2EF52A165B8 /* Frameworks */,
+				E13877CF4A85ED43BC83910F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +163,14 @@
 			path = RezolveSDKSample;
 			sourceTree = "<group>";
 		};
+		E13877CF4A85ED43BC83910F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9530A54C155E25B5ABBC5E9 /* libPods-RezolveSDKSample.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -183,12 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "RezolveSDKSample" */;
 			buildPhases = (
-				09DBA0203E96219D04F01C43 /* [CP] Check Pods Manifest.lock */,
+				969DF426B8A64A8EDA5F3BA7 /* [CP] Check Pods Manifest.lock */,
 				7D306F17A36ECF1B80DBD3F3 /* [CP] Prepare Artifacts */,
 				D49F4472225B98EB006FB59B /* Sources */,
 				D49F4473225B98EB006FB59B /* Frameworks */,
 				D49F4474225B98EB006FB59B /* Resources */,
-				8E9C52323C404C56CD8DE7DC /* [CP] Embed Pods Frameworks */,
+				9C4ABC3111DED9A1129126E0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -247,7 +242,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09DBA0203E96219D04F01C43 /* [CP] Check Pods Manifest.lock */ = {
+		7D306F17A36ECF1B80DBD3F3 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		969DF426B8A64A8EDA5F3BA7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,24 +281,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7D306F17A36ECF1B80DBD3F3 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8E9C52323C404C56CD8DE7DC /* [CP] Embed Pods Frameworks */ = {
+		9C4ABC3111DED9A1129126E0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -320,7 +315,6 @@
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
-				42CF06DE245B03BA00B73454 /* BaiduGeofenceService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +458,7 @@
 		};
 		D49F4489225B98EC006FB59B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29ACFEA3E9B84AF3F25BFAF6 /* Pods-RezolveSDKSample.debug.xcconfig */;
+			baseConfigurationReference = E727CF22081D814DF8436F5B /* Pods-RezolveSDKSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -484,7 +478,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.rezolve.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "RezolveSDKSample/RezolveSDKSample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -492,7 +486,7 @@
 		};
 		D49F448A225B98EC006FB59B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 944D8CB6805D4A8B787DE692 /* Pods-RezolveSDKSample.release.xcconfig */;
+			baseConfigurationReference = B5D7E8E081FB2FEF2E55069D /* Pods-RezolveSDKSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -512,7 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.rezolve.example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "RezolveSDKSample/RezolveSDKSample-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
