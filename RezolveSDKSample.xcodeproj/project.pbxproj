@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
-		426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* EngagementsService.swift */; };
+		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
 		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
@@ -26,7 +26,7 @@
 
 /* Begin PBXFileReference section */
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
-		426373A72457212F00BFAA78 /* EngagementsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngagementsService.swift; sourceTree = "<group>"; };
+		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
 		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				42C86676245AC980005FCB47 /* RezolveService.swift */,
-				426373A72457212F00BFAA78 /* EngagementsService.swift */,
+				426373A72457212F00BFAA78 /* RezolveGeofence.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -311,7 +311,7 @@
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
-				426373A82457212F00BFAA78 /* EngagementsService.swift in Sources */,
+				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,

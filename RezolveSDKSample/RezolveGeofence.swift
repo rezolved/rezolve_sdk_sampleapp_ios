@@ -1,5 +1,5 @@
 //
-//  EngagementsService.swift
+//  RezolveGeofence.swift
 //  Example
 //
 //  Created by Dennis Koluris on 27/4/20.
@@ -10,36 +10,36 @@ import UIKit
 import CoreLocation
 import RezolveSDK
 
-class EngagementsService {
+class RezolveGeofence {
     
-    var rezolveSsp: RezolveSsp?
-    private var nearbyEngagementsManager: NearbyEngagementsManager? {
-        return rezolveSsp?.nearbyEngagementsManager
+    var ssp: RezolveSsp?
+    private var engagementsManager: NearbyEngagementsManager? {
+        return ssp?.nearbyEngagementsManager
     }
     
     func startMonitoring() {
-        nearbyEngagementsManager?.startMonitoringForNearbyEngagements()
-        nearbyEngagementsManager?.debugNotifications = false
-        nearbyEngagementsManager?.delegate = self
+        engagementsManager?.startMonitoringForNearbyEngagements()
+        engagementsManager?.debugNotifications = false
+        engagementsManager?.delegate = self
     }
     
     func stopMonitoring() {
-        nearbyEngagementsManager?.stopMonitoringForNearbyEngagements()
-        nearbyEngagementsManager?.stopUpdatingDistanceFromNerbyEngagements()
-        nearbyEngagementsManager?.resetNotificationSuppressData()
-        nearbyEngagementsManager?.delegate = nil
+        engagementsManager?.stopMonitoringForNearbyEngagements()
+        engagementsManager?.stopUpdatingDistanceFromNerbyEngagements()
+        engagementsManager?.resetNotificationSuppressData()
+        engagementsManager?.delegate = nil
     }
     
     func performFetchWithCompletionHandler(_ completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let rezolveSsp = rezolveSsp else {
+        guard let ssp = ssp else {
             completionHandler(.noData)
             return
         }
-        rezolveSsp.performFetchWithCompletionHandler(completionHandler)
+        ssp.performFetchWithCompletionHandler(completionHandler)
     }
 }
 
-extension EngagementsService: NearbyEngagementsManagerDelegate {
+extension RezolveGeofence: NearbyEngagementsManagerDelegate {
     
     func didStartMonitoring(for circularRegions: [CLCircularRegion], coordinate: CLLocationCoordinate2D, radius: Int) {
         print("didStartMonitoring")

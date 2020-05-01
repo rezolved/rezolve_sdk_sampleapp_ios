@@ -12,7 +12,7 @@ import RezolveSDK
 class RezolveService {
     static var sdk: Rezolve?
     static var session: RezolveSession?
-    static var geofence: EngagementsService?
+    static var geofence: RezolveGeofence?
     static var notificationCenter: UNUserNotificationCenter?
     
     // Rezolve SDK setup
@@ -28,8 +28,8 @@ class RezolveService {
     
     // Geofence engine setup
     class func setupGeofence() {
-        RezolveService.geofence = EngagementsService()
-        RezolveService.geofence?.rezolveSsp = RezolveService.sdk?.createRezolveSsp()
+        RezolveService.geofence = RezolveGeofence()
+        RezolveService.geofence?.ssp = RezolveService.sdk?.createRezolveSsp()
         RezolveService.geofence?.startMonitoring()
     }
     
