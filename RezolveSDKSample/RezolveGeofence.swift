@@ -1,6 +1,6 @@
 //
 //  RezolveGeofence.swift
-//  Example
+//  RezolveSDKSample
 //
 //  Created by Dennis Koluris on 27/4/20.
 //  Copyright © 2020 Rezolve. All rights reserved.
@@ -25,7 +25,7 @@ class RezolveGeofence {
     
     func stopMonitoring() {
         engagementsManager?.stopMonitoringForNearbyEngagements()
-        engagementsManager?.stopUpdatingDistanceFromNerbyEngagements()
+        engagementsManager?.stopUpdatingDistanceFromNearbyEngagements()
         engagementsManager?.resetNotificationSuppressData()
         engagementsManager?.delegate = nil
     }
