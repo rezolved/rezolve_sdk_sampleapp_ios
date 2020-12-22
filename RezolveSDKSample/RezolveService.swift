@@ -29,7 +29,9 @@ class RezolveService {
     // Geofence engine setup
     class func setupGeofence() {
         RezolveService.geofence = RezolveGeofence()
-        RezolveService.geofence?.ssp = RezolveService.sdk?.createRezolveSsp()
+        RezolveService.geofence?.ssp = RezolveService.sdk?.createRezolveSsp{
+            // Start monitoring engagements
+        }
         RezolveService.geofence?.startMonitoring()
     }
     

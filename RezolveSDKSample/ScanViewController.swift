@@ -109,6 +109,12 @@ extension ScanViewController: ProductDelegate {
         statusView.text = "Processing..."
     }
     
+    func onInactiveEngagement(payload: RezolveCustomPayload) {
+    }
+    
+    func onError(error: String, eventType: RezolveEventReport.RezolveEventReportType) {
+    }
+    
     // MARK: - RCE
     
     func onProductResult(product: Product) {
@@ -126,12 +132,12 @@ extension ScanViewController: ProductDelegate {
     
     // MARK: - SSP
     
-    func onSspActResult(act: SspResolverAct) {
+    func onSspActResult(act: SspResolverAct, eventType: RezolveEventReport.RezolveEventReportType) {
     }
     
-    func onSspProductResult(product: SspResolverProduct) {
+    func onSspProductResult(product: SspResolverProduct, eventType: RezolveEventReport.RezolveEventReportType) {
     }
     
-    func onSspCategoryResult(category: SspResolverCategory) {
+    func onSspCategoryResult(category: SspResolverCategory, eventType: RezolveEventReport.RezolveEventReportType) {
     }
 }

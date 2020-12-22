@@ -42,6 +42,7 @@ class Config {
         auth0Audience: "",
         auth0Endpoint: "",
         sspEndpoint: "",
+        sspActEndpoint: "",
         sspWidth: "",
         baiduLocationKey: ""
     )
