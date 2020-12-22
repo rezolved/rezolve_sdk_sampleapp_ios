@@ -1,10 +1,10 @@
 PODS:
   - JSONWebToken (2.2.0)
-  - RezolveSDK (2.0.7.1-beta1495)
+  - RezolveSDK (2.0.9.2-beta1575)
 
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
-  - RezolveSDK (= 2.0.7.1-beta1495)
+  - RezolveSDK (= 2.0.9.2-beta1575)
 
 SPEC REPOS:
   trunk:
@@ -21,8 +21,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
-  RezolveSDK: 9a7779b707fc7de9e14bc6d1d8f36038e5dd728d
+  RezolveSDK: 7406a662ff41b54c6152cef42693cae450185d21
 
-PODFILE CHECKSUM: 0855bf125e6f97944907542e2d8c3f7911cb2371
+PODFILE CHECKSUM: 7050089f907f0f15c0a6031ecb81579f3c744443
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3
