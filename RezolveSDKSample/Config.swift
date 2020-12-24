@@ -29,13 +29,11 @@ class Config {
     static let demoAuthServer = ""
     static let demoAuthUser = ""
     static let demoAuthPassword = ""
-    
-    static let env = RezolveEnv.sandbox
+    static let env = RezolveEnv(rawValue: String(format: ""))!
     static let rezolveApiKey = ""
     static let partnerId = ""
     static let entityId = ""
     static let tokenSecret = ""
-    
     static let sspActManagerSettings = SspActManagerSettings(
         auth0ClientId: "",
         auth0Secret: "",
@@ -43,7 +41,6 @@ class Config {
         auth0Endpoint: "",
         sspEndpoint: "",
         sspActEndpoint: "",
-        sspWidth: "",
-        baiduLocationKey: ""
+        sspWidth: ""
     )
 }
