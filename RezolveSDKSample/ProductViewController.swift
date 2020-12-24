@@ -30,9 +30,7 @@ class ProductViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = product.title
         
-        guard let description = product.description else {
-            return
-        }
+        let description = product.description ?? ""
         
         let modifiedFont = String(format:"<span style=\"font-family: 'AvenirNext-Regular'; font-size: 14px\">%@</span>", description)
         if let attributedString = try? NSAttributedString(data: modifiedFont.data(using: .unicode, allowLossyConversion: true)!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
