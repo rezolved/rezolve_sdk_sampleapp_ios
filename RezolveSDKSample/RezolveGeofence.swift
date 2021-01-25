@@ -63,7 +63,7 @@ extension RezolveGeofence: NearbyEngagementsManagerDelegate {
         print("didUpdateCurrentDistanceFrom")
     }
     
-    func didReceiveInAppNotification(act: SspResolverAct?) {
+    func didReceiveInAppNotification(engagement: EngagementNotification) {
         print("didReceiveInAppNotification")
     }
 }

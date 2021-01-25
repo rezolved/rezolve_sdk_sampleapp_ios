@@ -132,12 +132,6 @@ extension ScanViewController: ProductDelegate {
     
     // MARK: - SSP
     
-    func onSspActResult(act: SspResolverAct, eventType: RezolveEventReport.RezolveEventReportType) {
-    }
-    
-    func onSspProductResult(product: SspResolverProduct, eventType: RezolveEventReport.RezolveEventReportType) {
-    }
-    
-    func onSspCategoryResult(category: SspResolverCategory, eventType: RezolveEventReport.RezolveEventReportType) {
+    func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
     }
 }
