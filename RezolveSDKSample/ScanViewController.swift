@@ -140,4 +140,7 @@ extension ScanViewController: ProductDelegate {
     
     func onSspCategoryResult(category: SspResolverCategory, eventType: RezolveEventReport.RezolveEventReportType) {
     }
+    
+    func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
+    }
 }
