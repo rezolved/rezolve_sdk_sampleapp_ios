@@ -85,6 +85,17 @@ class ScanViewController: UIViewController {
         try? scanManager.startVideoScan(scanCameraView: scanCameraView)
         try? scanManager?.startAudioScan()
     }
+    
+    private func handleSspActPresentation(sspAct: SspAct) {
+        switch sspAct.type {
+        case .buy:
+            print("Act Buy")
+        case .regular, .informationPage:
+            print("Act Information Page")
+        case .unknown:
+            print("Unsupported Act logic")
+        }
+    }
 }
 
 extension ScanViewController: RezolveScanResultDelegate {
@@ -133,5 +144,18 @@ extension ScanViewController: ProductDelegate {
     // MARK: - SSP
     
     func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
+        progressView.isHidden = true
+        scanManager.stop()
+        
+        let notification = EngagementNotification(engagement: engagement, eventType: eventType)
+        
+        if let customURL = notification.customURL {
+            print("Handle Custom URL -> \(customURL)")
+        } else if let act = notification.engagement.rezolveCustomPayload.act {
+            act.act.scanId = engagement.serviceId
+            handleSspActPresentation(sspAct: act.act)
+        } else {
+            print("Unsupported Engagement logic")
+        }
     }
 }
