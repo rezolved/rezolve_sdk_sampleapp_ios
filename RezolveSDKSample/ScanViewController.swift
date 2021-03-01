@@ -20,6 +20,7 @@ class ScanViewController: UIViewController {
     // Class variables
     private var scanManager: ScanManager!
     private var product: Product?
+    private var sspAct: SspAct?
     
     // MARK: - Lifecycle
     
@@ -54,6 +55,9 @@ class ScanViewController: UIViewController {
         if let product = self.product, segue.identifier == "showProduct" {
             let productViewController = segue.destination as! ProductViewController
             productViewController.product = product
+        } else if let sspAct = self.sspAct, segue.identifier == "showSspAct" {
+            let sspActViewController = segue.destination as! SspActViewController
+            sspActViewController.sspAct = sspAct
         }
     }
     
@@ -91,7 +95,8 @@ class ScanViewController: UIViewController {
         case .buy:
             print("Act Buy")
         case .regular, .informationPage:
-            print("Act Information Page")
+            self.sspAct = sspAct
+            self.performSegue(withIdentifier: "showSspAct", sender: self)
         case .unknown:
             print("Unsupported Act logic")
         }
@@ -152,7 +157,6 @@ extension ScanViewController: ProductDelegate {
         if let customURL = notification.customURL {
             print("Handle Custom URL -> \(customURL)")
         } else if let act = notification.engagement.rezolveCustomPayload.act {
-            act.act.scanId = engagement.serviceId
             handleSspActPresentation(sspAct: act.act)
         } else {
             print("Unsupported Engagement logic")
