@@ -36,6 +36,57 @@ extension UIImageView {
 
 extension UITextView {
     
+    func setBorders(color: UIColor) {
+        if let sublayers = self.layer.sublayers {
+            sublayers.forEach({
+                if  $0.name == TextViewBorder.bottomBorder.rawValue ||
+                    $0.name == TextViewBorder.leftBorder.rawValue ||
+                    $0.name == TextViewBorder.rightBorder.rawValue
+                {
+                    $0.removeFromSuperlayer()
+                }
+            })
+        }
+        setBottomBorder(color: color)
+        setSidesBorder(color: color)
+    }
+    
+    func setBottomBorder(color: UIColor) {
+        
+        let borderW: CGFloat = 1.5
+        
+        let bottomLine = CALayer()
+        bottomLine.name = TextViewBorder.bottomBorder.rawValue
+        bottomLine.frame = CGRect(x: borderW, y: self.frame.height - borderW, width: self.frame.width - (borderW*2), height: borderW)
+        bottomLine.backgroundColor = color.cgColor
+        self.layer.addSublayer(bottomLine)
+    }
+    
+    func setSidesBorder(color: UIColor) {
+        
+        let h = self.frame.size.height-20
+        
+        let y = self.frame.height - h
+        
+        let borderW: CGFloat = 1.5
+        
+        // Left border
+        let leftLine = CALayer()
+        leftLine.name = TextViewBorder.leftBorder.rawValue
+        leftLine.frame = CGRect(x: 0.0, y: y, width: borderW, height: h)
+        leftLine.backgroundColor = color.cgColor
+        
+        self.layer.addSublayer(leftLine)
+        
+        // Right border
+        let rightLine = CALayer()
+        rightLine.name = TextViewBorder.rightBorder.rawValue
+        rightLine.frame = CGRect(x: self.bounds.size.width-borderW, y: y, width: borderW, height: h)
+        rightLine.backgroundColor = color.cgColor
+        
+        self.layer.addSublayer(rightLine)
+    }
+    
     @discardableResult
     func addImageWithInsets(_ namedImg: String) -> UIImageView? {
         guard !self.subviews.contains(where: { (view) -> Bool in

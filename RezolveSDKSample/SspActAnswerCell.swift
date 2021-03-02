@@ -44,6 +44,10 @@ private enum TextStatus {
     case answer, question, empty
 }
 
+enum TextViewBorder: String, CaseIterable {
+    case bottomBorder, leftBorder, rightBorder
+}
+
 class SspActAnswerCell: UITableViewCell {
     
     // MARK: - Properties / Delegates
@@ -113,7 +117,7 @@ class SspActAnswerCell: UITableViewCell {
     }
     
     private func addAdditionalViewsIfNeedIt() {
-        answerTextView.setBorders(color: .rezolveSilver)
+        answerTextView.setBorders(color: .lightGray)
         if question?.type != .some(.field) {
             dropDownArrow = answerTextView.addImageWithInsets("FIELD_ARROW_DOWN")
         }

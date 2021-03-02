@@ -23,13 +23,26 @@ class SspActViewController: UIViewController {
         viewModel.delegate = self
         
         setupTableView()
+        
+        viewModel.loadPage()
     }
     
     // MARK: - Private methods
     
     private func setupTableView() {
+        dataSource.delegate = self
         tableView.delegate = self
         tableView.separatorStyle = .none
+        tableView.dataSource = dataSource
+        tableView.register(cellType: SspActTermsCell.self)
+        tableView.register(cellType: SspActDescriptionCell.self)
+        tableView.register(cellType: SspActImageCell.self)
+        tableView.register(cellType: PageElementTextCell.self)
+        tableView.register(cellType: PageElementDividerCell.self)
+        tableView.register(cellType: PageElementImageCell.self)
+        tableView.register(cellType: PageElementVideoCell.self)
+        tableView.register(cellType: PageElementTextFieldCell.self)
+        tableView.register(cellType: PageElementSelectionCell.self)
     }
     
     private func reloadCell(cell: UITableViewCell) {
