@@ -5,8 +5,12 @@ inhibit_all_warnings!
 
 target 'RezolveSDKSample' do
   # Common
-  pod 'Reusable', '4.1.1'
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
+  pod 'Kingfisher', '5.13.4'
+  pod 'Reusable', '4.1.1'
+  pod 'XCDYouTubeKit', '2.15.0'
+  
+  # Corporate SDK
   pod 'RezolveSDK', '2.0.10.2-beta1592'
 end
 

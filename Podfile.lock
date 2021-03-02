@@ -1,21 +1,29 @@
 PODS:
   - JSONWebToken (2.2.0)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
   - Reusable (4.1.1):
     - Reusable/Storyboard (= 4.1.1)
     - Reusable/View (= 4.1.1)
   - Reusable/Storyboard (4.1.1)
   - Reusable/View (4.1.1)
   - RezolveSDK (2.0.10.2-beta1592)
+  - XCDYouTubeKit (2.15.0)
 
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
+  - Kingfisher (= 5.13.4)
   - Reusable (= 4.1.1)
   - RezolveSDK (= 2.0.10.2-beta1592)
+  - XCDYouTubeKit (= 2.15.0)
 
 SPEC REPOS:
   trunk:
+    - Kingfisher
     - Reusable
     - RezolveSDK
+    - XCDYouTubeKit
 
 EXTERNAL SOURCES:
   JSONWebToken:
@@ -28,9 +36,11 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RezolveSDK: ced6ac8db77a0ab80a5136810d244917f7b25d5c
+  XCDYouTubeKit: c6747c622dd0b52c9e668c028f68097eeffaea39
 
-PODFILE CHECKSUM: ff82a550713833df92a97f255204cb4e3c7b96ed
+PODFILE CHECKSUM: baa35bfeed4f07386c2fe99a66119a13839cfc24
 
 COCOAPODS: 1.10.1
