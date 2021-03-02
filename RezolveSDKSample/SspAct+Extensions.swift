@@ -1,11 +1,3 @@
-//
-//  SspAct+Extensions.swift
-//  RezolveSDKSample
-//
-//  Created by Dennis Koluris on 25/2/21.
-//  Copyright © 2021 Rezolve. All rights reserved.
-//
-
 import Foundation
 import RezolveSDK
 

@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  RezolveSDKSample
-//
-//  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Rezolve. All rights reserved.
-//
-
 import UIKit
 import JWT
 import RezolveSDK

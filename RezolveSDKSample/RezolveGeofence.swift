@@ -1,11 +1,3 @@
-//
-//  RezolveGeofence.swift
-//  RezolveSDKSample
-//
-//  Created by Dennis Koluris on 27/4/20.
-//  Copyright © 2020 Rezolve. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 import RezolveSDK

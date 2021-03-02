@@ -14,6 +14,7 @@
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
 		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E07A525EE323E004627C5 /* SspActViewModel.swift */; };
+		471E07AF25EE37D1004627C5 /* SspActDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E07AE25EE37D1004627C5 /* SspActDataSource.swift */; };
 		473FBDE725E7ACB500043A7C /* SspAct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473FBDE625E7ACB500043A7C /* SspAct+Extensions.swift */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
 		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		471E07A525EE323E004627C5 /* SspActViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewModel.swift; sourceTree = "<group>"; };
+		471E07AE25EE37D1004627C5 /* SspActDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActDataSource.swift; sourceTree = "<group>"; };
 		473FBDE625E7ACB500043A7C /* SspAct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SspAct+Extensions.swift"; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -114,9 +116,17 @@
 			isa = PBXGroup;
 			children = (
 				389CB6EE2385399B0012E155 /* GuestResponse.swift */,
-				471E07A525EE323E004627C5 /* SspActViewModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		471E07AD25EE37B3004627C5 /* SspAct */ = {
+			isa = PBXGroup;
+			children = (
+				471E07A525EE323E004627C5 /* SspActViewModel.swift */,
+				471E07AE25EE37D1004627C5 /* SspActDataSource.swift */,
+			);
+			name = SspAct;
 			sourceTree = "<group>";
 		};
 		5100700EAA1B39B735314D28 /* Pods */ = {
@@ -175,6 +185,7 @@
 				429C19FB2456F89800686657 /* Models */,
 				426373A92457217F00BFAA78 /* Services */,
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
+				471E07AD25EE37B3004627C5 /* SspAct */,
 				429C19FA2456F83E00686657 /* Support */,
 			);
 			path = RezolveSDKSample;
@@ -302,6 +313,7 @@
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
+				471E07AF25EE37D1004627C5 /* SspActDataSource.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,

@@ -1,11 +1,3 @@
-//
-//  RezolveService.swift
-//  RezolveSDKSample
-//
-//  Created by Dennis Koluris on 30/4/20.
-//  Copyright © 2020 Rezolve. All rights reserved.
-//
-
 import UIKit
 import RezolveSDK
 
