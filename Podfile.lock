@@ -9,6 +9,31 @@ PODS:
   - Reusable/Storyboard (4.1.1)
   - Reusable/View (4.1.1)
   - RezolveSDK (2.0.10.2-beta1592)
+  - SwifterSwift (5.2.0):
+    - SwifterSwift/AppKit (= 5.2.0)
+    - SwifterSwift/CoreAnimation (= 5.2.0)
+    - SwifterSwift/CoreGraphics (= 5.2.0)
+    - SwifterSwift/CoreLocation (= 5.2.0)
+    - SwifterSwift/Dispatch (= 5.2.0)
+    - SwifterSwift/Foundation (= 5.2.0)
+    - SwifterSwift/MapKit (= 5.2.0)
+    - SwifterSwift/SceneKit (= 5.2.0)
+    - SwifterSwift/SpriteKit (= 5.2.0)
+    - SwifterSwift/StoreKit (= 5.2.0)
+    - SwifterSwift/SwiftStdlib (= 5.2.0)
+    - SwifterSwift/UIKit (= 5.2.0)
+  - SwifterSwift/AppKit (5.2.0)
+  - SwifterSwift/CoreAnimation (5.2.0)
+  - SwifterSwift/CoreGraphics (5.2.0)
+  - SwifterSwift/CoreLocation (5.2.0)
+  - SwifterSwift/Dispatch (5.2.0)
+  - SwifterSwift/Foundation (5.2.0)
+  - SwifterSwift/MapKit (5.2.0)
+  - SwifterSwift/SceneKit (5.2.0)
+  - SwifterSwift/SpriteKit (5.2.0)
+  - SwifterSwift/StoreKit (5.2.0)
+  - SwifterSwift/SwiftStdlib (5.2.0)
+  - SwifterSwift/UIKit (5.2.0)
   - XCDYouTubeKit (2.15.0)
 
 DEPENDENCIES:
@@ -16,6 +41,7 @@ DEPENDENCIES:
   - Kingfisher (= 5.13.4)
   - Reusable (= 4.1.1)
   - RezolveSDK (= 2.0.10.2-beta1592)
+  - SwifterSwift (= 5.2.0)
   - XCDYouTubeKit (= 2.15.0)
 
 SPEC REPOS:
@@ -23,6 +49,7 @@ SPEC REPOS:
     - Kingfisher
     - Reusable
     - RezolveSDK
+    - SwifterSwift
     - XCDYouTubeKit
 
 EXTERNAL SOURCES:
@@ -39,8 +66,9 @@ SPEC CHECKSUMS:
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
   RezolveSDK: ced6ac8db77a0ab80a5136810d244917f7b25d5c
+  SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
   XCDYouTubeKit: c6747c622dd0b52c9e668c028f68097eeffaea39
 
-PODFILE CHECKSUM: baa35bfeed4f07386c2fe99a66119a13839cfc24
+PODFILE CHECKSUM: 6fb0f0a7edbd7ae7ee7894cf91da609d97ab0d9f
 
 COCOAPODS: 1.10.1
