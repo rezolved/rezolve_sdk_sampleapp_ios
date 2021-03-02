@@ -67,6 +67,9 @@ class SspActViewController: UIViewController {
 
 extension SspActViewController: SspActDataSource.Delegate {
     
+    func sspActTermsCell(_ sspActTermsCell: SspActTermsCell, didInteractWith URL: URL) {
+    }
+    
     func pageElementTextFieldCell(_ cell: PageElementTextFieldCell, didChangeText text: String, for textField: Page.Element.TextField) {
         textField.value = text
     }
@@ -113,7 +116,7 @@ extension SspActViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let item = dataSource[indexPath]
         switch item {
-        case .description, .images:
+        case .description, .images, .terms:
             break
         case .pageElement(let pageElement):
             switch pageElement {

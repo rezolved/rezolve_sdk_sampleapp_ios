@@ -2,7 +2,7 @@ import Foundation
 import RezolveSDK
 
 enum ActDetailsCellSection: CaseIterable {
-    case images, description, answers
+    case images, description, answers, termsConditions
     
     var type: UITableViewCell.Type {
         switch self {
@@ -12,6 +12,8 @@ enum ActDetailsCellSection: CaseIterable {
             return SspActDescriptionCell.self
         case .answers:
             return SspActAnswerCell.self
+        case .termsConditions:
+            return SspActTermsCell.self
         }
     }
     
@@ -23,8 +25,9 @@ enum ActDetailsCellSection: CaseIterable {
             return UITableView.automaticDimension
         case .answers:
             return 50
+        case .termsConditions:
+            return 125
         }
-
     }
     
     static func getAllCases(for act: SspAct) -> AllCases {

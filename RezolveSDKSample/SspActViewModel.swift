@@ -20,7 +20,10 @@ final class SspActViewModel {
             return
         }
         page = PageBuilder().buildIgnoringErros(elements: form)
-        let items: [SspActItem] = page.elements.map({ .pageElement($0) })
+        var items: [SspActItem] = page.elements.map({ .pageElement($0) })
+        if sspAct.isInformationPage == false {
+            items.append(.terms)
+        }
         delegate?.display(items: items)
         validatePage()
     }
@@ -34,4 +37,5 @@ enum SspActItem {
     case images([URL])
     case description(SspAct)
     case pageElement(Page.Element)
+    case terms
 }

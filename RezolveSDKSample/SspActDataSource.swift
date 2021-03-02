@@ -3,8 +3,7 @@ import Reusable
 import RezolveSDK
 
 final class SspActDataSource: NSObject, UITableViewDataSource {
-    
-    typealias Delegate = PageElementTextFieldCellDelegate & PageElementVideoCellDelegate & PageElementImageCellDelegate
+    typealias Delegate = SspActTermsCellDelegate & PageElementTextFieldCellDelegate & PageElementVideoCellDelegate & PageElementImageCellDelegate
     
     weak var delegate: Delegate?
     
@@ -31,6 +30,10 @@ final class SspActDataSource: NSObject, UITableViewDataSource {
             return cell
         case .pageElement(let pageElement):
             return cell(tableView: tableView, indexPath: indexPath, for: pageElement)
+        case .terms:
+            let cell = tableView.dequeueReusableCell(for: indexPath, cellType: SspActTermsCell.self)
+            cell.delegate = delegate
+            return cell
         }
     }
     
@@ -69,6 +72,7 @@ final class SspActDataSource: NSObject, UITableViewDataSource {
     }
 }
 
+extension SspActTermsCell: Reusable { }
 extension SspActDescriptionCell: Reusable { }
 extension SspActImageCell: Reusable { }
 
@@ -80,6 +84,8 @@ extension SspActItem {
             return 325
         case .description, .pageElement:
             return UITableView.automaticDimension
+        case .terms:
+            return 125
         }
     }
 }
