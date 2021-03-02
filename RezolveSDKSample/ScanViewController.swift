@@ -57,7 +57,7 @@ class ScanViewController: UIViewController {
             productViewController.product = product
         } else if let sspAct = self.sspAct, segue.identifier == "showSspAct" {
             let sspActViewController = segue.destination as! SspActViewController
-            sspActViewController.sspAct = sspAct
+            sspActViewController.viewModel = SspActViewModel(sspAct: sspAct)
         }
     }
     

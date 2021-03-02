@@ -1,13 +1,20 @@
 PODS:
   - JSONWebToken (2.2.0)
-  - RezolveSDK (2.0.10.2-beta1588)
+  - Reusable (4.1.1):
+    - Reusable/Storyboard (= 4.1.1)
+    - Reusable/View (= 4.1.1)
+  - Reusable/Storyboard (4.1.1)
+  - Reusable/View (4.1.1)
+  - RezolveSDK (2.0.10.2-beta1592)
 
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
-  - RezolveSDK (= 2.0.10.2-beta1588)
+  - Reusable (= 4.1.1)
+  - RezolveSDK (= 2.0.10.2-beta1592)
 
 SPEC REPOS:
   trunk:
+    - Reusable
     - RezolveSDK
 
 EXTERNAL SOURCES:
@@ -21,8 +28,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
-  RezolveSDK: c5db890d4d2cc690419aef03240db65cb5f7ba45
+  Reusable: 53a9acf5c536f229b31b5865782414b508252ddb
+  RezolveSDK: ced6ac8db77a0ab80a5136810d244917f7b25d5c
 
-PODFILE CHECKSUM: 2f60eea53319a7252e49f785dcd69abdde16c718
+PODFILE CHECKSUM: ff82a550713833df92a97f255204cb4e3c7b96ed
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1
