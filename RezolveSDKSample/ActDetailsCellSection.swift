@@ -32,10 +32,13 @@ enum ActDetailsCellSection: CaseIterable {
     
     static func getAllCases(for act: SspAct) -> AllCases {
         var actAllCases = self.allCases
+        let shouldUseImageSection = !act.images.isNilOrEmpty
+        let shouldUseTermsSection = act.type == .regular
         
-        let omittedImageSectionIfNeedIt = self.images
+        let omittedImageSectionIfNeedIt = shouldUseImageSection ? nil : self.images
+        let omittedTermsSectionIfNeedIt = shouldUseTermsSection ? nil : self.termsConditions
         
-        let omittedSectionsIfAny = [omittedImageSectionIfNeedIt].compactMap { $0 }
+        let omittedSectionsIfAny = [omittedImageSectionIfNeedIt, omittedTermsSectionIfNeedIt].compactMap { $0 }
         
         return actAllCases.removeAll(omittedSectionsIfAny)
     }

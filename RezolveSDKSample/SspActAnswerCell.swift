@@ -37,7 +37,6 @@ enum AnswerSource {
             return value.id
         }
     }
-    
 }
 
 private enum TextStatus {
@@ -135,7 +134,6 @@ class SspActAnswerCell: UITableViewCell {
             subLayer.removeFromSuperlayer()
         }
         return
-        
     }
     
     // MARK: - UI Configuration/Management
@@ -287,5 +285,4 @@ extension SspActAnswerCell: UITextViewDelegate {
         answer = textView.text
         delegate?.sspActAnswerCell(self, didSetAnswerFrom: .text(textView))
     }
-    
 }

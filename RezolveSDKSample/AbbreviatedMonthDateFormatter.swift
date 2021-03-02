@@ -14,5 +14,4 @@ struct AbbreviatedMonthDateFormatter {
         text = text.replacingOccurrences(of: ".", with: "")
         return text
     }
-    
 }

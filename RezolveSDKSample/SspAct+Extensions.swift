@@ -17,7 +17,6 @@ extension SspAct {
             default:
                 self = .unknown
             }
-            
         }
     }
     

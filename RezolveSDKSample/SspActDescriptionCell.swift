@@ -92,7 +92,6 @@ final class SspActDescriptionCell: UITableViewCell {
                 separatorView.heightAnchor.constraint(equalToConstant: 1.0)
             ]
         )
-        
     }
     
     func setupLabels(sspAct: SspAct) {
@@ -101,5 +100,4 @@ final class SspActDescriptionCell: UITableViewCell {
         subtitleLabel.isHidden = sspAct.shortDescription?.isEmpty ?? true
         descriptionLabel.text = sspAct.longDescription
     }
-    
 }
