@@ -231,7 +231,6 @@ class SspActAnswerCell: UITableViewCell {
                 guard let self = self else { return }
                 self.answer = AbbreviatedMonthDateFormatter.getMonthWithoutDotDateText(currentDate: selectedDate)
                 self.delegate?.sspActAnswerCell(self, didSetAnswerFrom: .date(selectedDate))
-                
             }
         ]
     }
@@ -257,12 +256,14 @@ class SspActAnswerCell: UITableViewCell {
         setupDropDownPayload()
         
         guard !payload.isEmpty else { return }
+        self.answer = "Hello DropDown"
     }
     
     @objc private func showDatePickerVC() {
         setupDatePickerPayload()
         
         guard !payload.isEmpty else { return }
+        self.answer = "Hello DatePicker"
     }
 }
 
