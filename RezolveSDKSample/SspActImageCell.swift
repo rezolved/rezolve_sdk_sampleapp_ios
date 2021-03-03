@@ -29,7 +29,7 @@ final class SspActImageCell: UITableViewCell {
                 imageSliderView.topAnchor.constraint(equalTo: topAnchor),
                 imageSliderView.leadingAnchor.constraint(equalTo: leadingAnchor),
                 imageSliderView.trailingAnchor.constraint(equalTo: trailingAnchor),
-                imageSliderView.heightAnchor.constraint(equalToConstant: ActDetailsCellSection.images.height),
+                imageSliderView.heightAnchor.constraint(equalToConstant: 325.0),
             ]
         )
     }

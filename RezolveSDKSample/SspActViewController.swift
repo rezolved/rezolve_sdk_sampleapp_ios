@@ -22,6 +22,7 @@ class SspActViewController: UIViewController {
         super.viewDidLoad()
         viewModel.delegate = self
         
+        print("Is Act Information Page -> \(viewModel.sspAct.isInformationPage ?? false)")
         setupTableView()
         
         viewModel.loadPage()
