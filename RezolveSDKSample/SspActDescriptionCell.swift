@@ -81,7 +81,6 @@ final class SspActDescriptionCell: UITableViewCell {
         separatorView.backgroundColor = .lightGray
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         
-        
         addSubview(separatorView)
 
         NSLayoutConstraint.activate(

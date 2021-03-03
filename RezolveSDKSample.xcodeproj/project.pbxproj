@@ -267,8 +267,8 @@
 		471E081925EE4F2B004627C5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				471E081B25EE4F41004627C5 /* SspActDescriptionCell.swift */,
 				471E081A25EE4F41004627C5 /* SspActImageCell.swift */,
+				471E081B25EE4F41004627C5 /* SspActDescriptionCell.swift */,
 				471E089325EE5E51004627C5 /* SspActTermsCell.swift */,
 			);
 			name = Cells;
