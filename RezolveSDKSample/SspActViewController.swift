@@ -12,8 +12,6 @@ class SspActViewController: UIViewController {
     
     // Private variables
     private let dataSource = SspActDataSource()
-    private let datePicker = DatePicker()
-    private let optionPicker = PageElementOptionPicker()
     private let videoRepository = VideoRepository()
     
     // MARK: - Lifecycle
@@ -59,23 +57,13 @@ class SspActViewController: UIViewController {
     }
     
     private func selectDate(for dateField: Page.Element.DateField, at indexPath: IndexPath) {
-        datePicker.pick(for: dateField) { [weak self, weak dateField] (date) in
-            guard let self = self, let dateField = dateField else {
-                return
-            }
-            dateField.value = date
-            self.reloadCell(at: indexPath)
-        }
+        dateField.value = Date()
+        self.reloadCell(at: indexPath)
     }
     
     private func selectOption(for select: Page.Element.Select, at indexPath: IndexPath) {
-        optionPicker.pick(for: select) { [weak select, weak self] (option) in
-            guard let select = select, let self = self else {
-                return
-            }
-            select.value = option
-            self.reloadCell(at: indexPath)
-        }
+        select.value = select.options[0]
+        self.reloadCell(at: indexPath)
     }
 }
 
