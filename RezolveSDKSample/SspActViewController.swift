@@ -19,11 +19,19 @@ class SspActViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
         
         print("Is Act Information Page -> \(viewModel.sspAct.isInformationPage ?? false)")
         setupTableView()
         
         viewModel.loadPage()
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+        viewModel.validatePage()
     }
     
     // MARK: - Private methods

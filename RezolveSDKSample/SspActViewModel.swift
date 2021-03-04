@@ -29,7 +29,7 @@ final class SspActViewModel {
     }
     
     func validatePage() {
-        print(page.isValid)
+        print("*** Page validation is \(page.isValid)")
     }
 }
 
