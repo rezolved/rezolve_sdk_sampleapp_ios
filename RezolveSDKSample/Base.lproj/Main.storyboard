@@ -112,18 +112,40 @@
                                     </tableView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-Zf-XRL">
+                                <rect key="frame" x="0.0" y="504" width="320" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-qh-YoR">
+                                        <rect key="frame" x="135.5" y="7" width="49" height="30"/>
+                                        <state key="normal" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitAct:" destination="ZEp-Tu-I19" eventType="touchUpInside" id="rp5-UV-Y9I"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dEV-qh-YoR" firstAttribute="centerX" secondItem="dyM-Zf-XRL" secondAttribute="centerX" id="AeG-8Q-AHO"/>
+                                    <constraint firstItem="dEV-qh-YoR" firstAttribute="centerY" secondItem="dyM-Zf-XRL" secondAttribute="centerY" id="kyn-hS-Lkh"/>
+                                    <constraint firstAttribute="height" constant="44" id="wjt-KD-TDT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d14-MG-DwK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="62d-xL-dkI" firstAttribute="top" secondItem="d14-MG-DwK" secondAttribute="top" id="2Gu-Wq-kgY"/>
                             <constraint firstItem="62d-xL-dkI" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="C4y-0F-k0I"/>
+                            <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="dyM-Zf-XRL" secondAttribute="trailing" id="DIO-dh-i46"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="62d-xL-dkI" secondAttribute="trailing" id="E97-Ul-22G"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
+                            <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="dyM-Zf-XRL" secondAttribute="bottom" id="Whj-T9-3lR"/>
+                            <constraint firstItem="dyM-Zf-XRL" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="edN-1g-PVW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c9B-Z8-qlx"/>
                     <connections>
+                        <outlet property="submitView" destination="dyM-Zf-XRL" id="pBQ-0r-ahx"/>
                         <outlet property="tableView" destination="Ska-xa-eJc" id="heI-Oc-PIf"/>
                     </connections>
                 </viewController>

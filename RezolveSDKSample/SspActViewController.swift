@@ -6,6 +6,7 @@ class SspActViewController: UIViewController {
     
     // Interface Builder
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var submitView: UIView!
     
     // Class variables
     var viewModel: SspActViewModel!
@@ -15,6 +16,11 @@ class SspActViewController: UIViewController {
     private let videoRepository = VideoRepository()
     
     // MARK: - Lifecycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        submitView.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +79,19 @@ class SspActViewController: UIViewController {
         select.value = select.options[0]
         self.reloadCell(at: indexPath)
     }
+    
+    // MARK: - IB methods
+    
+    @IBAction func submitAct(_ sender: Any) {
+        guard let manager = RezolveService.session?.sspActManager else {
+            return
+        }
+        
+        viewModel.submit(
+            sspActManager: manager,
+            location: nil
+        )
+    }
 }
 
 extension SspActViewController: SspActDataSource.Delegate {
@@ -114,6 +133,10 @@ extension SspActViewController: SspActViewModelDelegate {
     func display(items: [SspActItem]) {
         dataSource.items = items
         tableView.reloadData()
+    }
+    
+    func enableSubmitView(isEnabled: Bool) {
+        submitView.isHidden = !isEnabled
     }
 }
 

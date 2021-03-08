@@ -3,6 +3,7 @@ import RezolveSDK
 
 protocol SspActViewModelDelegate: class {
     func display(items: [SspActItem])
+    func enableSubmitView(isEnabled: Bool)
 }
 
 final class SspActViewModel {
@@ -29,7 +30,29 @@ final class SspActViewModel {
     }
     
     func validatePage() {
-        print("*** Page validation is \(page.isValid)")
+        delegate?.enableSubmitView(isEnabled: page.isValid)
+    }
+    
+    func submit(sspActManager: SspActManager, location: CLLocation?) {
+        let handler = UserSspActSubmissionHandler(
+            sspActManager: sspActManager,
+            sspAct: sspAct,
+            answers: .page(page),
+            location: location
+        )
+        
+        handler.submitAct { [weak self] (result) in
+            guard let self = self else {
+                return
+            }
+            
+            switch result {
+            case .success(let submission):
+                print("*** Success")
+            case .failure(let error):
+                print("*** Error")
+            }
+        }
     }
 }
 
