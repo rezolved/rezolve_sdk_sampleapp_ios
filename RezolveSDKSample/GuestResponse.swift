@@ -2,7 +2,7 @@ import Foundation
 
 class GuestResponse: Codable {
     
-    let id: String
+    let id: Int
     let username: String
     let firstName: String?
     let lastName: String?

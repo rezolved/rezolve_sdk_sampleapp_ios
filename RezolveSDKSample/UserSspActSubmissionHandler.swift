@@ -54,14 +54,16 @@ final class UserSspActSubmissionHandler {
     // MARK: - Calculated Act properties
     
     private var actSubmission: SspActSubmission {
+        let guestUser = Storage.load()
+        
         return SspActSubmission(
-            userId: "",
-            userName: "",
-            personTitle: "",
-            firstName: "",
-            lastName: "",
-            email: "",
-            phone: nil,
+            userId: guestUser?.id.string,
+            userName: guestUser?.username,
+            personTitle: nil,
+            firstName: guestUser?.firstName,
+            lastName: guestUser?.lastName,
+            email: guestUser?.email,
+            phone: guestUser?.phone,
             scanId: nil,
             latitude: nil,
             longitude: nil,

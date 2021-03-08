@@ -14,9 +14,10 @@ class LoginViewController: UIViewController {
         loginUser(deviceId: deviceId,
                   username: Config.demoAuthUser,
                   password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
-                                                
+            
             switch result {
             case .success(let result):
+                Storage.save(guestUser: result)
                 self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
                 
             case .failure(let error):

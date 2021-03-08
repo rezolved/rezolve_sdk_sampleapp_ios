@@ -57,6 +57,7 @@
 		473FBDE725E7ACB500043A7C /* SspAct+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473FBDE625E7ACB500043A7C /* SspAct+Extensions.swift */; };
 		4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D56325F61A9B00BE1AE5 /* SspActSubmissionDetails.swift */; };
 		4754D56725F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D56625F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift */; };
+		4754D57325F626B000BE1AE5 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D57225F626B000BE1AE5 /* Storage.swift */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
@@ -120,6 +121,7 @@
 		473FBDE625E7ACB500043A7C /* SspAct+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SspAct+Extensions.swift"; sourceTree = "<group>"; };
 		4754D56325F61A9B00BE1AE5 /* SspActSubmissionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionDetails.swift; sourceTree = "<group>"; };
 		4754D56625F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSspActSubmissionHandler.swift; sourceTree = "<group>"; };
+		4754D57225F626B000BE1AE5 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				42C86676245AC980005FCB47 /* RezolveService.swift */,
 				426373A72457212F00BFAA78 /* RezolveGeofence.swift */,
+				4754D57225F626B000BE1AE5 /* Storage.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
 				471E080F25EE42C9004627C5 /* UIColor+Extensions.swift in Sources */,
+				4754D57325F626B000BE1AE5 /* Storage.swift in Sources */,
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				471E07DA25EE394B004627C5 /* PageElementSelectionCell.swift in Sources */,
 				4754D56725F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift in Sources */,
