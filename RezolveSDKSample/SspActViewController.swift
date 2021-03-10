@@ -7,6 +7,7 @@ class SspActViewController: UIViewController {
     // Interface Builder
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitView: UIView!
+    @IBOutlet weak var progressView: UIView!
     
     // Class variables
     var viewModel: SspActViewModel!
@@ -87,6 +88,7 @@ class SspActViewController: UIViewController {
             return
         }
         
+        progressView.isHidden = false
         viewModel.submit(
             sspActManager: manager,
             location: nil
@@ -137,6 +139,16 @@ extension SspActViewController: SspActViewModelDelegate {
     
     func enableSubmitView(isEnabled: Bool) {
         submitView.isHidden = !isEnabled
+    }
+    
+    func actSubmissionFailed(with error: RezolveError) {
+        progressView.isHidden = true
+        print(error)
+    }
+    
+    func actSubmissionSucceed(submission: SspActSubmissionData) {
+        progressView.isHidden = true
+        print(submission)
     }
 }
 

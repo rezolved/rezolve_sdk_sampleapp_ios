@@ -4,6 +4,8 @@ import RezolveSDK
 protocol SspActViewModelDelegate: class {
     func display(items: [SspActItem])
     func enableSubmitView(isEnabled: Bool)
+    func actSubmissionFailed(with error: RezolveError)
+    func actSubmissionSucceed(submission: SspActSubmissionData)
 }
 
 final class SspActViewModel {
@@ -47,10 +49,10 @@ final class SspActViewModel {
             }
             
             switch result {
-            case .success(let submission):
-                print("*** Success")
             case .failure(let error):
-                print("*** Error")
+                self.delegate?.actSubmissionFailed(with: error)
+            case.success(let submission):
+                self.delegate?.actSubmissionSucceed(submission: submission)
             }
         }
     }

@@ -130,21 +130,54 @@
                                     <constraint firstAttribute="height" constant="44" id="wjt-KD-TDT"/>
                                 </constraints>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Cb-jH-98Y">
+                                <rect key="frame" x="60" y="242" width="200" height="120"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="GJW-Sv-sqt">
+                                        <rect key="frame" x="81.5" y="25" width="37" height="37"/>
+                                        <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMZ-zg-ayL">
+                                        <rect key="frame" x="15" y="77" width="170" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zMZ-zg-ayL" secondAttribute="trailing" constant="15" id="77G-Yh-kPK"/>
+                                    <constraint firstItem="zMZ-zg-ayL" firstAttribute="leading" secondItem="5Cb-jH-98Y" secondAttribute="leading" constant="15" id="785-Q8-uRZ"/>
+                                    <constraint firstItem="GJW-Sv-sqt" firstAttribute="centerX" secondItem="5Cb-jH-98Y" secondAttribute="centerX" id="R0p-3u-2y1"/>
+                                    <constraint firstItem="zMZ-zg-ayL" firstAttribute="top" secondItem="GJW-Sv-sqt" secondAttribute="bottom" constant="15" id="Svb-3R-YdC"/>
+                                    <constraint firstAttribute="width" constant="200" id="XlH-jC-69G"/>
+                                    <constraint firstAttribute="height" constant="120" id="gC3-Hk-qFQ"/>
+                                    <constraint firstItem="GJW-Sv-sqt" firstAttribute="top" secondItem="5Cb-jH-98Y" secondAttribute="top" constant="25" id="ozb-KZ-r9G"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d14-MG-DwK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="62d-xL-dkI" firstAttribute="top" secondItem="d14-MG-DwK" secondAttribute="top" id="2Gu-Wq-kgY"/>
                             <constraint firstItem="62d-xL-dkI" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="C4y-0F-k0I"/>
+                            <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerX" secondItem="d14-MG-DwK" secondAttribute="centerX" id="Cg8-h3-M7V"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="dyM-Zf-XRL" secondAttribute="trailing" id="DIO-dh-i46"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="62d-xL-dkI" secondAttribute="trailing" id="E97-Ul-22G"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="dyM-Zf-XRL" secondAttribute="bottom" id="Whj-T9-3lR"/>
                             <constraint firstItem="dyM-Zf-XRL" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="edN-1g-PVW"/>
+                            <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerY" secondItem="d14-MG-DwK" secondAttribute="centerY" id="ems-Wz-h0W"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="c9B-Z8-qlx"/>
                     <connections>
+                        <outlet property="progressView" destination="5Cb-jH-98Y" id="go1-KX-3Il"/>
                         <outlet property="submitView" destination="dyM-Zf-XRL" id="pBQ-0r-ahx"/>
                         <outlet property="tableView" destination="Ska-xa-eJc" id="heI-Oc-PIf"/>
                     </connections>
