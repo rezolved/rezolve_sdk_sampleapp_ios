@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
+		3826931625F8BBB800FB9A00 /* TestLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 3826931525F8BBB800FB9A00 /* TestLocation.gpx */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
+		3826931525F8BBB800FB9A00 /* TestLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestLocation.gpx; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		D49F4478225B98EB006FB59B /* RezolveSDKSample */ = {
 			isa = PBXGroup;
 			children = (
+				3826931525F8BBB800FB9A00 /* TestLocation.gpx */,
 				429C19F92456F81D00686657 /* Interface Builder */,
 				D48FE26122677452001E11D1 /* Extensions */,
 				429C19FB2456F89800686657 /* Models */,
@@ -233,6 +236,7 @@
 			files = (
 				D49F4484225B98EC006FB59B /* LaunchScreen.storyboard in Resources */,
 				D49F4481225B98EC006FB59B /* Assets.xcassets in Resources */,
+				3826931625F8BBB800FB9A00 /* TestLocation.gpx in Resources */,
 				42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */,
 				6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */,
 			);

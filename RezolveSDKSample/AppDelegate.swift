@@ -9,7 +9,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     // Class variables
     var window: UIWindow?
@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         RezolveService.setupNotifications()
         RezolveService.setupBackgroundTask()
         
+        RezolveService.notificationCenter?.delegate = self
+        
         return true
     }
     
@@ -30,6 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         
         RezolveService.geofence?.performFetchWithCompletionHandler(completionHandler)
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        if #available(iOS 14.0, *) {
+            completionHandler([.badge, .banner, .sound, .list])
+        } else {
+            completionHandler([.alert, .badge, .sound])
+        }
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        debugPrint("didReceive")
     }
 }
 
