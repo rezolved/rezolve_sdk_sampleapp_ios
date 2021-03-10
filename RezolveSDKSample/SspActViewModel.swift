@@ -32,6 +32,9 @@ final class SspActViewModel {
     }
     
     func validatePage() {
+        if sspAct.isInformationPage ?? false {
+            return
+        }
         delegate?.enableSubmitView(isEnabled: page.isValid)
     }
     
