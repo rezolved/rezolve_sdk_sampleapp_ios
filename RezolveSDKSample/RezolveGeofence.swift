@@ -15,8 +15,6 @@ class RezolveGeofence {
     var ssp: RezolveSsp?
     
     init() {
-        Log.shared.logLevel = .verbose
-        Log.shared.delegate = self
         NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { (notification) in
             self.ssp?.nearbyEngagementsManager.refreshLocation()
         }
@@ -28,10 +26,8 @@ class RezolveGeofence {
     
     func startMonitoring() {
         engagementsManager?.startMonitoringForNearbyEngagements()
-        engagementsManager?.debugNotifications = true
+        engagementsManager?.debugNotifications = false
         engagementsManager?.delegate = self
-        
-        engagementsManager?.refreshLocation()
     }
     
     func stopMonitoring() {
@@ -76,13 +72,5 @@ extension RezolveGeofence: NearbyEngagementsManagerDelegate {
     
     func didReceiveInAppNotification(engagement: EngagementNotification) {
         print("didReceiveInAppNotification")
-    }
-}
-
-extension RezolveGeofence: RezolveLoggerDelegate {
-    func log(message: String) {
-        if message.contains("[d]NearbyEngagementsManager.swift:424") == false {
-            print(message)
-        }
     }
 }
