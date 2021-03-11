@@ -1,0 +1,3 @@
+[submodule "RezolveSDKSample/SspActSubmodule"]
+	path = RezolveSDKSample/SspActSubmodule
+	url = git@bitbucket.org:rezolvetech/ssp_act_submodule.git

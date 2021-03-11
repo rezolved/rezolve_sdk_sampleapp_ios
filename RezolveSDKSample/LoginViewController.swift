@@ -1,11 +1,3 @@
-//
-//  LoginViewController.swift
-//  RezolveSDKSample
-//
-//  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Rezolve. All rights reserved.
-//
-
 import UIKit
 import JWT
 import RezolveSDK
@@ -22,9 +14,10 @@ class LoginViewController: UIViewController {
         loginUser(deviceId: deviceId,
                   username: Config.demoAuthUser,
                   password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
-                                                
+            
             switch result {
             case .success(let result):
+                Storage.save(guestUser: result)
                 self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
                 
             case .failure(let error):

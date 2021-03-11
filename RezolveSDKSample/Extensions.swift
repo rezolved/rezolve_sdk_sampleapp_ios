@@ -1,11 +1,3 @@
-//
-//  Extensions.swift
-//  RezolveSDKSample
-//
-//  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Rezolve. All rights reserved.
-//
-
 import UIKit
 
 extension String {
@@ -28,6 +20,10 @@ extension Double {
 }
 
 extension UIImageView {
+    struct AnimationConsts {
+        static let fadeTimeInterval: TimeInterval = 0.2
+    }
+    
     public func imageFromUrl(url: URL) {
         DispatchQueue.global().async {
             let data = try! Data(contentsOf: url)

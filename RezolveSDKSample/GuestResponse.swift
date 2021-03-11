@@ -1,19 +1,23 @@
-//
-//  GuestResponse.swift
-//  RezolveSDKSample
-//
-//  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Rezolve. All rights reserved.
-//
-
 import Foundation
 
 class GuestResponse: Codable {
     
+    let id: Int
+    let username: String
+    let firstName: String?
+    let lastName: String?
+    let email: String
+    let phone: String?
     let entityId: String
     let partnerId: String
     
     enum CodingKeys: String, CodingKey {
+        case id
+        case username
+        case firstName
+        case lastName
+        case email
+        case phone
         case entityId = "sdkEntity"
         case partnerId = "sdkPartner"
     }

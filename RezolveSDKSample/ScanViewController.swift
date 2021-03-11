@@ -1,11 +1,3 @@
-//
-//  ScanViewController.swift
-//  RezolveSDKSample
-//
-//  Modified by Dennis Koluris on 27/04/2020.
-//  Copyright © 2019 Rezolve. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 import RezolveSDK
@@ -20,6 +12,8 @@ class ScanViewController: UIViewController {
     // Class variables
     private var scanManager: ScanManager!
     private var product: Product?
+    private var sspAct: SspAct?
+    private var customUrl: URL?
     
     // MARK: - Lifecycle
     
@@ -32,8 +26,6 @@ class ScanViewController: UIViewController {
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
-        
-        askPermission()
     }
     
     // Expand camera preview to container
@@ -45,6 +37,11 @@ class ScanViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        askPermission()
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         scanManager.stop()
@@ -54,6 +51,12 @@ class ScanViewController: UIViewController {
         if let product = self.product, segue.identifier == "showProduct" {
             let productViewController = segue.destination as! ProductViewController
             productViewController.product = product
+        } else if let sspAct = self.sspAct, segue.identifier == "showSspAct" {
+            let sspActViewController = segue.destination as! SspActViewController
+            sspActViewController.viewModel = SspActViewModel(sspAct: sspAct)
+        } else if let customUrl = self.customUrl, segue.identifier == "showWebView" {
+            let webViewController = segue.destination as! WebViewController
+            webViewController.url = customUrl
         }
     }
     
@@ -84,6 +87,18 @@ class ScanViewController: UIViewController {
         
         try? scanManager.startVideoScan(scanCameraView: scanCameraView)
         try? scanManager?.startAudioScan()
+    }
+    
+    private func handleSspActPresentation(sspAct: SspAct) {
+        switch sspAct.type {
+        case .buy:
+            print("Act Buy")
+        case .regular, .informationPage:
+            self.sspAct = sspAct
+            self.performSegue(withIdentifier: "showSspAct", sender: self)
+        case .unknown:
+            print("Unsupported Act logic")
+        }
     }
 }
 
@@ -133,5 +148,18 @@ extension ScanViewController: ProductDelegate {
     // MARK: - SSP
     
     func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
+        progressView.isHidden = true
+        scanManager.stop()
+        
+        let notification = EngagementNotification(engagement: engagement, eventType: eventType)
+        
+        if let url = notification.customURL {
+            self.customUrl = url
+            self.performSegue(withIdentifier: "showWebView", sender: self)
+        } else if let act = notification.engagement.rezolveCustomPayload.act {
+            handleSspActPresentation(sspAct: act.act)
+        } else {
+            print("Unsupported Engagement logic")
+        }
     }
 }
