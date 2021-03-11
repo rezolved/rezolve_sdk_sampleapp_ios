@@ -58,6 +58,7 @@
 		4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D56325F61A9B00BE1AE5 /* SspActSubmissionDetails.swift */; };
 		4754D56725F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D56625F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift */; };
 		4754D57325F626B000BE1AE5 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4754D57225F626B000BE1AE5 /* Storage.swift */; };
+		47DA918425FA082D00B43901 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47DA918325FA082D00B43901 /* WebViewController.swift */; };
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
@@ -122,6 +123,7 @@
 		4754D56325F61A9B00BE1AE5 /* SspActSubmissionDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionDetails.swift; sourceTree = "<group>"; };
 		4754D56625F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSspActSubmissionHandler.swift; sourceTree = "<group>"; };
 		4754D57225F626B000BE1AE5 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		47DA918325FA082D00B43901 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
 				4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
+				47DA918325FA082D00B43901 /* WebViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */,
 				471E07AF25EE37D1004627C5 /* SspActDataSource.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
+				47DA918425FA082D00B43901 /* WebViewController.swift in Sources */,
 				471E07DB25EE394B004627C5 /* PageElementVideoCell.swift in Sources */,
 				471E080C25EE428E004627C5 /* UIFont+OpenSans.swift in Sources */,
 				471E084525EE50FB004627C5 /* ImageSliderView.swift in Sources */,

@@ -89,11 +89,47 @@
                         <outlet property="statusView" destination="P3H-nX-X6v" id="Wyn-c7-RVX"/>
                         <segue destination="Rf3-17-JWC" kind="show" identifier="showProduct" id="T7h-Cp-y9S"/>
                         <segue destination="ZEp-Tu-I19" kind="show" identifier="showSspAct" id="6bb-0u-Kf9"/>
+                        <segue destination="Xve-Tz-ggw" kind="show" identifier="showWebView" id="LCP-Xe-1rQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZX-KF-Wqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2207" y="263"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="jza-mn-Mll">
+            <objects>
+                <viewController id="Xve-Tz-ggw" customClass="WebViewController" customModule="RezolveSDKSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LQs-u5-wAY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npc-YI-Qus">
+                                <rect key="frame" x="0.0" y="56" width="320" height="492"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dGQ-v7-qGN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="npc-YI-Qus" firstAttribute="leading" secondItem="dGQ-v7-qGN" secondAttribute="leading" id="J9V-Ev-Vyo"/>
+                            <constraint firstItem="npc-YI-Qus" firstAttribute="top" secondItem="dGQ-v7-qGN" secondAttribute="top" id="Ro4-Wm-Pys"/>
+                            <constraint firstItem="dGQ-v7-qGN" firstAttribute="trailing" secondItem="npc-YI-Qus" secondAttribute="trailing" id="V2y-h2-1a4"/>
+                            <constraint firstItem="dGQ-v7-qGN" firstAttribute="bottom" secondItem="npc-YI-Qus" secondAttribute="bottom" id="njG-ic-Hb9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="rfY-nH-8zW"/>
+                    <connections>
+                        <outlet property="webView" destination="npc-YI-Qus" id="9pM-HM-Rd0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhZ-tB-34Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3383" y="262"/>
         </scene>
         <!--Ssp Act View Controller-->
         <scene sceneID="Iri-8i-LZm">
@@ -184,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LdG-nr-xv3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3197" y="-106"/>
+            <point key="canvasLocation" x="3197" y="-550"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="GdK-3N-qJh">
@@ -361,7 +397,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KgA-aC-6sK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3197" y="670"/>
+            <point key="canvasLocation" x="2207" y="1232"/>
         </scene>
         <!--Order details-->
         <scene sceneID="ykb-Pc-k1d">
@@ -478,7 +514,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybm-LD-PBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4050" y="670"/>
+            <point key="canvasLocation" x="3069" y="1232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LWZ-fV-j4d">

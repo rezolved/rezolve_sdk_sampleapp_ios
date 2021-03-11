@@ -30,7 +30,6 @@ class SspActViewController: UIViewController {
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
         
-        print("Is Act Information Page -> \(viewModel.sspAct.isInformationPage ?? false)")
         setupTableView()
         
         viewModel.loadPage()

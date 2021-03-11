@@ -13,6 +13,7 @@ class ScanViewController: UIViewController {
     private var scanManager: ScanManager!
     private var product: Product?
     private var sspAct: SspAct?
+    private var customUrl: URL?
     
     // MARK: - Lifecycle
     
@@ -25,8 +26,6 @@ class ScanViewController: UIViewController {
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
-        
-        askPermission()
     }
     
     // Expand camera preview to container
@@ -36,6 +35,11 @@ class ScanViewController: UIViewController {
         if case .some(let preview) = scanCameraView.layer as? AVCaptureVideoPreviewLayer {
             preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        askPermission()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -50,6 +54,9 @@ class ScanViewController: UIViewController {
         } else if let sspAct = self.sspAct, segue.identifier == "showSspAct" {
             let sspActViewController = segue.destination as! SspActViewController
             sspActViewController.viewModel = SspActViewModel(sspAct: sspAct)
+        } else if let customUrl = self.customUrl, segue.identifier == "showWebView" {
+            let webViewController = segue.destination as! WebViewController
+            webViewController.url = customUrl
         }
     }
     
@@ -146,8 +153,9 @@ extension ScanViewController: ProductDelegate {
         
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
         
-        if let customURL = notification.customURL {
-            print("Handle Custom URL -> \(customURL)")
+        if let url = notification.customURL {
+            self.customUrl = url
+            self.performSegue(withIdentifier: "showWebView", sender: self)
         } else if let act = notification.engagement.rezolveCustomPayload.act {
             handleSspActPresentation(sspAct: act.act)
         } else {
