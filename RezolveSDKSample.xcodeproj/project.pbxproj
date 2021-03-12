@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
+		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
+		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 				47DA918325FA082D00B43901 /* WebViewController.swift */,
+				38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				471E07DA25EE394B004627C5 /* PageElementSelectionCell.swift in Sources */,
 				4754D56725F61C7C00BE1AE5 /* UserSspActSubmissionHandler.swift in Sources */,
+				38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */,
 				471E07E225EE394B004627C5 /* PlayerView.swift in Sources */,
 				471E087725EE545A004627C5 /* AbbreviatedMonthDateFormatter.swift in Sources */,
 				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
