@@ -12,7 +12,7 @@ target 'RezolveSDKSample' do
   pod 'XCDYouTubeKit', '2.15.0'
   
   # Corporate SDK
-  pod 'RezolveSDK', '2.0.10.2-beta1592'
+  pod 'RezolveSDK', '2.0.10.2-beta1595'
 end
 
 post_install do |installer|

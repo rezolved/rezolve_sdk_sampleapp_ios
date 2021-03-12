@@ -103,7 +103,6 @@ final class UserSspActSubmissionHandler {
             case .failure(let error):
                 completionHandler(.failure(error))
             }
-
         }
     }
     

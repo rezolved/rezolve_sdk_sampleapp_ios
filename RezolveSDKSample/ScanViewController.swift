@@ -14,6 +14,7 @@ class ScanViewController: UIViewController {
     private var product: Product?
     private var sspAct: SspAct?
     private var customUrl: URL?
+    private var scanningInProgress = false
     
     // MARK: - Lifecycle
     
@@ -105,6 +106,28 @@ class ScanViewController: UIViewController {
 extension ScanViewController: RezolveScanResultDelegate {
     
     func onScanResult(result: RezolveScanResult) {
+        guard !scanningInProgress else {
+            return
+        }
+        
+        // Condition to match specific QR code parameter
+        guard
+            let urlParams = URLComponents(string: result.content)?.queryItems,
+            let engagementId = urlParams.first(where: { $0.name == "engagementid" })?.value else {
+                return
+        }
+        
+        scanningInProgress = true
+        progressView.isHidden = false
+        RezolveService.session?.sspActManager.engagementResolver(engagementId: engagementId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let result):
+                self.onSspEngagementResult(engagement: result, eventType: .qr)
+            case .failure(let error):
+                self.onError(error: error.localizedDescription, eventType: .qr)
+            }
+        }
     }
     
     func onError(error: String) {
@@ -134,7 +157,9 @@ extension ScanViewController: ProductDelegate {
     
     func onProductResult(product: Product) {
         progressView.isHidden = true
+        scanningInProgress = false
         scanManager.stop()
+        
         self.product = product
         self.performSegue(withIdentifier: "showProduct", sender: self)
     }
@@ -149,6 +174,7 @@ extension ScanViewController: ProductDelegate {
     
     func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
         progressView.isHidden = true
+        scanningInProgress = false
         scanManager.stop()
         
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
