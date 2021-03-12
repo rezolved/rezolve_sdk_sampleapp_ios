@@ -5,6 +5,13 @@ import RezolveSDK
 class RezolveGeofence {
     
     var ssp: RezolveSsp?
+    
+    init() {
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { (notification) in
+            self.ssp?.nearbyEngagementsManager.refreshLocation()
+        }
+    }
+    
     private var engagementsManager: NearbyEngagementsManager? {
         return ssp?.nearbyEngagementsManager
     }
