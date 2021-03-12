@@ -53,8 +53,6 @@ final class SspActTermsCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         
- 
-        
         return textView
     }()
     
