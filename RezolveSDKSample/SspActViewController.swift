@@ -18,11 +18,6 @@ class SspActViewController: UIViewController {
     
     // MARK: - Lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        submitView.isHidden = true
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
@@ -93,6 +88,15 @@ class SspActViewController: UIViewController {
             location: nil
         )
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if let summaryViewController = segue.destination as? SspActSubmissionSummaryViewController {
+            summaryViewController.sspAct = viewModel.sspAct
+            summaryViewController.page = viewModel.page
+        }
+    }
 }
 
 extension SspActViewController: SspActDataSource.Delegate {
@@ -147,7 +151,7 @@ extension SspActViewController: SspActViewModelDelegate {
     
     func actSubmissionSucceed(submission: SspActSubmissionData) {
         progressView.isHidden = true
-        print(submission)
+        performSegue(withIdentifier: "showSubmissionSummary", sender: nil)
     }
 }
 
