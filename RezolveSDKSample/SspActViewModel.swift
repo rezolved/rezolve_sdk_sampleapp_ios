@@ -9,7 +9,7 @@ protocol SspActViewModelDelegate: class {
 }
 
 final class SspActViewModel {
-    private var page: Page!
+    private(set) var page: Page!
     let sspAct: SspAct
     
     weak var delegate: SspActViewModelDelegate?

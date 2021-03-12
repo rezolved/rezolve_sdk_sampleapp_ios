@@ -21,6 +21,10 @@ class ScanViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        }
+        
         guard let scanManagerInstance = RezolveService.session?.getScanManager() else {
             return
         }
