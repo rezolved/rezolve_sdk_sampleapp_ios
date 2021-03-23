@@ -31,6 +31,20 @@ class ScanViewController: UIViewController {
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
+        
+        DeepLinks.observe { (url) in
+            RezolveService.session?.triggerManager.resolve(
+                url: url,
+                productDelegate: self,
+                eventType: .touch,
+                onRezolveTriggerStart: { },
+                onRezolveTriggerEnd: { },
+                errorCallback: { (error) in
+                    debugPrint(error)
+                    self.open(url: url)
+                }
+            )
+        }
     }
     
     // Expand camera preview to container
@@ -40,6 +54,11 @@ class ScanViewController: UIViewController {
         if case .some(let preview) = scanCameraView.layer as? AVCaptureVideoPreviewLayer {
             preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
         }
+    }
+    
+    private func open(url: URL) {
+        customUrl = url
+        performSegue(withIdentifier: "showWebView", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -184,8 +203,7 @@ extension ScanViewController: ProductDelegate {
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
         
         if let url = notification.customURL {
-            self.customUrl = url
-            self.performSegue(withIdentifier: "showWebView", sender: self)
+            open(url: url)
         } else if let act = notification.engagement.rezolveCustomPayload.act {
             handleSspActPresentation(sspAct: act.act)
         } else {

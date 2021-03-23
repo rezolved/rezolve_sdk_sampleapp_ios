@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
 		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
+		3869424D2609EFCF0098007A /* DeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869424C2609EFCF0098007A /* DeepLinks.swift */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */; };
@@ -75,6 +76,8 @@
 /* Begin PBXFileReference section */
 		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
+		386941FC2609E3F00098007A /* RezolveSDKSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RezolveSDKSample.entitlements; sourceTree = "<group>"; };
+		3869424C2609EFCF0098007A /* DeepLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinks.swift; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +363,7 @@
 		D49F4478225B98EB006FB59B /* RezolveSDKSample */ = {
 			isa = PBXGroup;
 			children = (
+				386941FC2609E3F00098007A /* RezolveSDKSample.entitlements */,
 				429C19F92456F81D00686657 /* Interface Builder */,
 				D48FE26122677452001E11D1 /* Extensions */,
 				429C19FB2456F89800686657 /* Models */,
@@ -367,6 +371,7 @@
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				471E07AD25EE37B3004627C5 /* SspAct */,
 				429C19FA2456F83E00686657 /* Support */,
+				3869424C2609EFCF0098007A /* DeepLinks.swift */,
 			);
 			path = RezolveSDKSample;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				471E07DD25EE394B004627C5 /* YoutubeClient.swift in Sources */,
+				3869424D2609EFCF0098007A /* DeepLinks.swift in Sources */,
 				471E07D525EE394B004627C5 /* PageElementTextCell.swift in Sources */,
 				471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */,
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
@@ -693,6 +699,7 @@
 			baseConfigurationReference = 0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RezolveSDKSample/RezolveSDKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NTR6788A69;
@@ -707,7 +714,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = co.rezolve.example;
+				PRODUCT_BUNDLE_IDENTIFIER = co.rezolve.sampleapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -721,6 +728,7 @@
 			baseConfigurationReference = 795F91ED019104B4B5726E46 /* Pods-RezolveSDKSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RezolveSDKSample/RezolveSDKSample.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
