@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
 		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
-		3869424D2609EFCF0098007A /* DeepLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869424C2609EFCF0098007A /* DeepLinks.swift */; };
+		3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869424C2609EFCF0098007A /* DeepLinkHandler.swift */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
+		38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACD5D8260A243B006293E1 /* CategoryViewController.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
@@ -77,8 +78,9 @@
 		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
 		386941FC2609E3F00098007A /* RezolveSDKSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RezolveSDKSample.entitlements; sourceTree = "<group>"; };
-		3869424C2609EFCF0098007A /* DeepLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinks.swift; sourceTree = "<group>"; };
+		3869424C2609EFCF0098007A /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
+		38ACD5D8260A243B006293E1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewController.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 				47DA918325FA082D00B43901 /* WebViewController.swift */,
 				38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */,
+				38ACD5D8260A243B006293E1 /* CategoryViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -371,7 +374,7 @@
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				471E07AD25EE37B3004627C5 /* SspAct */,
 				429C19FA2456F83E00686657 /* Support */,
-				3869424C2609EFCF0098007A /* DeepLinks.swift */,
+				3869424C2609EFCF0098007A /* DeepLinkHandler.swift */,
 			);
 			path = RezolveSDKSample;
 			sourceTree = "<group>";
@@ -512,11 +515,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				471E07DD25EE394B004627C5 /* YoutubeClient.swift in Sources */,
-				3869424D2609EFCF0098007A /* DeepLinks.swift in Sources */,
+				3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */,
 				471E07D525EE394B004627C5 /* PageElementTextCell.swift in Sources */,
 				471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */,
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
+				38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
 				471E080F25EE42C9004627C5 /* UIColor+Extensions.swift in Sources */,
 				4754D57325F626B000BE1AE5 /* Storage.swift in Sources */,

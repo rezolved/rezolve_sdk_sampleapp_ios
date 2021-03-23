@@ -1,19 +1,19 @@
 import Foundation
 
-final class DeepLinks {
+final class DeepLinkHandler {
     typealias Handler = (URL) -> ()
     
     private var handler: Handler?
-    private var queue = [URL]()
+    private var url: URL?
     
-    private static let shared = DeepLinks()
+    private static let shared = DeepLinkHandler()
     
     private init() {
         
     }
     
     private func handle(url: URL) {
-        queue.append(url)
+        self.url = url
         notify()
     }
     
@@ -25,12 +25,11 @@ final class DeepLinks {
     private func notify() {
         guard
             let handler = handler,
-            let last = queue.popLast()
+            let url = url
         else {
             return
         }
-        handler(last)
-        notify()
+        handler(url)
     }
     
     static func handle(url: URL) {

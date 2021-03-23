@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let url = userActivity.webpageURL else {
             return false
         }
-        DeepLinks.handle(url: url)
+        DeepLinkHandler.handle(url: url)
         return true
     }
 }
