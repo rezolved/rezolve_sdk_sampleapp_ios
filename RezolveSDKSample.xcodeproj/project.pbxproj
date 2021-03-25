@@ -10,6 +10,14 @@
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
 		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
 		3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869424C2609EFCF0098007A /* DeepLinkHandler.swift */; };
+		388D24E9260CCD15008C40D7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24E8260CCD15008C40D7 /* ImageCell.swift */; };
+		388D24EC260CCD2C008C40D7 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24EB260CCD2C008C40D7 /* VideoCell.swift */; };
+		388D24EF260CCD45008C40D7 /* DividerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24EE260CCD45008C40D7 /* DividerCell.swift */; };
+		388D24F2260CCD70008C40D7 /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24F1260CCD70008C40D7 /* TextFieldCell.swift */; };
+		388D24F5260CCD95008C40D7 /* TextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24F4260CCD95008C40D7 /* TextCell.swift */; };
+		388D24F8260CCE1A008C40D7 /* PageElementDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24F7260CCE1A008C40D7 /* PageElementDataSource.swift */; };
+		388D24FB260CD097008C40D7 /* DateFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24FA260CD097008C40D7 /* DateFieldCell.swift */; };
+		388D24FE260CD2E2008C40D7 /* SelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24FD260CD2E2008C40D7 /* SelectCell.swift */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACD5D8260A243B006293E1 /* CategoryViewController.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
@@ -50,6 +58,14 @@
 		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
 		386941FC2609E3F00098007A /* RezolveSDKSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RezolveSDKSample.entitlements; sourceTree = "<group>"; };
 		3869424C2609EFCF0098007A /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		388D24E8260CCD15008C40D7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		388D24EB260CCD2C008C40D7 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		388D24EE260CCD45008C40D7 /* DividerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerCell.swift; sourceTree = "<group>"; };
+		388D24F1260CCD70008C40D7 /* TextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
+		388D24F4260CCD95008C40D7 /* TextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCell.swift; sourceTree = "<group>"; };
+		388D24F7260CCE1A008C40D7 /* PageElementDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageElementDataSource.swift; sourceTree = "<group>"; };
+		388D24FA260CD097008C40D7 /* DateFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFieldCell.swift; sourceTree = "<group>"; };
+		388D24FD260CD2E2008C40D7 /* SelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCell.swift; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		38ACD5D8260A243B006293E1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
@@ -107,6 +123,31 @@
 				A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		388D24E6260CCCFD008C40D7 /* SspAct */ = {
+			isa = PBXGroup;
+			children = (
+				388D24E7260CCD0D008C40D7 /* Cells */,
+				471E07A525EE323E004627C5 /* SspActViewModel.swift */,
+				4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */,
+				388D24F7260CCE1A008C40D7 /* PageElementDataSource.swift */,
+			);
+			name = SspAct;
+			sourceTree = "<group>";
+		};
+		388D24E7260CCD0D008C40D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				388D24E8260CCD15008C40D7 /* ImageCell.swift */,
+				388D24EB260CCD2C008C40D7 /* VideoCell.swift */,
+				388D24EE260CCD45008C40D7 /* DividerCell.swift */,
+				388D24F1260CCD70008C40D7 /* TextFieldCell.swift */,
+				388D24F4260CCD95008C40D7 /* TextCell.swift */,
+				388D24FA260CD097008C40D7 /* DateFieldCell.swift */,
+				388D24FD260CD2E2008C40D7 /* SelectCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		426373A92457217F00BFAA78 /* Services */ = {
@@ -187,11 +228,10 @@
 		6A23EDDA224BE5DE18995D23 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				471E07A525EE323E004627C5 /* SspActViewModel.swift */,
+				388D24E6260CCCFD008C40D7 /* SspAct */,
 				6A23E808AED379C3EDAD1395 /* LoginViewController.swift */,
 				D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */,
 				D48FE25F22676AE6001E11D1 /* ProductViewController.swift */,
-				4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */,
 				D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */,
 				47DA918325FA082D00B43901 /* WebViewController.swift */,
 				38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */,
@@ -373,6 +413,7 @@
 				3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */,
 				471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */,
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
+				388D24EF260CCD45008C40D7 /* DividerCell.swift in Sources */,
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
 				38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
@@ -383,11 +424,18 @@
 				471E087725EE545A004627C5 /* AbbreviatedMonthDateFormatter.swift in Sources */,
 				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
 				4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */,
+				388D24EC260CCD2C008C40D7 /* VideoCell.swift in Sources */,
+				388D24F8260CCE1A008C40D7 /* PageElementDataSource.swift in Sources */,
+				388D24E9260CCD15008C40D7 /* ImageCell.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				47DA918425FA082D00B43901 /* WebViewController.swift in Sources */,
 				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
+				388D24F2260CCD70008C40D7 /* TextFieldCell.swift in Sources */,
+				388D24F5260CCD95008C40D7 /* TextCell.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
 				6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */,
+				388D24FE260CD2E2008C40D7 /* SelectCell.swift in Sources */,
+				388D24FB260CD097008C40D7 /* DateFieldCell.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
 				4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */,
 				473FBDE725E7ACB500043A7C /* SspAct+Extensions.swift in Sources */,

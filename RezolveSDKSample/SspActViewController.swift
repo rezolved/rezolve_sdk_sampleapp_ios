@@ -13,7 +13,7 @@ final class SspActViewController: UIViewController {
     var viewModel: SspActViewModel!
     
     // Private variables
-//    private let dataSource = SspActDataSource()
+    private let dataSource = PageElementDataSource()
     
     // MARK: - Lifecycle
     
@@ -37,10 +37,9 @@ final class SspActViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupTableView() {
-//        dataSource.delegate = self
-//        tableView.delegate = self
-        tableView.separatorStyle = .none
-//        tableView.dataSource = dataSource
+        dataSource.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = dataSource
     }
     
     private func reloadCell(cell: UITableViewCell) {
@@ -53,16 +52,6 @@ final class SspActViewController: UIViewController {
     private func reloadCell(at indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .automatic)
         viewModel.validatePage()
-    }
-    
-    private func selectDate(for dateField: Page.Element.DateField, at indexPath: IndexPath) {
-        dateField.value = Date()
-        self.reloadCell(at: indexPath)
-    }
-    
-    private func selectOption(for select: Page.Element.Select, at indexPath: IndexPath) {
-        select.value = select.options[0]
-        self.reloadCell(at: indexPath)
     }
     
     // MARK: - IB methods
@@ -89,44 +78,28 @@ final class SspActViewController: UIViewController {
     }
 }
 
-//extension SspActViewController: SspActDataSource.Delegate {
-//
-//    func sspActTermsCell(_ sspActTermsCell: SspActTermsCell, didInteractWith URL: URL) {
-//    }
-//
-//    func pageElementTextFieldCell(_ cell: PageElementTextFieldCell, didChangeText text: String, for textField: Page.Element.TextField) {
-//        textField.value = text
-//    }
-//
-//    func pageElementTextFieldCell(_ cell: PageElementTextFieldCell, didBeginEditing text: String, for textField: Page.Element.TextField) {
-//        guard let indexPath = tableView.indexPath(for: cell) else {
-//            return
-//        }
-//        tableView.safeScrollToRow(at: indexPath, at: .bottom, animated: true)
-//    }
-//
-//    func pageElementTextFieldCell(_ cell: PageElementTextFieldCell, didEndEditing text: String, for textField: Page.Element.TextField) {
-//        reloadCell(cell: cell)
-//    }
-//
-//    func pageElementVideoCell(_ cell: PageElementVideoCell, didRequestForVideo url: URL, completion: @escaping (Video) -> Void) {
-//        videoRepository.video(url: url, completion: completion)
-//    }
-//
-//    func pageElementVideoCell(_ cell: PageElementVideoCell, didTapFullScreen player: AVPlayer) {
-//        let playerViewController = AVPlayerViewController()
-//        playerViewController.player = player
-//        present(playerViewController, animated: true, completion: nil)
-//    }
-//
-//    func pageElementImageCellDidLoadImage(_ cell: PageElementImageCell) {
-//        reloadCell(cell: cell)
-//    }
-//}
+extension SspActViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = dataSource.items[indexPath.row]
+        switch item {
+        case .dateField(let dateField):
+            dateField.value = Date()
+        case .select(let select):
+            select.value = select.options.first
+        case .video(let url):
+            UIApplication.shared.open(url)
+        case .text, .divider, .image, .textField:
+            break
+        }
+        
+        reloadCell(at: indexPath)
+    }
+}
 
 extension SspActViewController: SspActViewModelDelegate {
     func display(items: [Page.Element]) {
-//        dataSource.items = items
+        dataSource.items = items
         tableView.reloadData()
     }
     
@@ -145,36 +118,9 @@ extension SspActViewController: SspActViewModelDelegate {
     }
 }
 
-//extension SspActViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let item = dataSource[indexPath]
-//        return item.cellHeight
-//    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let item = dataSource[indexPath]
-//        switch item {
-//        case .description, .images, .terms:
-//            break
-//        case .pageElement(let pageElement):
-//            switch pageElement {
-//            case .text, .divider, .image, .textField, .video:
-//                break
-//            case .dateField(let dateField):
-//                selectDate(for: dateField, at: indexPath)
-//            case .select(let select):
-//                selectOption(for: select, at: indexPath)
-//            }
-//        }
-//    }
-//
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.selectionStyle = .none
-//    }
-//
-//    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if let videoCell = cell as? PageElementVideoCell {
-//            videoCell.stop()
-//        }
-//    }
-//}
+extension SspActViewController: PageElementDataSource.Delegate {
+    func textFieldCell(_ cell: TextFieldCell, didChangeText text: String, model: Page.Element.TextField) {
+        model.value = text
+        reloadCell(cell: cell)
+    }
+}
