@@ -90,6 +90,7 @@
                         <segue destination="Rf3-17-JWC" kind="show" identifier="showProduct" id="T7h-Cp-y9S"/>
                         <segue destination="ZEp-Tu-I19" kind="show" identifier="showSspAct" id="6bb-0u-Kf9"/>
                         <segue destination="Xve-Tz-ggw" kind="show" identifier="showWebView" id="LCP-Xe-1rQ"/>
+                        <segue destination="ZKk-NA-zsD" kind="show" identifier="showCategory" id="BS6-S1-ADt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZX-KF-Wqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,6 +304,95 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4R-JM-hEu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4267.5" y="-550.35211267605632"/>
+        </scene>
+        <!--Category View Controller-->
+        <scene sceneID="X7Q-Id-4SG">
+            <objects>
+                <viewController storyboardIdentifier="CategoryViewController" id="ZKk-NA-zsD" customClass="CategoryViewController" customModule="RezolveSDKSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Geu-e8-AKN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NHV-39-K9G">
+                                <rect key="frame" x="0.0" y="56" width="320" height="492"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="3h8-f7-ULy">
+                                    <rect key="frame" x="0.0" y="158" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="lVj-L8-zCp" customClass="CategoryCell" customModule="RezolveSDKSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lVj-L8-zCp" id="lm8-xN-cl4">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVt-ra-r3p">
+                                                    <rect key="frame" x="15" y="15" width="290" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="JVt-ra-r3p" firstAttribute="top" secondItem="lm8-xN-cl4" secondAttribute="top" constant="15" id="5Bl-NH-stc"/>
+                                                <constraint firstItem="JVt-ra-r3p" firstAttribute="leading" secondItem="lm8-xN-cl4" secondAttribute="leading" constant="15" id="9fl-gv-bgd"/>
+                                                <constraint firstAttribute="trailing" secondItem="JVt-ra-r3p" secondAttribute="trailing" constant="15" id="KMU-qE-8pe"/>
+                                                <constraint firstAttribute="bottom" secondItem="JVt-ra-r3p" secondAttribute="bottom" constant="15" id="Lti-Mm-fsL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="JVt-ra-r3p" id="a9m-V3-1rY"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" id="5Se-4x-fgs" customClass="ProductCell" customModule="RezolveSDKSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="79" width="320" height="51"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Se-4x-fgs" id="E2a-TT-9dZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i15-Wj-dYb">
+                                                    <rect key="frame" x="15" y="15" width="290" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="i15-Wj-dYb" secondAttribute="bottom" constant="15" id="M0u-mv-Dvi"/>
+                                                <constraint firstItem="i15-Wj-dYb" firstAttribute="leading" secondItem="E2a-TT-9dZ" secondAttribute="leading" constant="15" id="NOG-bb-KdL"/>
+                                                <constraint firstAttribute="trailing" secondItem="i15-Wj-dYb" secondAttribute="trailing" constant="15" id="VTZ-zb-3n4"/>
+                                                <constraint firstItem="i15-Wj-dYb" firstAttribute="top" secondItem="E2a-TT-9dZ" secondAttribute="top" constant="15" id="db3-Ou-hgH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="productNameLabel" destination="i15-Wj-dYb" id="Or2-2v-Nzf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GkI-Vw-BL9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GkI-Vw-BL9" firstAttribute="bottom" secondItem="NHV-39-K9G" secondAttribute="bottom" id="00o-BM-eWj"/>
+                            <constraint firstItem="NHV-39-K9G" firstAttribute="top" secondItem="GkI-Vw-BL9" secondAttribute="top" id="80s-DE-sFH"/>
+                            <constraint firstItem="NHV-39-K9G" firstAttribute="leading" secondItem="GkI-Vw-BL9" secondAttribute="leading" id="90t-Mc-6bl"/>
+                            <constraint firstItem="GkI-Vw-BL9" firstAttribute="trailing" secondItem="NHV-39-K9G" secondAttribute="trailing" id="e1G-Qp-W2U"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="FlQ-FG-cIg"/>
+                    <connections>
+                        <outlet property="tableView" destination="NHV-39-K9G" id="tZo-m6-CBx"/>
+                        <segue destination="Rf3-17-JWC" kind="show" identifier="showProduct" id="Hwn-iZ-aVK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1xu-C6-Pwe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370.625" y="1231.6901408450703"/>
         </scene>
         <!--Product View Controller-->
         <scene sceneID="GdK-3N-qJh">
@@ -617,6 +707,9 @@
             <point key="canvasLocation" x="1339" y="262"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Hwn-iZ-aVK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
