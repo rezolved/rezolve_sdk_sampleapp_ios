@@ -3,6 +3,12 @@ import RezolveSDK
 
 final class SspActSubmissionSummaryViewController: UIViewController {
     
+    private static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        return formatter
+    }()
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,17 +34,17 @@ final class SspActSubmissionSummaryViewController: UIViewController {
         switch element {
         case .dateField(let dateField):
             return SspActAnswerCell.Item(
-                question: dateField.headerText ?? "",
-                answer: dateField.valueText ?? ""
+                question: dateField.text ?? "",
+                answer: dateField.value.map(SspActSubmissionSummaryViewController.dateFormatter.string(from:)) ?? ""
             )
         case .select(let select):
             return SspActAnswerCell.Item(
-                question: select.headerText ?? "",
-                answer: select.valueText ?? ""
+                question: select.text ?? "",
+                answer: select.value?.description ?? ""
             )
         case .textField(let textField):
             return SspActAnswerCell.Item(
-                question: textField.headerText,
+                question: textField.text ?? "",
                 answer: textField.value ?? ""
             )
         case .text, .divider, .image, .video:
