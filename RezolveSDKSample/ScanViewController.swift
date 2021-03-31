@@ -15,6 +15,8 @@ class ScanViewController: UIViewController {
     private var sspAct: SspAct?
     private var customUrl: URL?
     private var scanningInProgress = false
+    private var category: RezolveSDK.Category?
+    private var merchantID: String?
     
     // MARK: - Lifecycle
     
@@ -31,6 +33,20 @@ class ScanViewController: UIViewController {
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
+        
+        DeepLinkHandler.observe { (url) in
+            RezolveService.session?.triggerManager.resolve(
+                url: url,
+                productDelegate: self,
+                eventType: .touch,
+                onRezolveTriggerStart: { },
+                onRezolveTriggerEnd: { },
+                errorCallback: { (error) in
+                    debugPrint(error)
+                    self.open(url: url)
+                }
+            )
+        }
     }
     
     // Expand camera preview to container
@@ -40,6 +56,11 @@ class ScanViewController: UIViewController {
         if case .some(let preview) = scanCameraView.layer as? AVCaptureVideoPreviewLayer {
             preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
         }
+    }
+    
+    private func open(url: URL) {
+        customUrl = url
+        performSegue(withIdentifier: "showWebView", sender: self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,6 +83,9 @@ class ScanViewController: UIViewController {
         } else if let customUrl = self.customUrl, segue.identifier == "showWebView" {
             let webViewController = segue.destination as! WebViewController
             webViewController.url = customUrl
+        } else if let categoryViewController = segue.destination as? CategoryViewController {
+            categoryViewController.category = category
+            categoryViewController.merchantID = merchantID
         }
     }
     
@@ -169,9 +193,13 @@ extension ScanViewController: ProductDelegate {
     }
     
     func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
+        self.category = category
+        self.merchantID = merchantId
+        performSegue(withIdentifier: "showCategory", sender: nil)
     }
     
     func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
+        onCategoryResult(merchantId: merchantId, category: category)
     }
     
     // MARK: - SSP
@@ -184,8 +212,7 @@ extension ScanViewController: ProductDelegate {
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
         
         if let url = notification.customURL {
-            self.customUrl = url
-            self.performSegue(withIdentifier: "showWebView", sender: self)
+            DeepLinkHandler.handle(url: url)
         } else if let act = notification.engagement.rezolveCustomPayload.act {
             handleSspActPresentation(sspAct: act.act)
         } else {

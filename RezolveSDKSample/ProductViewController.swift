@@ -128,7 +128,7 @@ class ProductViewController: UIViewController {
                 shippingMethod: shippingMethod,
                 merchantId: self.product.merchantId,
                 optionId: option.id,
-                paymentMethod: option.supportedPaymentMethods![0],
+                paymentMethod: option.supportedPaymentMethods?.first,
                 paymentRequest: paymentRequest,
                 phoneId: phone.id,
                 location: location

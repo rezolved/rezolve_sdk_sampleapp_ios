@@ -7,12 +7,10 @@ target 'RezolveSDKSample' do
   # Common
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
   pod 'Kingfisher', '5.13.4'
-  pod 'Reusable', '4.1.1'
   pod 'SwifterSwift', '5.2.0'
-  pod 'XCDYouTubeKit', '2.15.0'
   
   # Corporate SDK
-  pod 'RezolveSDK', '2.0.10.2-beta1595'
+  pod 'RezolveSDK', '2.0.11.2-beta1604'
 end
 
 post_install do |installer|
