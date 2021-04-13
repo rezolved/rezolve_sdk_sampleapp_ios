@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
 		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
+		38310C52262595F0008AF24A /* NotificationsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38310C51262595F0008AF24A /* NotificationsHandler.swift */; };
 		3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3869424C2609EFCF0098007A /* DeepLinkHandler.swift */; };
 		388D24E9260CCD15008C40D7 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24E8260CCD15008C40D7 /* ImageCell.swift */; };
 		388D24EC260CCD2C008C40D7 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24EB260CCD2C008C40D7 /* VideoCell.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
+		38310C51262595F0008AF24A /* NotificationsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsHandler.swift; sourceTree = "<group>"; };
 		386941FC2609E3F00098007A /* RezolveSDKSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RezolveSDKSample.entitlements; sourceTree = "<group>"; };
 		3869424C2609EFCF0098007A /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		388D24E8260CCD15008C40D7 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				429C19FA2456F83E00686657 /* Support */,
 				3869424C2609EFCF0098007A /* DeepLinkHandler.swift */,
+				38310C51262595F0008AF24A /* NotificationsHandler.swift */,
 			);
 			path = RezolveSDKSample;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				4754D57325F626B000BE1AE5 /* Storage.swift in Sources */,
 				D48FE2632267746F001E11D1 /* Extensions.swift in Sources */,
 				38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */,
+				38310C52262595F0008AF24A /* NotificationsHandler.swift in Sources */,
 				471E087725EE545A004627C5 /* AbbreviatedMonthDateFormatter.swift in Sources */,
 				42C86677245AC980005FCB47 /* RezolveService.swift in Sources */,
 				4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */,
