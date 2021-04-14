@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="492"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-xa-eJc">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="422"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="L0K-ty-QHQ">
                                             <rect key="frame" x="0.0" y="522.5" width="320" height="44"/>
@@ -360,22 +360,11 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-Zf-XRL">
-                                        <rect key="frame" x="0.0" y="448" width="320" height="44"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-qh-YoR">
-                                                <rect key="frame" x="135.5" y="7" width="49" height="30"/>
-                                                <state key="normal" title="Submit"/>
-                                                <connections>
-                                                    <action selector="submitAct:" destination="ZEp-Tu-I19" eventType="touchUpInside" id="rp5-UV-Y9I"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-Zf-XRL" customClass="SlideToActionView" customModule="RezolveSDKSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="422" width="320" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="dEV-qh-YoR" firstAttribute="centerX" secondItem="dyM-Zf-XRL" secondAttribute="centerX" id="AeG-8Q-AHO"/>
-                                            <constraint firstItem="dEV-qh-YoR" firstAttribute="centerY" secondItem="dyM-Zf-XRL" secondAttribute="centerY" id="kyn-hS-Lkh"/>
-                                            <constraint firstAttribute="height" constant="44" id="wjt-KD-TDT"/>
+                                            <constraint firstAttribute="height" constant="70" placeholder="YES" id="wjt-KD-TDT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -418,7 +407,7 @@
                             <constraint firstItem="62d-xL-dkI" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="C4y-0F-k0I"/>
                             <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerX" secondItem="d14-MG-DwK" secondAttribute="centerX" id="Cg8-h3-M7V"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="62d-xL-dkI" secondAttribute="trailing" id="E97-Ul-22G"/>
-                            <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
+                            <constraint firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
                             <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerY" secondItem="d14-MG-DwK" secondAttribute="centerY" id="ems-Wz-h0W"/>
                         </constraints>
                     </view>
@@ -921,7 +910,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hwn-iZ-aVK"/>
+        <segue reference="T7h-Cp-y9S"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
