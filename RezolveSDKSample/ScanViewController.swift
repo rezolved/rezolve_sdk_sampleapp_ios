@@ -47,6 +47,10 @@ class ScanViewController: UIViewController {
                 }
             )
         }
+        
+        NotificationsHandler.observe { (notification) in
+            self.handle(engagmentNotification: notification)
+        }
     }
     
     // Expand camera preview to container
@@ -127,6 +131,16 @@ class ScanViewController: UIViewController {
             self.performSegue(withIdentifier: "showSspAct", sender: self)
         case .unknown:
             print("Unsupported Act logic")
+        }
+    }
+    
+    private func handle(engagmentNotification: EngagementNotification) {
+        if let url = engagmentNotification.customURL {
+            DeepLinkHandler.handle(url: url)
+        } else if let act = engagmentNotification.engagement.rezolveCustomPayload.act {
+            handleSspActPresentation(sspAct: act.act)
+        } else {
+            print("Unsupported Engagement logic")
         }
     }
 }
@@ -210,13 +224,6 @@ extension ScanViewController: ProductDelegate {
         scanManager.stop()
         
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
-        
-        if let url = notification.customURL {
-            DeepLinkHandler.handle(url: url)
-        } else if let act = notification.engagement.rezolveCustomPayload.act {
-            handleSspActPresentation(sspAct: act.act)
-        } else {
-            print("Unsupported Engagement logic")
-        }
+        handle(engagmentNotification: notification)
     }
 }
