@@ -893,10 +893,10 @@
         <!--Navigation Controller-->
         <scene sceneID="LWZ-fV-j4d">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8gk-l8-HOf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8gk-l8-HOf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mGb-br-yUa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
