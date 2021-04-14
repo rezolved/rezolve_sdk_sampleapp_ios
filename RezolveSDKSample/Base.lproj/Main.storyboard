@@ -411,7 +411,29 @@
                             <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerY" secondItem="d14-MG-DwK" secondAttribute="centerY" id="ems-Wz-h0W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="c9B-Z8-qlx"/>
+                    <navigationItem key="navigationItem" id="Dck-hN-5d5">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="nJX-Z1-OkC">
+                            <rect key="frame" x="160" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-header" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Ws-dyR">
+                                    <rect key="frame" x="0.0" y="0.0" width="520" height="520"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="wVh-Ws-dyR" secondAttribute="height" multiplier="1:1" id="qhM-av-cc3"/>
+                                        <constraint firstAttribute="width" constant="30" id="vcD-Wd-pvS"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="wVh-Ws-dyR" firstAttribute="top" secondItem="nJX-Z1-OkC" secondAttribute="top" id="EAY-JL-ZkV"/>
+                                <constraint firstItem="wVh-Ws-dyR" firstAttribute="leading" secondItem="nJX-Z1-OkC" secondAttribute="leading" id="Nv5-X5-54Z"/>
+                                <constraint firstAttribute="bottom" secondItem="wVh-Ws-dyR" secondAttribute="bottom" id="jZx-Ad-ewO"/>
+                                <constraint firstAttribute="trailing" secondItem="wVh-Ws-dyR" secondAttribute="trailing" id="wTA-NG-gkB"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressView" destination="5Cb-jH-98Y" id="go1-KX-3Il"/>
                         <outlet property="submitView" destination="dyM-Zf-XRL" id="pBQ-0r-ahx"/>
@@ -913,6 +935,7 @@
         <segue reference="T7h-Cp-y9S"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="logo-header" width="520" height="520"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
