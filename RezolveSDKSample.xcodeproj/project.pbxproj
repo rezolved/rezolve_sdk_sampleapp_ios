@@ -45,6 +45,11 @@
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
+		C81427E92655872B007DE16D /* CameraPreviewLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81427E82655872B007DE16D /* CameraPreviewLayer.swift */; };
+		C81427EB265663DB007DE16D /* CGImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81427EA265663DB007DE16D /* CGImageExtensions.swift */; };
+		C86030C42653BB44007F8EE7 /* AudioRemoteResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86030C32653BB44007F8EE7 /* AudioRemoteResolver.swift */; };
+		C86030C62653BBFE007F8EE7 /* PhotoRemoteResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86030C52653BBFE007F8EE7 /* PhotoRemoteResolver.swift */; };
+		C874F1DD264BC3DF00FB700F /* RemoteResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = C874F1DC264BC3DF00FB700F /* RemoteResolver.swift */; };
 		D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE25F22676AE6001E11D1 /* ProductViewController.swift */; };
 		D48FE2632267746F001E11D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE2622267746F001E11D1 /* Extensions.swift */; };
 		D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */; };
@@ -96,6 +101,11 @@
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		795F91ED019104B4B5726E46 /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
 		A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C81427E82655872B007DE16D /* CameraPreviewLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewLayer.swift; sourceTree = "<group>"; };
+		C81427EA265663DB007DE16D /* CGImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImageExtensions.swift; sourceTree = "<group>"; };
+		C86030C32653BB44007F8EE7 /* AudioRemoteResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRemoteResolver.swift; sourceTree = "<group>"; };
+		C86030C52653BBFE007F8EE7 /* PhotoRemoteResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRemoteResolver.swift; sourceTree = "<group>"; };
+		C874F1DC264BC3DF00FB700F /* RemoteResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteResolver.swift; sourceTree = "<group>"; };
 		D48FE25F22676AE6001E11D1 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D48FE2622267746F001E11D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +165,7 @@
 		426373A92457217F00BFAA78 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				C86030C22653BB13007F8EE7 /* MediaCapture */,
 				42C86676245AC980005FCB47 /* RezolveService.swift */,
 				426373A72457212F00BFAA78 /* RezolveGeofence.swift */,
 				4754D57225F626B000BE1AE5 /* Storage.swift */,
@@ -240,6 +251,18 @@
 				38ACD5D8260A243B006293E1 /* CategoryViewController.swift */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C86030C22653BB13007F8EE7 /* MediaCapture */ = {
+			isa = PBXGroup;
+			children = (
+				C874F1DC264BC3DF00FB700F /* RemoteResolver.swift */,
+				C86030C32653BB44007F8EE7 /* AudioRemoteResolver.swift */,
+				C86030C52653BBFE007F8EE7 /* PhotoRemoteResolver.swift */,
+				C81427E82655872B007DE16D /* CameraPreviewLayer.swift */,
+				C81427EA265663DB007DE16D /* CGImageExtensions.swift */,
+			);
+			name = MediaCapture;
 			sourceTree = "<group>";
 		};
 		D48FE26122677452001E11D1 /* Extensions */ = {
@@ -417,6 +440,7 @@
 				471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */,
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
 				388D24EF260CCD45008C40D7 /* DividerCell.swift in Sources */,
+				C86030C42653BB44007F8EE7 /* AudioRemoteResolver.swift in Sources */,
 				D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */,
 				38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */,
 				D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */,
@@ -430,7 +454,9 @@
 				4754D56425F61A9B00BE1AE5 /* SspActSubmissionDetails.swift in Sources */,
 				388D24EC260CCD2C008C40D7 /* VideoCell.swift in Sources */,
 				388D24F8260CCE1A008C40D7 /* PageElementDataSource.swift in Sources */,
+				C81427EB265663DB007DE16D /* CGImageExtensions.swift in Sources */,
 				388D24E9260CCD15008C40D7 /* ImageCell.swift in Sources */,
+				C81427E92655872B007DE16D /* CameraPreviewLayer.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				47DA918425FA082D00B43901 /* WebViewController.swift in Sources */,
 				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
@@ -441,8 +467,10 @@
 				388D24FE260CD2E2008C40D7 /* SelectCell.swift in Sources */,
 				388D24FB260CD097008C40D7 /* DateFieldCell.swift in Sources */,
 				D4C8F8FD226632BB005EF1A8 /* ScanViewController.swift in Sources */,
+				C874F1DD264BC3DF00FB700F /* RemoteResolver.swift in Sources */,
 				4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */,
 				473FBDE725E7ACB500043A7C /* SspAct+Extensions.swift in Sources */,
+				C86030C62653BBFE007F8EE7 /* PhotoRemoteResolver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,16 +1,30 @@
 import UIKit
 import AVFoundation
+import CoreGraphics
 import RezolveSDK
 
-class ScanViewController: UIViewController {
+class ScanViewController: UIViewController, CameraPreviewLayer {
+        
+    // Heads-up display
+    enum HUDState {
+        case active
+        case photo
+        case recording
+    }
     
     // Interface Builder
-    @IBOutlet private var scanCameraView: ScanCameraView!
+    @IBOutlet var scanCameraView: ScanCameraView!
     @IBOutlet weak var statusView: UILabel!
     @IBOutlet weak var progressView: UIView!
     
+    @IBOutlet weak var shutterButton: UIButton!
+    @IBOutlet weak var microphoneButton: UIButton!
+    
     // Class variables
-    private var scanManager: ScanManager!
+    var session: AVCaptureSession?
+    private var photoResolver: PhotoRemoteResolver?
+    private var audioResolver: AudioRemoteResolver?
+    
     private var product: Product?
     private var sspAct: SspAct?
     private var customUrl: URL?
@@ -26,13 +40,6 @@ class ScanViewController: UIViewController {
         if #available(iOS 13.0, *) {
             isModalInPresentation = true
         }
-        
-        guard let scanManagerInstance = RezolveService.session?.getScanManager() else {
-            return
-        }
-        scanManager = scanManagerInstance
-        scanManager.rezolveScanResultDelegate = self
-        scanManager.productResultDelegate = self
         
         DeepLinkHandler.observe { (url) in
             RezolveService.session?.triggerManager.resolve(
@@ -51,15 +58,35 @@ class ScanViewController: UIViewController {
         NotificationsHandler.observe { (notification) in
             self.handle(engagmentNotification: notification)
         }
+        
+        photoResolver = PhotoRemoteResolver()
+        photoResolver?.delegate = self
+        audioResolver = AudioRemoteResolver()
+        audioResolver?.delegate = self
+        
+    }
+    
+    func setupObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(willResignActive),
+                                               name: UIApplication.willResignActiveNotification,
+                                               object: nil)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func willResignActive() {
+        
+        if audioResolver?.recordingAudio == true {
+            audioResolver?.stopRecording(abortRecognize: true)
+        }
     }
     
     // Expand camera preview to container
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        if case .some(let preview) = scanCameraView.layer as? AVCaptureVideoPreviewLayer {
-            preview.videoGravity = AVLayerVideoGravity.resizeAspectFill
-        }
     }
     
     private func open(url: URL) {
@@ -69,12 +96,16 @@ class ScanViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        askPermission()
+        startSession() { session in
+            self.photoResolver?.attatchToSession(session: session)
+        }
+        setupObserver()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        scanManager.stop()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopSession()
+        removeObserver()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -93,34 +124,42 @@ class ScanViewController: UIViewController {
         }
     }
     
-    // MARK: - Private methods
     
-    private func askPermission() {
-        if Platform.isSimulator {
-            return
+    @IBAction func audioAction(_ sender: Any) {
+        if audioResolver?.recordingAudio == false {
+            displayState(state: .recording)
         }
-        
-        let permissionFor = { (mediaType: AVMediaType, next: @escaping ((Bool) -> Void)) in
-            AVCaptureDevice.requestAccess(for: mediaType, completionHandler: next)
-        }
-        
-        permissionFor(AVMediaType.video as AVMediaType) { allowedVideo in
-            permissionFor(AVMediaType.audio as AVMediaType) { allowedAudio in
-                DispatchQueue.main.async {
-                    self.startScanning()
-                }
+        audioResolver?.toggleAudioRecording()
+    }
+    
+    @IBAction func photoAction(_ sender: Any) {
+        displayState(state: .photo)
+        photoResolver?.capturePicture()
+    }
+    
+    func displayState(state: HUDState) {
+        switch state {
+        case .active:
+            shutterButton.isEnabled = true
+            microphoneButton.isEnabled = true
+            if #available(iOS 13.0, *) {
+                let image = UIImage(systemName: "mic.circle", withConfiguration: nil)
+                microphoneButton.setImage(image, for: .normal)
             }
+        case .recording:
+            shutterButton.isEnabled = false
+            if #available(iOS 13.0, *) {
+                let image = UIImage(systemName: "stop.circle", withConfiguration: nil)
+                microphoneButton.setImage(image, for: .normal)
+            }
+            
+        case .photo:
+            microphoneButton.isEnabled = false
+            shutterButton.isEnabled = false
         }
     }
     
-    private func startScanning() {
-        if Platform.isSimulator {
-            return
-        }
-        
-        try? scanManager.startVideoScan(scanCameraView: scanCameraView)
-        try? scanManager?.startAudioScan()
-    }
+    // MARK: - Private methods
     
     private func handleSspActPresentation(sspAct: SspAct) {
         switch sspAct.type {
@@ -142,6 +181,31 @@ class ScanViewController: UIViewController {
         } else {
             print("Unsupported Engagement logic")
         }
+    }
+}
+
+
+extension ScanViewController: CaptureLayerDelegate {
+    
+    func didFailDiscovering(error: CaptureError) {
+        statusView.text = "No results"
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.progressView.isHidden = true
+        }
+        displayState(state: .active)
+    }
+    
+    func didStartDiscovering() {
+        progressView.isHidden = false
+        statusView.text = "Identification..."
+    }
+    
+    func didDiscover(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
+        displayState(state: .active)
+        progressView.isHidden = true
+        stopSession()
+        let notification = EngagementNotification(engagement: engagement, eventType: eventType)
+        handle(engagmentNotification: notification)
     }
 }
 
@@ -200,7 +264,7 @@ extension ScanViewController: ProductDelegate {
     func onProductResult(product: Product) {
         progressView.isHidden = true
         scanningInProgress = false
-        scanManager.stop()
+        stopSession()
         
         self.product = product
         self.performSegue(withIdentifier: "showProduct", sender: self)
@@ -221,7 +285,7 @@ extension ScanViewController: ProductDelegate {
     func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
         progressView.isHidden = true
         scanningInProgress = false
-        scanManager.stop()
+        stopSession()
         
         let notification = EngagementNotification(engagement: engagement, eventType: eventType)
         handle(engagmentNotification: notification)
