@@ -144,7 +144,7 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="492"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-xa-eJc">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="422"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="L0K-ty-QHQ">
                                             <rect key="frame" x="0.0" y="522.5" width="320" height="44"/>
@@ -360,22 +360,11 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-Zf-XRL">
-                                        <rect key="frame" x="0.0" y="448" width="320" height="44"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dEV-qh-YoR">
-                                                <rect key="frame" x="135.5" y="7" width="49" height="30"/>
-                                                <state key="normal" title="Submit"/>
-                                                <connections>
-                                                    <action selector="submitAct:" destination="ZEp-Tu-I19" eventType="touchUpInside" id="rp5-UV-Y9I"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dyM-Zf-XRL" customClass="SlideToActionView" customModule="RezolveSDKSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="422" width="320" height="70"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="dEV-qh-YoR" firstAttribute="centerX" secondItem="dyM-Zf-XRL" secondAttribute="centerX" id="AeG-8Q-AHO"/>
-                                            <constraint firstItem="dEV-qh-YoR" firstAttribute="centerY" secondItem="dyM-Zf-XRL" secondAttribute="centerY" id="kyn-hS-Lkh"/>
-                                            <constraint firstAttribute="height" constant="44" id="wjt-KD-TDT"/>
+                                            <constraint firstAttribute="height" constant="70" placeholder="YES" id="wjt-KD-TDT"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -418,11 +407,33 @@
                             <constraint firstItem="62d-xL-dkI" firstAttribute="leading" secondItem="d14-MG-DwK" secondAttribute="leading" id="C4y-0F-k0I"/>
                             <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerX" secondItem="d14-MG-DwK" secondAttribute="centerX" id="Cg8-h3-M7V"/>
                             <constraint firstItem="d14-MG-DwK" firstAttribute="trailing" secondItem="62d-xL-dkI" secondAttribute="trailing" id="E97-Ul-22G"/>
-                            <constraint firstItem="d14-MG-DwK" firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
+                            <constraint firstAttribute="bottom" secondItem="62d-xL-dkI" secondAttribute="bottom" id="FnI-vD-kab"/>
                             <constraint firstItem="5Cb-jH-98Y" firstAttribute="centerY" secondItem="d14-MG-DwK" secondAttribute="centerY" id="ems-Wz-h0W"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="c9B-Z8-qlx"/>
+                    <navigationItem key="navigationItem" id="Dck-hN-5d5">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="nJX-Z1-OkC">
+                            <rect key="frame" x="160" y="28" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-header" translatesAutoresizingMaskIntoConstraints="NO" id="wVh-Ws-dyR">
+                                    <rect key="frame" x="0.0" y="0.0" width="520" height="520"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="wVh-Ws-dyR" secondAttribute="height" multiplier="1:1" id="qhM-av-cc3"/>
+                                        <constraint firstAttribute="width" constant="30" id="vcD-Wd-pvS"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="wVh-Ws-dyR" firstAttribute="top" secondItem="nJX-Z1-OkC" secondAttribute="top" id="EAY-JL-ZkV"/>
+                                <constraint firstItem="wVh-Ws-dyR" firstAttribute="leading" secondItem="nJX-Z1-OkC" secondAttribute="leading" id="Nv5-X5-54Z"/>
+                                <constraint firstAttribute="bottom" secondItem="wVh-Ws-dyR" secondAttribute="bottom" id="jZx-Ad-ewO"/>
+                                <constraint firstAttribute="trailing" secondItem="wVh-Ws-dyR" secondAttribute="trailing" id="wTA-NG-gkB"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressView" destination="5Cb-jH-98Y" id="go1-KX-3Il"/>
                         <outlet property="submitView" destination="dyM-Zf-XRL" id="pBQ-0r-ahx"/>
@@ -904,10 +915,10 @@
         <!--Navigation Controller-->
         <scene sceneID="LWZ-fV-j4d">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8gk-l8-HOf" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8gk-l8-HOf" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mGb-br-yUa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -921,9 +932,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hwn-iZ-aVK"/>
+        <segue reference="T7h-Cp-y9S"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="logo-header" width="520" height="520"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -6,7 +6,7 @@ final class SspActViewController: UIViewController {
     
     // Interface Builder
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var submitView: UIView!
+    @IBOutlet weak var submitView: SlideToActionView!
     @IBOutlet weak var progressView: UIView!
     
     // Class variables
@@ -27,6 +27,10 @@ final class SspActViewController: UIViewController {
         setupTableView()
         
         viewModel.loadPage()
+        
+        submitView.isAddCart = false
+        submitView.delegate = self
+        submitView.isHidden = viewModel.sspAct.isInformationPage == true
     }
     
     @objc func dismissKeyboard() {
@@ -52,20 +56,6 @@ final class SspActViewController: UIViewController {
     private func reloadCell(at indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .automatic)
         viewModel.validatePage()
-    }
-    
-    // MARK: - IB methods
-    
-    @IBAction func submitAct(_ sender: Any) {
-        guard let manager = RezolveService.session?.sspActManager else {
-            return
-        }
-        
-        progressView.isHidden = false
-        viewModel.submit(
-            sspActManager: manager,
-            location: nil
-        )
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -106,7 +96,7 @@ extension SspActViewController: SspActViewModelDelegate {
     }
     
     func enableSubmitView(isEnabled: Bool) {
-        submitView.isHidden = !isEnabled
+        submitView.isEnableSliderCart(isEnabled)
     }
     
     func actSubmissionFailed(with error: RezolveError) {
@@ -124,5 +114,19 @@ extension SspActViewController: PageElementDataSource.Delegate {
     func textFieldCell(_ cell: TextFieldCell, didChangeText text: String, model: Page.Element.TextField) {
         model.value = text
         reloadCell(cell: cell)
+    }
+}
+
+extension SspActViewController: SlideToActionViewDelegate {
+    func slideToPayEndSlider() {
+        guard let manager = RezolveService.session?.sspActManager else {
+            return
+        }
+        
+        progressView.isHidden = false
+        viewModel.submit(
+            sspActManager: manager,
+            location: nil
+        )
     }
 }
