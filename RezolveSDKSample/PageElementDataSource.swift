@@ -41,6 +41,8 @@ final class PageElementDataSource: NSObject, UITableViewDataSource {
             cell.delegate = delegate
             cell.configure(with: textField)
             return cell
+        default:
+            return UITableViewCell()
         }
     }
 }

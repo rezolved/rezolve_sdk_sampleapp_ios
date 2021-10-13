@@ -91,6 +91,8 @@ extension SspActViewController: UITableViewDelegate {
             UIApplication.shared.open(url)
         case .text, .divider, .image, .textField:
             break
+        default:
+            break
         }
         
         reloadCell(at: indexPath)
