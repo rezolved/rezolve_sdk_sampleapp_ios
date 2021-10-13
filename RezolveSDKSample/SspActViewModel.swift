@@ -96,6 +96,8 @@ final class SspActViewModel {
             return SspSubmissionAnswer(questionId: select.id, answer: String(value.value))
         case .text, .divider, .image, .video:
             return nil
+        default:
+            return nil
         }
     }
 }

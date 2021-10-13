@@ -3,7 +3,7 @@ PODS:
   - Kingfisher (5.13.4):
     - Kingfisher/Core (= 5.13.4)
   - Kingfisher/Core (5.13.4)
-  - RezolveSDK (2.0.11.2-beta1604)
+  - RezolveSDK (2.0.12.2-beta1654)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
     - SwifterSwift/CoreAnimation (= 5.2.0)
@@ -33,7 +33,7 @@ PODS:
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
   - Kingfisher (= 5.13.4)
-  - RezolveSDK (= 2.0.11.2-beta1604)
+  - RezolveSDK (= 2.0.12.2-beta1654)
   - SwifterSwift (= 5.2.0)
 
 SPEC REPOS:
@@ -54,9 +54,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
-  RezolveSDK: bae2fc1975202de219f6c4bc65483fef112366b9
+  RezolveSDK: dcb937a430f0a80bd1250fa161d13d49160e3d5f
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: 7793865ce6c4259736ee083acc021279ffbe4bf9
+PODFILE CHECKSUM: ed67cd5d1c705d7cb5dfdaf66b336723fb2964ba
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

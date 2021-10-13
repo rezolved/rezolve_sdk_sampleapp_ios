@@ -172,7 +172,7 @@ class ProductViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func buyClick(_ sender: Any) {
-        RezolveService.session?.checkoutManager.buy(bundle: checkoutBundle!) { [weak self] result in
+        RezolveService.session?.checkoutManager.buy(bundle: checkoutBundle!, paymentPayload: nil) { [weak self] result in
             switch result {
             case .success(let order):
                 self?.orderId = order.id
