@@ -54,6 +54,10 @@ extension RezolveGeofence: NearbyEngagementsManagerDelegate {
     func didEnter(beaconRegion: BeaconData) {
     }
     
+    func didExit(circularRegion: GeofenceData) {
+        print("didExit")
+    }
+    
     func didFail(with error: Error) {
         print("didFail -> \(error.localizedDescription)")
     }

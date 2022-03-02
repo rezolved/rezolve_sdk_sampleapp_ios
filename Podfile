@@ -10,7 +10,7 @@ target 'RezolveSDKSample' do
   pod 'SwifterSwift', '5.2.0'
   
   # Corporate SDK
-  pod 'RezolveSDK', '2.0.12.2-beta1654'
+  pod 'RezolveSDK', '2.1.0.1-beta1690'
 end
 
 post_install do |installer|

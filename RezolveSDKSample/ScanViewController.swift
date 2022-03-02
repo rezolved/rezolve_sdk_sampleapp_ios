@@ -38,7 +38,6 @@ class ScanViewController: UIViewController {
             RezolveService.session?.triggerManager.resolve(
                 url: url,
                 productDelegate: self,
-                eventType: .touch,
                 onRezolveTriggerStart: { },
                 onRezolveTriggerEnd: { },
                 errorCallback: { (error) in
@@ -165,17 +164,17 @@ extension ScanViewController: RezolveScanResultDelegate {
             guard let self = self else { return }
             switch result {
             case .success(let result):
-                self.onSspEngagementResult(engagement: result, eventType: .qr)
+                self.onSspEngagementResult(engagement: result)
             case .failure(let error):
-                self.onError(error: error.localizedDescription, eventType: .qr)
+                self.onError(error: error.localizedDescription)
             }
         }
     }
     
-    func onError(error: String) {
-        progressView.isHidden = true
-        print(error)
-    }
+//    func onError(error: String) {
+//        progressView.isHidden = true
+//        print(error)
+//    }
 }
 
 extension ScanViewController: ProductDelegate {
@@ -192,7 +191,7 @@ extension ScanViewController: ProductDelegate {
     func onInactiveEngagement(payload: RezolveCustomPayload) {
     }
     
-    func onError(error: String, eventType: RezolveEventReport.RezolveEventReportType) {
+    func onError(error: String) {
     }
     
     // MARK: - RCE
@@ -218,12 +217,12 @@ extension ScanViewController: ProductDelegate {
     
     // MARK: - SSP
     
-    func onSspEngagementResult(engagement: ResolverEngagement, eventType: RezolveEventReport.RezolveEventReportType) {
+    func onSspEngagementResult(engagement: ResolverEngagement) {
         progressView.isHidden = true
         scanningInProgress = false
         scanManager.stop()
-        
-        let notification = EngagementNotification(engagement: engagement, eventType: eventType)
+
+        let notification = EngagementNotification(engagement: engagement)
         handle(engagmentNotification: notification)
     }
 }
