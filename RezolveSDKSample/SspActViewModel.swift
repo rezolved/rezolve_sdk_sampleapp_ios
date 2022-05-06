@@ -1,7 +1,7 @@
-import Foundation
+import CoreLocation
 import RezolveSDK
 
-protocol SspActViewModelDelegate: class {
+protocol SspActViewModelDelegate: AnyObject {
     func display(items: [Page.Element])
     func enableSubmitView(isEnabled: Bool)
     func actSubmissionFailed(with error: RezolveError)

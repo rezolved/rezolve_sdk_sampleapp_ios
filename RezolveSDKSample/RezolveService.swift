@@ -15,6 +15,7 @@ class RezolveService {
                                      environment: Config.env,
                                      config: nil,
                                      sspActManagerSettings: Config.sspActManagerSettings,
+                                     rxpManagerSettings: Config.rxpManagerSettings,
                                      coordinatesConverter: CoordinatesConverter.default)
     }
     

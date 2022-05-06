@@ -130,6 +130,7 @@ class ProductViewController: UIViewController {
                 optionId: option.id,
                 paymentMethod: option.supportedPaymentMethods?.first,
                 paymentRequest: paymentRequest,
+                ecPayPaymentRequest: nil,
                 phoneId: phone.id,
                 location: location
         )

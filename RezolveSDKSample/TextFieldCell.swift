@@ -1,6 +1,7 @@
+import UIKit
 import RezolveSDK
 
-protocol TextFieldCellDelegate: class {
+protocol TextFieldCellDelegate: AnyObject {
     func textFieldCell(_ cell: TextFieldCell, didChangeText text: String, model: Page.Element.TextField)
 }
 

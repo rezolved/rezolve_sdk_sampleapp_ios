@@ -160,7 +160,7 @@ final class SlideToActionView: UIView {
     }
 }
 
-protocol SlideToActionViewDelegate: class {
+protocol SlideToActionViewDelegate: AnyObject {
     func slideToPayBeginTouch()
     func slideToPayEndTouch()
     func slideToPayEndSlider()
