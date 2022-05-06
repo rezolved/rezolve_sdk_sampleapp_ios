@@ -1,3 +1,4 @@
+import UIKit
 import RezolveSDK
 
 final class DateFieldCell: UITableViewCell {

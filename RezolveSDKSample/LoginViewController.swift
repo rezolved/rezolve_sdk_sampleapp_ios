@@ -64,6 +64,7 @@ class LoginViewController: UIViewController {
         
         RezolveService.sdk?.createSession(accessToken: accessToken,
                                           username: Config.demoAuthUser,
+                                          userId: nil,
                                           entityId: entityId,
                                           partnerId: partnerId) { [weak self] (session, error) in
             

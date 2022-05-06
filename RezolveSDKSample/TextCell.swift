@@ -1,3 +1,4 @@
+import UIKit
 import RezolveSDK
 
 final class TextCell: UITableViewCell {
@@ -9,7 +10,7 @@ final class TextCell: UITableViewCell {
         switch text.type {
         case .header:
             label.font = .systemFont(ofSize: 20, weight: .semibold)
-        case .paragraph:
+        default:
             label.font = .systemFont(ofSize: 16, weight: .regular)
         }
     }
