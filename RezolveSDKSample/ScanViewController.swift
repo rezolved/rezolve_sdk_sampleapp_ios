@@ -170,11 +170,6 @@ extension ScanViewController: RezolveScanResultDelegate {
             }
         }
     }
-    
-//    func onError(error: String) {
-//        progressView.isHidden = true
-//        print(error)
-//    }
 }
 
 extension ScanViewController: ProductDelegate {
