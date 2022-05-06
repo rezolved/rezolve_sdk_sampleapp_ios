@@ -63,7 +63,8 @@ class LoginViewController: UIViewController {
         let accessToken = createBearer(entityId: entityId, partnerId: partnerId)
         
         RezolveService.sdk?.createSession(accessToken: accessToken,
-                                          username: Config.demoAuthUser, userId: nil,
+                                          username: Config.demoAuthUser,
+                                          userId: nil,
                                           entityId: entityId,
                                           partnerId: partnerId) { [weak self] (session, error) in
             
