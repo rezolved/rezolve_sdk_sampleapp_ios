@@ -12,8 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Instance of RezolveSDK & Engagements Service
         RezolveService.setupSDK()
-        RezolveService.setupGeofence()
-        RezolveService.setupNotifications()
+        RezolveService.setupNotifications(application)
         RezolveService.setupBackgroundTask()
         
         RezolveService.notificationCenter?.delegate = self
@@ -46,6 +45,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         DeepLinkHandler.handle(url: url)
         return true
+    }
+}
+
+// MARK: - Push Notifications
+
+extension AppDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        RezolveService.apnsToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Push Notifications: Success registering Device Token -> \(RezolveService.apnsToken)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications with error: \(error))")
     }
 }
 
