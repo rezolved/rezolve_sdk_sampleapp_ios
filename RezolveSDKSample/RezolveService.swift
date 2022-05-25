@@ -31,7 +31,7 @@ class RezolveService {
     }
     
     // For receiving Local Notifications based on Geofencing Areas
-    class func setupNotifications(_ application: UIApplication, callback: @escaping () -> Void) {
+    class func setupNotifications(_ application: UIApplication) {
         RezolveService.notificationCenter = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert]
         
@@ -43,7 +43,6 @@ class RezolveService {
             DispatchQueue.main.async {
                 application.registerForRemoteNotifications()
             }
-            callback()
         }
     }
     
