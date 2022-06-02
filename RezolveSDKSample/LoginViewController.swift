@@ -69,6 +69,7 @@ class LoginViewController: UIViewController {
                                           partnerId: partnerId) { [weak self] (session, error) in
             
             RezolveService.session = session
+            
             self?.performSegue(withIdentifier: "loginSuccessful", sender: self)
             print("New session started -> \(session.debugDescription)")
         }

@@ -3,9 +3,31 @@ import RezolveSDK
 
 class RezolveService {
     static var sdk: Rezolve?
-    static var session: RezolveSession?
+    static var session: RezolveSession? {
+        didSet {
+            RezolveService.canInitRxpService = true
+        }
+    }
+    
     static var geofence: RezolveGeofence?
+    static var rxp: RXPService?
     static var notificationCenter: UNUserNotificationCenter?
+    static var apnsToken: String? {
+        didSet {
+            if canInitRxpService {
+                RezolveService.rxp = RXPService { result in
+                    switch result {
+                    case .success(_):
+                        RezolveService.setupGeofence()
+                    case .failure(let error):
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    static var canInitRxpService: Bool = false
     
     // Rezolve SDK setup
     class func setupSDK() {
@@ -25,18 +47,21 @@ class RezolveService {
         RezolveService.geofence?.ssp = RezolveService.sdk?.createRezolveSsp {
             // Start monitoring engagements
             RezolveService.geofence?.startMonitoring()
-            
         }
     }
     
     // For receiving Local Notifications based on Geofencing Areas
-    class func setupNotifications() {
+    class func setupNotifications(_ application: UIApplication) {
         RezolveService.notificationCenter = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert]
         
         RezolveService.notificationCenter?.requestAuthorization(options: options) { (success, error) in
             if !success {
                 print("Notifications permission not granted")
+                return
+            }
+            DispatchQueue.main.async {
+                application.registerForRemoteNotifications()
             }
         }
     }

@@ -1,19 +1,20 @@
 import UIKit
 import SwifterSwift
+import RezolveSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     // Class variables
     var window: UIWindow?
+//    let engagementsService = EngagementsSerr5vice()
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Instance of RezolveSDK & Engagements Service
         RezolveService.setupSDK()
-        RezolveService.setupGeofence()
-        RezolveService.setupNotifications()
+        RezolveService.setupNotifications(application)
         RezolveService.setupBackgroundTask()
         
         RezolveService.notificationCenter?.delegate = self
@@ -36,7 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        NotificationsHandler.handle(userInfo: response.notification.request.content.userInfo)
+        fetchRXPNotification(response.notification) { notification in
+            NotificationsHandler.handle(userInfo: notification.asDictionary ?? [:])
+        }
+       
         completionHandler()
     }
     
@@ -46,6 +50,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         DeepLinkHandler.handle(url: url)
         return true
+    }
+    
+    func fetchRXPNotification(_ notification: UNNotification, engagementCallback: @escaping (EngagementNotification) -> Void) {
+        if let engagementId = notification.request.content.userInfo["ForeignID"] as? String {
+            RezolveService.geofence?.ssp?.nearbyEngagementResolver.fetchItems(engagementId: engagementId,
+                                                                               clicked: true,
+                                                                               imageWidths: 300) { result in
+                switch result {
+                case .success(let engagement):
+                    let notification = EngagementNotification(engagement: engagement)
+                    engagementCallback(notification)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+}
+
+// MARK: - Push Notifications
+
+extension AppDelegate {
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        RezolveService.apnsToken = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Push Notifications: Success registering Device Token -> \(RezolveService.apnsToken)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for remote notifications with error: \(error))")
     }
 }
 
