@@ -25,22 +25,22 @@ Please discuss authentication options with your project lead and/or your Rezolve
 */
 
 class Config {
-     // Data provided by Rezolve admin
-     static let demoAuthServer = ""
-     static let demoAuthUser = ""
-     static let demoAuthPassword = ""
-     static let env = RezolveEnv(rawValue: String(format: ""))!
-     static let rezolveApiKey = ""
-     static let partnerId = ""
-     static let entityId = ""
-     static let tokenSecret = ""
-     static let sspActManagerSettings = SspActManagerSettings(
-         auth0ClientId: "",
-         auth0Secret: "",
-         auth0Audience: "",
-         auth0Endpoint: "",
-         sspEndpoint: "",
-         sspActEndpoint: "",
-         sspWidth: ""
-     )
- }
+    // Data provided by Rezolve admin
+    static let demoAuthServer = ""
+    static let demoAuthUser = ""
+    static let demoAuthPassword = ""
+    static let env = RezolveEnv(rawValue: String(format: ""))!
+    static let rezolveApiKey = ""
+    static let partnerId = ""
+    static let entityId = ""
+    static let tokenSecret = ""
+    static let sspActManagerSettings = SspActManagerSettings(
+        auth0ClientId: "",
+        auth0Secret: "",
+        auth0Audience: "",
+        auth0Endpoint: "",
+        sspEndpoint: "",
+        sspActEndpoint: "",
+        sspWidth: ""
+    )
+}
