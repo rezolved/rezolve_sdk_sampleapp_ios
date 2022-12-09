@@ -69,6 +69,14 @@ class LoginViewController: UIViewController {
                                           partnerId: partnerId) { [weak self] (session, error) in
             
             RezolveService.session = session
+            RezolveService.rxp = RXPService { result in
+                switch result {
+                case .success(_):
+                    RezolveService.setupGeofence()
+                case .failure(let error):
+                    print(error)
+                }
+            }
             
             self?.performSegue(withIdentifier: "loginSuccessful", sender: self)
             print("New session started -> \(session.debugDescription)")

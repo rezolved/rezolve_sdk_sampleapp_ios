@@ -3,31 +3,12 @@ import RezolveSDK
 
 class RezolveService {
     static var sdk: Rezolve?
-    static var session: RezolveSession? {
-        didSet {
-            RezolveService.canInitRxpService = true
-        }
-    }
+    static var session: RezolveSession?
     
     static var geofence: RezolveGeofence?
     static var rxp: RXPService?
     static var notificationCenter: UNUserNotificationCenter?
-    static var apnsToken: String? {
-        didSet {
-            if canInitRxpService {
-                RezolveService.rxp = RXPService { result in
-                    switch result {
-                    case .success(_):
-                        RezolveService.setupGeofence()
-                    case .failure(let error):
-                        print(error)
-                    }
-                }
-            }
-        }
-    }
-    
-    static var canInitRxpService: Bool = false
+    static var apnsToken: String?
     
     // Rezolve SDK setup
     class func setupSDK() {
