@@ -17,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         RezolveService.setupBackgroundTask()
         
         RezolveService.notificationCenter?.delegate = self
-        
         return true
     }
     

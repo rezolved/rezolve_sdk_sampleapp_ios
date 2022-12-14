@@ -117,8 +117,10 @@ class ScanViewController: UIViewController {
             return
         }
         
-        try? scanManager.startVideoScan(scanCameraView: scanCameraView)
-        try? scanManager?.startAudioScan()
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            try? self.scanManager.startVideoScan(scanCameraView: scanCameraView)
+            try? self.scanManager?.startAudioScan()
+        }
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {

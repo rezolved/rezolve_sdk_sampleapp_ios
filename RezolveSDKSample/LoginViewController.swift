@@ -11,17 +11,19 @@ class LoginViewController: UIViewController {
         
         // The device's UUID
         let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        loginUser(deviceId: deviceId,
-                  username: Config.demoAuthUser,
-                  password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
-            
-            switch result {
-            case .success(let result):
-                Storage.save(guestUser: result)
-                self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [unowned self] in
+            self.loginUser(deviceId: deviceId,
+                      username: Config.demoAuthUser,
+                      password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
                 
-            case .failure(let error):
-                print(error.localizedDescription)
+                switch result {
+                case .success(let result):
+                    Storage.save(guestUser: result)
+                    self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
