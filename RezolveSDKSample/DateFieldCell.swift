@@ -1,5 +1,5 @@
 import UIKit
-import RezolveSDK
+import RezolveSDKLite
 
 final class DateFieldCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!

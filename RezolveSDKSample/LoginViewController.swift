@@ -1,6 +1,6 @@
 import UIKit
 import JWT
-import RezolveSDK
+import RezolveSDKLite
 
 class LoginViewController: UIViewController {
     

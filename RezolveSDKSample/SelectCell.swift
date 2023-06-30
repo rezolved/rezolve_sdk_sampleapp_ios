@@ -1,5 +1,5 @@
 import UIKit
-import RezolveSDK
+import RezolveSDKLite
 
 final class SelectCell: UITableViewCell {
     @IBOutlet weak var label: UILabel!

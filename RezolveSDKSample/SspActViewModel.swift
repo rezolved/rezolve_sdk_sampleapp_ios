@@ -1,5 +1,5 @@
 import CoreLocation
-import RezolveSDK
+import RezolveSDKLite
 
 protocol SspActViewModelDelegate: AnyObject {
     func display(items: [Page.Element])

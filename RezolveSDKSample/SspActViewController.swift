@@ -1,6 +1,6 @@
 import UIKit
 import AVKit
-import RezolveSDK
+import RezolveSDKLite
 
 final class SspActViewController: UIViewController {
     

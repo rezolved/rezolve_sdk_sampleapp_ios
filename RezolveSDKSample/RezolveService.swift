@@ -1,5 +1,5 @@
 import UIKit
-import RezolveSDK
+import RezolveSDKLite
 
 class RezolveService {
     static var sdk: Rezolve?
