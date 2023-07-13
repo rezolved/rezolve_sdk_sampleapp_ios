@@ -3,12 +3,7 @@ PODS:
   - Kingfisher (5.13.4):
     - Kingfisher/Core (= 5.13.4)
   - Kingfisher/Core (5.13.4)
-  - RezolveSDK (2.2.3-202306271445)
-  - RezolveSDKToolchain (1.0.0):
-    - RezolveSDK
-    - RezolveSDKToolchain/RezolveSDKToolchain (= 1.0.0)
-  - RezolveSDKToolchain/RezolveSDKToolchain (1.0.0):
-    - RezolveSDK
+  - RezolveSDK (2.2.3)
   - SwifterSwift (5.2.0):
     - SwifterSwift/AppKit (= 5.2.0)
     - SwifterSwift/CoreAnimation (= 5.2.0)
@@ -38,8 +33,7 @@ PODS:
 DEPENDENCIES:
   - JSONWebToken (from `https://github.com/radianttap/JSONWebToken.swift.git`)
   - Kingfisher (= 5.13.4)
-  - RezolveSDK (= 2.2.3-202306271445)
-  - RezolveSDKToolchain (from `https://github.com/rezolved/rezolve_ios_toolchain.git`)
+  - RezolveSDK
   - SwifterSwift (= 5.2.0)
 
 SPEC REPOS:
@@ -51,24 +45,18 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   JSONWebToken:
     :git: https://github.com/radianttap/JSONWebToken.swift.git
-  RezolveSDKToolchain:
-    :git: https://github.com/rezolved/rezolve_ios_toolchain.git
 
 CHECKOUT OPTIONS:
   JSONWebToken:
     :commit: 474ce7944d273e8079b36b89026e074dad3122af
     :git: https://github.com/radianttap/JSONWebToken.swift.git
-  RezolveSDKToolchain:
-    :commit: b34676c939eded92dc10685c3677ddca2979d8f6
-    :git: https://github.com/rezolved/rezolve_ios_toolchain.git
 
 SPEC CHECKSUMS:
   JSONWebToken: ef88f92823ef1f3cbac791b320f8b6961c885bad
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
-  RezolveSDK: f6d32d2b6587eb94e5c6755eda861a04bf78de8f
-  RezolveSDKToolchain: bedec3cd038a478f93093cf6c418c71bb9a8f331
+  RezolveSDK: dc71a84957768c6e9567b249644e2323d5bb5d4f
   SwifterSwift: 334181863c416882d97b7a60c05054d9e4d799e2
 
-PODFILE CHECKSUM: e1f766fec8df8745b39c6b74247c200465aa1b82
+PODFILE CHECKSUM: 5b0404dec32e125164a9d6e57762dd92f0786ac0
 
 COCOAPODS: 1.12.1

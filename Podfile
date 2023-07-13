@@ -10,8 +10,8 @@ target 'RezolveSDKSample' do
   pod 'SwifterSwift', '5.2.0'
   
   # Corporate SDK
-  pod 'RezolveSDK', '2.2.3-202306271445'
-  pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
+  pod 'RezolveSDK'
+  #pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
   #pod 'RezolveCheckout', :git => 'git@github.com:rezolved/rezolve_ios_checkout', :branch => 'master'
 end
 

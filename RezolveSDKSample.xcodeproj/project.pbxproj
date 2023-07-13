@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0E21E3802828E9CC001D58FD /* RXPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E21E37F2828E9CC001D58FD /* RXPService.swift */; };
 		0E21E3822828EA80001D58FD /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E21E3812828EA80001D58FD /* UIApplication+Extensions.swift */; };
-		2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */; };
 		38091B9325FB751900505B3A /* SspActSubmissionSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */; };
 		382F0CAB2626C6F600D5A97E /* SlideToActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 382F0CA92626C6F600D5A97E /* SlideToActionView.xib */; };
 		382F0CAC2626C6F600D5A97E /* SlideToActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382F0CAA2626C6F600D5A97E /* SlideToActionView.swift */; };
@@ -49,6 +48,7 @@
 		6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23E808AED379C3EDAD1395 /* LoginViewController.swift */; };
 		6A23EC1D6D80E7E3A01FEA72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A23E958E6F1676634C2DB4D /* Main.storyboard */; };
 		6A23EC9CF5FD5EFB357A6DC6 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A23EAB40B8438B4261CE317 /* Config.swift */; };
+		AA1596B1A1C4B0731A6CDDD7 /* libPods-RezolveSDKSample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4C767B4A382B375C2CA186 /* libPods-RezolveSDKSample.a */; };
 		D48FE26022676AE6001E11D1 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE25F22676AE6001E11D1 /* ProductViewController.swift */; };
 		D48FE2632267746F001E11D1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE2622267746F001E11D1 /* Extensions.swift */; };
 		D48FE268226F1A1A001E11D1 /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */; };
@@ -59,9 +59,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		0E21E37F2828E9CC001D58FD /* RXPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RXPService.swift; sourceTree = "<group>"; };
 		0E21E3812828EA80001D58FD /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		0F90C2EE9B06C1E0B533C571 /* Pods-RezolveSDKSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.debug.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.debug.xcconfig"; sourceTree = "<group>"; };
 		38091B9225FB751900505B3A /* SspActSubmissionSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActSubmissionSummaryViewController.swift; sourceTree = "<group>"; };
 		382F0CA92626C6F600D5A97E /* SlideToActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SlideToActionView.xib; sourceTree = "<group>"; };
 		382F0CAA2626C6F600D5A97E /* SlideToActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideToActionView.swift; sourceTree = "<group>"; };
@@ -102,8 +102,7 @@
 		6A23E808AED379C3EDAD1395 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A23EAB40B8438B4261CE317 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6A23EADD0D372326A0067604 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		795F91ED019104B4B5726E46 /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
-		A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E4C767B4A382B375C2CA186 /* libPods-RezolveSDKSample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RezolveSDKSample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D48FE25F22676AE6001E11D1 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		D48FE2622267746F001E11D1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D48FE267226F1A1A001E11D1 /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		D49F4483225B98EC006FB59B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D49F4485225B98EC006FB59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4C8F8FC226632BB005EF1A8 /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
+		EB04A21BC5F3A4A9DBDC5483 /* Pods-RezolveSDKSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RezolveSDKSample.release.xcconfig"; path = "Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,21 +120,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EFE651EDEED79EF0EE34EC3 /* libPods-RezolveSDKSample.a in Frameworks */,
+				AA1596B1A1C4B0731A6CDDD7 /* libPods-RezolveSDKSample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0BADDF18A9033E7950CF697D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A1AD11839E2A8DA96B65B4B2 /* libPods-RezolveSDKSample.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		382F0CA82626C6B200D5A97E /* SlideToActionView */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,10 +232,18 @@
 		5100700EAA1B39B735314D28 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */,
-				795F91ED019104B4B5726E46 /* Pods-RezolveSDKSample.release.xcconfig */,
+				0F90C2EE9B06C1E0B533C571 /* Pods-RezolveSDKSample.debug.xcconfig */,
+				EB04A21BC5F3A4A9DBDC5483 /* Pods-RezolveSDKSample.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		613242A8545A2E75AC1DC082 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E4C767B4A382B375C2CA186 /* libPods-RezolveSDKSample.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		6A23EDDA224BE5DE18995D23 /* View Controllers */ = {
@@ -279,7 +279,7 @@
 				D49F4478225B98EB006FB59B /* RezolveSDKSample */,
 				D49F4477225B98EB006FB59B /* Products */,
 				5100700EAA1B39B735314D28 /* Pods */,
-				0BADDF18A9033E7950CF697D /* Frameworks */,
+				613242A8545A2E75AC1DC082 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,11 +314,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D49F4488225B98EC006FB59B /* Build configuration list for PBXNativeTarget "RezolveSDKSample" */;
 			buildPhases = (
-				0A36FDBD3B4FBA12FF536B28 /* [CP] Check Pods Manifest.lock */,
+				45ABDD8D53234101E12FF4B9 /* [CP] Check Pods Manifest.lock */,
 				D49F4472225B98EB006FB59B /* Sources */,
 				D49F4473225B98EB006FB59B /* Frameworks */,
 				D49F4474225B98EB006FB59B /* Resources */,
-				59B8672F51BBF494D817C49A /* [CP] Embed Pods Frameworks */,
+				954CD79EE591E0FB47D50CE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -388,7 +388,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0A36FDBD3B4FBA12FF536B28 /* [CP] Check Pods Manifest.lock */ = {
+		45ABDD8D53234101E12FF4B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -410,7 +410,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		59B8672F51BBF494D817C49A /* [CP] Embed Pods Frameworks */ = {
+		954CD79EE591E0FB47D50CE3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -612,7 +612,7 @@
 		};
 		D49F4489225B98EC006FB59B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B3020F844EE2FB81FF5228C /* Pods-RezolveSDKSample.debug.xcconfig */;
+			baseConfigurationReference = 0F90C2EE9B06C1E0B533C571 /* Pods-RezolveSDKSample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RezolveSDKSample/RezolveSDKSample.entitlements;
@@ -641,7 +641,7 @@
 		};
 		D49F448A225B98EC006FB59B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 795F91ED019104B4B5726E46 /* Pods-RezolveSDKSample.release.xcconfig */;
+			baseConfigurationReference = EB04A21BC5F3A4A9DBDC5483 /* Pods-RezolveSDKSample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = RezolveSDKSample/RezolveSDKSample.entitlements;
