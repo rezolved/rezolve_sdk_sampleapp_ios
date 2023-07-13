@@ -1,6 +1,6 @@
 import UIKit
 import AVFoundation
-import RezolveSDK
+import RezolveSDKLite
 
 class ScanViewController: UIViewController {
     
@@ -15,7 +15,7 @@ class ScanViewController: UIViewController {
     private var sspAct: SspAct?
     private var customUrl: URL?
     private var scanningInProgress = false
-    private var category: RezolveSDK.Category?
+    private var category: RezolveSDKLite.Category?
     private var merchantID: String?
     
     // MARK: - Lifecycle
@@ -117,8 +117,10 @@ class ScanViewController: UIViewController {
             return
         }
         
-        try? scanManager.startVideoScan(scanCameraView: scanCameraView)
-        try? scanManager?.startAudioScan()
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            //try? self.scanManager.startVideoScan(scanCameraView: scanCameraView)
+            //try? self.scanManager?.startAudioScan()
+        }
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {
@@ -174,6 +176,12 @@ extension ScanViewController: RezolveScanResultDelegate {
 
 extension ScanViewController: ProductDelegate {
     
+    func showShutterView() {
+    }
+    
+    func hideScanStaticImage() {
+    }
+    
     func onStartRecognizeImage() {
         progressView.isHidden = false
         statusView.text = "Identification..."
@@ -200,13 +208,13 @@ extension ScanViewController: ProductDelegate {
         self.performSegue(withIdentifier: "showProduct", sender: self)
     }
     
-    func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
+    func onCategoryResult(merchantId: String, category: RezolveSDKLite.Category) {
         self.category = category
         self.merchantID = merchantId
         performSegue(withIdentifier: "showCategory", sender: nil)
     }
     
-    func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
+    func onCategoryProductsResult(merchantId: String, category: RezolveSDKLite.Category, productsPage: PageResult<DisplayProduct>) {
         onCategoryResult(merchantId: merchantId, category: category)
     }
     

@@ -1,5 +1,5 @@
 import Foundation
-import RezolveSDK
+import RezolveSDKLite
 
 extension SspAct {
     enum ActType {

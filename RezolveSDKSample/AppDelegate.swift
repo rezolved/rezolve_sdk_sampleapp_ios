@@ -1,13 +1,12 @@
 import UIKit
 import SwifterSwift
-import RezolveSDK
+import RezolveSDKLite
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     // Class variables
     var window: UIWindow?
-//    let engagementsService = EngagementsSerr5vice()
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -18,7 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         RezolveService.setupBackgroundTask()
         
         RezolveService.notificationCenter?.delegate = self
-        
         return true
     }
     

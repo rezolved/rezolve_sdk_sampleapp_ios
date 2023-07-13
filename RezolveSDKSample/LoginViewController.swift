@@ -1,6 +1,6 @@
 import UIKit
 import JWT
-import RezolveSDK
+import RezolveSDKLite
 
 class LoginViewController: UIViewController {
     
@@ -11,17 +11,19 @@ class LoginViewController: UIViewController {
         
         // The device's UUID
         let deviceId = UIDevice.current.identifierForVendor!.uuidString
-        loginUser(deviceId: deviceId,
-                  username: Config.demoAuthUser,
-                  password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
-            
-            switch result {
-            case .success(let result):
-                Storage.save(guestUser: result)
-                self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 7.0) { [unowned self] in
+            self.loginUser(deviceId: deviceId,
+                      username: Config.demoAuthUser,
+                      password: Config.demoAuthPassword) { [weak self] (result: Result<GuestResponse, Error>) in
                 
-            case .failure(let error):
-                print(error.localizedDescription)
+                switch result {
+                case .success(let result):
+                    Storage.save(guestUser: result)
+                    self?.createSession(entityId: result.entityId, partnerId: result.partnerId)
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
     }
@@ -69,6 +71,14 @@ class LoginViewController: UIViewController {
                                           partnerId: partnerId) { [weak self] (session, error) in
             
             RezolveService.session = session
+            RezolveService.rxp = RXPService { result in
+                switch result {
+                case .success(_):
+                    RezolveService.setupGeofence()
+                case .failure(let error):
+                    print(error)
+                }
+            }
             
             self?.performSegue(withIdentifier: "loginSuccessful", sender: self)
             print("New session started -> \(session.debugDescription)")

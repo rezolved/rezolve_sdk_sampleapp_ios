@@ -1,17 +1,17 @@
 import UIKit
-import RezolveSDK
+import RezolveSDKLite
 
 final class CategoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
-    var category: RezolveSDK.Category!
+    var category: RezolveSDKLite.Category!
     var merchantID: String!
     
     private var productToShow: Product?
     
     enum Item {
-        case category(RezolveSDK.Category)
-        case product(RezolveSDK.DisplayProduct)
+        case category(RezolveSDKLite.Category)
+        case product(RezolveSDKLite.DisplayProduct)
     }
     
     var items: [Item] = [] {
@@ -49,7 +49,7 @@ final class CategoryViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    private func setupItems(category: RezolveSDK.Category) {
+    private func setupItems(category: RezolveSDKLite.Category) {
         let categories = category.categories?.items.map({ Item.category($0) }) ?? []
         let products = category.products?.items.map({ Item.product($0) }) ?? []
         
@@ -86,7 +86,7 @@ final class CategoryViewController: UIViewController, UITableViewDataSource, UIT
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    private func showCategory(category: RezolveSDK.Category) {
+    private func showCategory(category: RezolveSDKLite.Category) {
         let categoryViewController = storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
         categoryViewController.category = category
         categoryViewController.merchantID = merchantID
@@ -94,7 +94,7 @@ final class CategoryViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     private func loadProduct(product: DisplayProduct) {
-        let product = RezolveSDK.Product(
+        let product = RezolveSDKLite.Product(
             id: product.id,
             merchantId: merchantID,
             title: "",
