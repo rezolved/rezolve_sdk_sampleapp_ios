@@ -11,8 +11,7 @@ target 'RezolveSDKSample' do
   
   # Corporate SDK
   pod 'RezolveSDK'
-  #pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
-  #pod 'RezolveCheckout', :git => 'git@github.com:rezolved/rezolve_ios_checkout', :branch => 'master'
+  pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
 end
 
 post_install do |installer|
