@@ -1,4 +1,4 @@
-import RezolveSDKLite
+import RezolveSDK
 
 final class NotificationsHandler {
     typealias Handler = (EngagementNotification) -> ()

@@ -1,6 +1,6 @@
 import UIKit
 import SwifterSwift
-import RezolveSDKLite
+import RezolveSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
