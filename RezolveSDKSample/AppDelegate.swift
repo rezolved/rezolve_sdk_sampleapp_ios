@@ -7,6 +7,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // Class variables
     var window: UIWindow?
+    let backgroundTaskManager: BackgroundTaskManager = .shared
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -14,16 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Instance of RezolveSDK & Engagements Service
         RezolveService.setupSDK()
         RezolveService.setupNotifications(application)
-        RezolveService.setupBackgroundTask()
+        backgroundTaskManager.didFinishLaunchingWithOptions()
         
         RezolveService.notificationCenter?.delegate = self
         return true
     }
     
-    func application(_ application: UIApplication,
-                     performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        
-        RezolveService.geofence?.performFetchWithCompletionHandler(completionHandler)
+    func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        backgroundTaskManager.application(application, performFetchWithCompletionHandler: completionHandler)
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        backgroundTaskManager.applicationDidEnterBackground()
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

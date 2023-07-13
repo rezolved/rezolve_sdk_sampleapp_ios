@@ -6,14 +6,14 @@ class RezolveGeofence {
     
     var ssp: RezolveSsp?
     
-    init() {
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { (notification) in
-            self.ssp?.nearbyEngagementsManager.refreshLocation()
-        }
-    }
-    
     private var engagementsManager: NearbyEngagementsManager? {
         return ssp?.nearbyEngagementsManager
+    }
+    
+    init() {
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [unowned self] (notification) in
+            self.engagementsManager?.refreshLocation()
+        }
     }
     
     func startMonitoring() {
@@ -35,6 +35,10 @@ class RezolveGeofence {
             return
         }
         ssp.performFetchWithCompletionHandler(completionHandler)
+    }
+    
+    func cancelBackgroundFetch() {
+        ssp?.cancelBackgroundFetch()
     }
 }
 

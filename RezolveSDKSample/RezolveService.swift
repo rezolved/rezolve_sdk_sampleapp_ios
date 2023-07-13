@@ -29,6 +29,8 @@ class RezolveService {
             // Start monitoring engagements
             RezolveService.geofence?.startMonitoring()
         }
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.backgroundTaskManager.engagementsService = RezolveService.geofence
     }
     
     // For receiving Local Notifications based on Geofencing Areas
@@ -45,10 +47,5 @@ class RezolveService {
                 application.registerForRemoteNotifications()
             }
         }
-    }
-    
-    // Used for refreshing Geofencing Areas, provides more accurate tracking
-    class func setupBackgroundTask() {
-        UIApplication.shared.setMinimumBackgroundFetchInterval(UIApplication.backgroundFetchIntervalMinimum)
     }
 }

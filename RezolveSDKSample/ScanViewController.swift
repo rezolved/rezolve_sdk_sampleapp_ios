@@ -99,17 +99,17 @@ class ScanViewController: UIViewController {
             return
         }
         
-        let permissionFor = { (mediaType: AVMediaType, next: @escaping ((Bool) -> Void)) in
-            AVCaptureDevice.requestAccess(for: mediaType, completionHandler: next)
-        }
-        
-        permissionFor(AVMediaType.video as AVMediaType) { allowedVideo in
-            permissionFor(AVMediaType.audio as AVMediaType) { allowedAudio in
-                DispatchQueue.main.async {
+//        let permissionFor = { (mediaType: AVMediaType, next: @escaping ((Bool) -> Void)) in
+//            AVCaptureDevice.requestAccess(for: mediaType, completionHandler: next)
+//        }
+//
+//        permissionFor(AVMediaType.video as AVMediaType) { allowedVideo in
+//            permissionFor(AVMediaType.audio as AVMediaType) { allowedAudio in
+//                DispatchQueue.main.async {
                     self.startScanning()
-                }
-            }
-        }
+//                }
+//            }
+//        }
     }
     
     private func startScanning() {
