@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-import RezolveSDKLite
+import RezolveSDK
 
 final class RXPService {
     

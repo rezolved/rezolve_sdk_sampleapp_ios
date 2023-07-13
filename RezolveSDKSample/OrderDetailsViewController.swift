@@ -1,5 +1,5 @@
 import UIKit
-import RezolveSDKLite
+import RezolveSDK
 
 class OrderDetailsViewController: UIViewController {
     

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import RezolveSDKLite
+import RezolveSDK
 
 /*
 This sample code comes configured to use a Rezolve-hosted authentication server, referred to by Rezolve as a RUA server (Rezolve User Authentication).

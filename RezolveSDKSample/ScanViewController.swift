@@ -1,6 +1,6 @@
 import UIKit
 import AVFoundation
-import RezolveSDKLite
+import RezolveSDK
 
 class ScanViewController: UIViewController {
     
@@ -15,7 +15,7 @@ class ScanViewController: UIViewController {
     private var sspAct: SspAct?
     private var customUrl: URL?
     private var scanningInProgress = false
-    private var category: RezolveSDKLite.Category?
+    private var category: RezolveSDK.Category?
     private var merchantID: String?
     
     // MARK: - Lifecycle
@@ -118,8 +118,8 @@ class ScanViewController: UIViewController {
         }
         
         DispatchQueue.global(qos: .background).async { [unowned self] in
-            //try? self.scanManager.startVideoScan(scanCameraView: scanCameraView)
-            //try? self.scanManager?.startAudioScan()
+            try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
+            self.scanManager?.startAudioScan()
         }
     }
     
@@ -208,13 +208,13 @@ extension ScanViewController: ProductDelegate {
         self.performSegue(withIdentifier: "showProduct", sender: self)
     }
     
-    func onCategoryResult(merchantId: String, category: RezolveSDKLite.Category) {
+    func onCategoryResult(merchantId: String, category: RezolveSDK.Category) {
         self.category = category
         self.merchantID = merchantId
         performSegue(withIdentifier: "showCategory", sender: nil)
     }
     
-    func onCategoryProductsResult(merchantId: String, category: RezolveSDKLite.Category, productsPage: PageResult<DisplayProduct>) {
+    func onCategoryProductsResult(merchantId: String, category: RezolveSDK.Category, productsPage: PageResult<DisplayProduct>) {
         onCategoryResult(merchantId: merchantId, category: category)
     }
     
