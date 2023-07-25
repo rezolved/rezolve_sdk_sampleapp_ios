@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACD5D8260A243B006293E1 /* CategoryViewController.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
 		4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */; };
+		42AFDA1C2A6FCE0E002EF06B /* SspActVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AFDA1B2A6FCE0E002EF06B /* SspActVideo.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
 		42DB9D6A24584EC1001BD633 /* Home.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 42DB9D6924584EC1001BD633 /* Home.gpx */; };
 		471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 471E07A525EE323E004627C5 /* SspActViewModel.swift */; };
@@ -80,6 +81,7 @@
 		38ACD5D8260A243B006293E1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
 		4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewController.swift; sourceTree = "<group>"; };
+		42AFDA1B2A6FCE0E002EF06B /* SspActVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActVideo.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
 		42DB9D6924584EC1001BD633 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		471E07A525EE323E004627C5 /* SspActViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				471E07A525EE323E004627C5 /* SspActViewModel.swift */,
 				4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */,
 				388D24F7260CCE1A008C40D7 /* PageElementDataSource.swift */,
+				42AFDA1B2A6FCE0E002EF06B /* SspActVideo.swift */,
 			);
 			name = SspAct;
 			sourceTree = "<group>";
@@ -318,7 +321,6 @@
 				D49F4472225B98EB006FB59B /* Sources */,
 				D49F4473225B98EB006FB59B /* Frameworks */,
 				D49F4474225B98EB006FB59B /* Resources */,
-				954CD79EE591E0FB47D50CE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -335,8 +337,9 @@
 		D49F446E225B98EB006FB59B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = Rezolve;
 				TargetAttributes = {
 					D49F4475225B98EB006FB59B = {
@@ -410,23 +413,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		954CD79EE591E0FB47D50CE3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -455,6 +441,7 @@
 				388D24E9260CCD15008C40D7 /* ImageCell.swift in Sources */,
 				D49F447A225B98EB006FB59B /* AppDelegate.swift in Sources */,
 				47DA918425FA082D00B43901 /* WebViewController.swift in Sources */,
+				42AFDA1C2A6FCE0E002EF06B /* SspActVideo.swift in Sources */,
 				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
 				388D24F2260CCD70008C40D7 /* TextFieldCell.swift in Sources */,
 				0E21E3802828E9CC001D58FD /* RXPService.swift in Sources */,

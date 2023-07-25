@@ -33,6 +33,7 @@ class ScanViewController: UIViewController {
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
+        scanManager.qrScannerDelegate = self
         
         DeepLinkHandler.observe { (url) in
             RezolveService.session?.triggerManager.resolve(
@@ -117,10 +118,10 @@ class ScanViewController: UIViewController {
             return
         }
         
-        DispatchQueue.global(qos: .background).async { [unowned self] in
+        //DispatchQueue.global(qos: .background).async { [unowned self] in
             try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
             self.scanManager?.startAudioScan()
-        }
+        //}
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {
@@ -227,5 +228,16 @@ extension ScanViewController: ProductDelegate {
 
         let notification = EngagementNotification(engagement: engagement)
         handle(engagmentNotification: notification)
+    }
+}
+
+// MARK: - QRScannerDelegate
+
+extension ScanViewController: QRScannerDelegate {
+    
+    func didRecognized(uuid: UUID) {
+    }
+    
+    func didRecognized(url: URL) {
     }
 }
