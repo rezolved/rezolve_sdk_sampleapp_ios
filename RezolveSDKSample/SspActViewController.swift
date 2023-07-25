@@ -78,14 +78,7 @@ extension SspActViewController: UITableViewDelegate {
         case .select(let select):
             select.value = select.options.first
         case .video(let url):
-            guard let id = SspActVideo.getYouTubeId(url: url.absoluteString) else {
-                print("YouTube: Overall problem")
-                return
-            }
-            SspActVideo.video(withID: id) { (video) in
-                print(video.streamURL)
-                print(video.thumbnailURL ?? "")
-            }
+            break
         case .text, .divider, .image, .textField:
             break
         default:

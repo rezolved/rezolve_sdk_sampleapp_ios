@@ -321,6 +321,7 @@
 				D49F4472225B98EB006FB59B /* Sources */,
 				D49F4473225B98EB006FB59B /* Frameworks */,
 				D49F4474225B98EB006FB59B /* Resources */,
+				000409FE22B381C32C9F9F5A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -391,6 +392,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		000409FE22B381C32C9F9F5A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RezolveSDKSample/Pods-RezolveSDKSample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		45ABDD8D53234101E12FF4B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -31,8 +31,10 @@ final class PageElementDataSource: NSObject, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
             cell.configure(with: image.url)
             return cell
-        case .video:
-            return tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+        case .video(let url):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell", for: indexPath) as! VideoCell
+            cell.configure(with: url)
+            return cell
         case .select(let select):
             let cell = tableView.dequeueReusableCell(withIdentifier: "SelectCell", for: indexPath) as! SelectCell
             cell.configure(with: select)

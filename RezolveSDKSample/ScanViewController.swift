@@ -118,10 +118,8 @@ class ScanViewController: UIViewController {
             return
         }
         
-        //DispatchQueue.global(qos: .background).async { [unowned self] in
-            try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
-            self.scanManager?.startAudioScan()
-        //}
+        try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
+        self.scanManager?.startAudioScan()
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {
@@ -239,5 +237,7 @@ extension ScanViewController: QRScannerDelegate {
     }
     
     func didRecognized(url: URL) {
+        print(url)
+        DeepLinkHandler.handle(url: url)
     }
 }
