@@ -71,15 +71,18 @@ final class SspActViewController: UIViewController {
 extension SspActViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? VideoCell {
+            cell.playStop()
+            return
+        }
+        
         let item = dataSource.items[indexPath.row]
         switch item {
         case .dateField(let dateField):
             dateField.value = Date()
         case .select(let select):
             select.value = select.options.first
-        case .video(let url):
-            break
-        case .text, .divider, .image, .textField:
+        case .text, .divider, .image, .textField, .video:
             break
         default:
             break
