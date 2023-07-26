@@ -237,7 +237,6 @@ extension ScanViewController: QRScannerDelegate {
     }
     
     func didRecognized(url: URL) {
-        print(url)
         DeepLinkHandler.handle(url: url)
     }
 }
