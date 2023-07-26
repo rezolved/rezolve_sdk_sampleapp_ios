@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="s0a-1V-yyK">
-                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                                <rect key="frame" x="150" y="284" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -147,13 +147,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="422"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <view key="tableFooterView" contentMode="scaleToFill" id="L0K-ty-QHQ">
-                                            <rect key="frame" x="0.0" y="514.5" width="320" height="44"/>
+                                            <rect key="frame" x="0.0" y="685" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextCell" id="6q3-Xc-j2u" customClass="TextCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="320" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="50" width="320" height="40.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6q3-Xc-j2u" id="C9A-Ja-FZs">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
@@ -179,7 +179,7 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ImageCell" id="8ip-aS-ux5" customClass="ImageCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="85" width="320" height="160"/>
+                                                <rect key="frame" x="0.0" y="90.5" width="320" height="160"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ip-aS-ux5" id="ulf-0k-z95">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
@@ -205,30 +205,42 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="VideoCell" id="Q9q-ML-r8s" customClass="VideoCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="245" width="320" height="40.5"/>
+                                                <rect key="frame" x="0.0" y="250.5" width="320" height="200"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q9q-ML-r8s" id="zCY-Nc-cjb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to play video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qye-PW-Ceu">
-                                                            <rect key="frame" x="15" y="10" width="290" height="20.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hGT-ZQ-xgh" customClass="VideoContainerView" customModule="RezolveSDKSample" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="200" id="78f-fC-dg0"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yrw-dd-nv4">
+                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                                        </imageView>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Qye-PW-Ceu" secondAttribute="trailing" constant="15" id="4xr-mk-ynM"/>
-                                                        <constraint firstItem="Qye-PW-Ceu" firstAttribute="top" secondItem="zCY-Nc-cjb" secondAttribute="top" constant="10" id="Nkc-5R-D3U"/>
-                                                        <constraint firstItem="Qye-PW-Ceu" firstAttribute="leading" secondItem="zCY-Nc-cjb" secondAttribute="leading" constant="15" id="WHT-L8-qx4"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Qye-PW-Ceu" secondAttribute="bottom" constant="10" id="eVa-PR-iKn"/>
+                                                        <constraint firstItem="hGT-ZQ-xgh" firstAttribute="top" secondItem="zCY-Nc-cjb" secondAttribute="top" id="Ggf-Fc-gcc"/>
+                                                        <constraint firstAttribute="bottom" secondItem="yrw-dd-nv4" secondAttribute="bottom" id="Hdt-hW-bAU"/>
+                                                        <constraint firstAttribute="bottom" secondItem="hGT-ZQ-xgh" secondAttribute="bottom" id="Lgq-nC-iVr"/>
+                                                        <constraint firstAttribute="trailing" secondItem="yrw-dd-nv4" secondAttribute="trailing" id="Zoy-E7-v0Z"/>
+                                                        <constraint firstItem="yrw-dd-nv4" firstAttribute="top" secondItem="zCY-Nc-cjb" secondAttribute="top" id="cEb-xr-E7T"/>
+                                                        <constraint firstAttribute="trailing" secondItem="hGT-ZQ-xgh" secondAttribute="trailing" id="eHv-sH-YoQ"/>
+                                                        <constraint firstItem="yrw-dd-nv4" firstAttribute="leading" secondItem="zCY-Nc-cjb" secondAttribute="leading" id="rd6-Lz-fkE"/>
+                                                        <constraint firstItem="hGT-ZQ-xgh" firstAttribute="leading" secondItem="zCY-Nc-cjb" secondAttribute="leading" id="vjN-7J-INk"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <connections>
+                                                    <outlet property="playerView" destination="hGT-ZQ-xgh" id="tI5-CG-4jK"/>
+                                                    <outlet property="thumbView" destination="yrw-dd-nv4" id="omG-Tf-AUi"/>
+                                                </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DividerCell" id="gNv-V5-ScP" customClass="DividerCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="285.5" width="320" height="21"/>
+                                                <rect key="frame" x="0.0" y="450.5" width="320" height="21"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNv-V5-ScP" id="NiV-SC-5Tw">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
@@ -252,7 +264,7 @@
                                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TextFieldCell" id="ZJT-UV-GPQ" customClass="TextFieldCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="306.5" width="320" height="78.5"/>
+                                                <rect key="frame" x="0.0" y="471.5" width="320" height="78.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZJT-UV-GPQ" id="n83-as-0Bd">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="78.5"/>
@@ -287,20 +299,20 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateFieldCell" id="ped-yh-Snf" customClass="DateFieldCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="385" width="320" height="63"/>
+                                                <rect key="frame" x="0.0" y="550" width="320" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ped-yh-Snf" id="avA-Hs-IJz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlP-lR-6oV">
-                                                            <rect key="frame" x="15" y="10" width="290" height="20.5"/>
+                                                            <rect key="frame" x="15" y="10" width="290" height="1.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIa-hC-3UE">
-                                                            <rect key="frame" x="15" y="32.5" width="290" height="20.5"/>
+                                                            <rect key="frame" x="15" y="13.5" width="290" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -323,10 +335,10 @@
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectCell" id="0dc-gj-eGG" customClass="SelectCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="448" width="320" height="44"/>
+                                                <rect key="frame" x="0.0" y="594" width="320" height="63"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0dc-gj-eGG" id="F3R-Fy-gFg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0A-Hu-aV6">
@@ -463,13 +475,13 @@
                                 <rect key="frame" x="0.0" y="116.5" width="320" height="431.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="6Cp-HM-SHw">
-                                    <rect key="frame" x="0.0" y="121.5" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="132.5" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SspActAnswerCell" id="23q-uK-fL8" customClass="SspActAnswerCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="320" height="54.5"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="54.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="23q-uK-fL8" id="wPe-gg-ckr">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="54.5"/>
@@ -541,13 +553,13 @@
                                 <rect key="frame" x="0.0" y="56" width="320" height="492"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="3h8-f7-ULy">
-                                    <rect key="frame" x="0.0" y="169" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="180" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" id="lVj-L8-zCp" customClass="CategoryCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="320" height="51"/>
+                                        <rect key="frame" x="0.0" y="50" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lVj-L8-zCp" id="lm8-xN-cl4">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
@@ -572,7 +584,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ProductCell" id="5Se-4x-fgs" customClass="ProductCell" customModule="RezolveSDKSample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="95.5" width="320" height="51"/>
+                                        <rect key="frame" x="0.0" y="101" width="320" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Se-4x-fgs" id="E2a-TT-9dZ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>

@@ -8,9 +8,10 @@ target 'RezolveSDKSample' do
   pod 'JSONWebToken', :git => 'https://github.com/radianttap/JSONWebToken.swift.git'
   pod 'Kingfisher', '5.13.4'
   pod 'SwifterSwift', '5.2.0'
+  pod 'XCDYouTubeKit-kbexdev', '2.16.0'
   
   # Corporate SDK
-  pod 'RezolveSDK'
+  pod 'RezolveSDK', '2.2.3'
   pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
 end
 
