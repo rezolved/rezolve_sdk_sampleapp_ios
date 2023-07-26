@@ -11,7 +11,7 @@ target 'RezolveSDKSample' do
   pod 'XCDYouTubeKit-kbexdev', '2.16.0'
   
   # Corporate SDK
-  pod 'RezolveSDK', '2.2.3-202306271445'
+  pod 'RezolveSDK', '2.2.3'
   pod 'RezolveSDKToolchain', :git => 'https://github.com/rezolved/rezolve_ios_toolchain.git'
 end
 
