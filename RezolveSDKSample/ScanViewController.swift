@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import CoreLocation
 import RezolveSDKLite
 
 class ScanViewController: UIViewController {
@@ -17,6 +18,8 @@ class ScanViewController: UIViewController {
     private var scanningInProgress = false
     private var category: RezolveSDKLite.Category?
     private var merchantID: String?
+    private let locationManager: RZLocationManagerProtocol? = RZLocationManager()
+    private var lastKnownLocation: CLLocation?
     
     // MARK: - Lifecycle
     
@@ -26,6 +29,8 @@ class ScanViewController: UIViewController {
         if #available(iOS 13.0, *) {
             isModalInPresentation = true
         }
+        
+        setupLocationTracking()
         
         guard let scanManagerInstance = RezolveService.session?.getScanManager() else {
             return
@@ -121,6 +126,18 @@ class ScanViewController: UIViewController {
             //try? self.scanManager.startVideoScan(scanCameraView: scanCameraView)
             //try? self.scanManager?.startAudioScan()
         }
+    }
+    
+    private func setupLocationTracking() {
+        guard let locationManager = locationManager else {
+            return
+        }
+        locationManager.currentLocation.bind { [weak self] (_, location) in
+            guard let self = self else { return }
+            self.lastKnownLocation = location
+        }
+
+        locationManager.startUpdating()
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {
