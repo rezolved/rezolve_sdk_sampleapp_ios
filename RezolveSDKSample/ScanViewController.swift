@@ -1,5 +1,6 @@
 import UIKit
 import AVFoundation
+import CoreLocation
 import RezolveSDK
 
 class ScanViewController: UIViewController {
@@ -17,6 +18,8 @@ class ScanViewController: UIViewController {
     private var scanningInProgress = false
     private var category: RezolveSDK.Category?
     private var merchantID: String?
+    private let locationManager: RZLocationManagerProtocol? = RZLocationManager()
+    private var lastKnownLocation: CLLocation?
     
     // MARK: - Lifecycle
     
@@ -27,13 +30,14 @@ class ScanViewController: UIViewController {
             isModalInPresentation = true
         }
         
+        setupLocationTracking()
+        
         guard let scanManagerInstance = RezolveService.session?.getScanManager() else {
             return
         }
         scanManager = scanManagerInstance
         scanManager.rezolveScanResultDelegate = self
         scanManager.productResultDelegate = self
-        scanManager.qrScannerDelegate = self
         
         DeepLinkHandler.observe { (url) in
             RezolveService.session?.triggerManager.resolve(
@@ -103,7 +107,7 @@ class ScanViewController: UIViewController {
         let permissionFor = { (mediaType: AVMediaType, next: @escaping ((Bool) -> Void)) in
             AVCaptureDevice.requestAccess(for: mediaType, completionHandler: next)
         }
-        
+
         permissionFor(AVMediaType.video as AVMediaType) { allowedVideo in
             permissionFor(AVMediaType.audio as AVMediaType) { allowedAudio in
                 DispatchQueue.main.async {
@@ -118,8 +122,22 @@ class ScanViewController: UIViewController {
             return
         }
         
-        try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
-        self.scanManager?.startAudioScan()
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
+            self.scanManager?.startAudioScan()
+        }
+    }
+    
+    private func setupLocationTracking() {
+        guard let locationManager = locationManager else {
+            return
+        }
+        locationManager.currentLocation.bind { [weak self] (_, location) in
+            guard let self = self else { return }
+            self.lastKnownLocation = location
+        }
+
+        locationManager.startUpdating()
     }
     
     private func handleSspActPresentation(sspAct: SspAct) {
@@ -226,17 +244,5 @@ extension ScanViewController: ProductDelegate {
 
         let notification = EngagementNotification(engagement: engagement)
         handle(engagmentNotification: notification)
-    }
-}
-
-// MARK: - QRScannerDelegate
-
-extension ScanViewController: QRScannerDelegate {
-    
-    func didRecognized(uuid: UUID) {
-    }
-    
-    func didRecognized(url: URL) {
-        DeepLinkHandler.handle(url: url)
     }
 }

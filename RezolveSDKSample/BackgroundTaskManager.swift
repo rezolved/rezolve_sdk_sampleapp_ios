@@ -8,7 +8,7 @@
 
 import UIKit
 import BackgroundTasks
-import RezolveSDKLite
+import RezolveSDK
 
 private enum BgTask {
     case appRefresh
