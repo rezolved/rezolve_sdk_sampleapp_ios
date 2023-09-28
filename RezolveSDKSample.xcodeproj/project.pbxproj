@@ -24,7 +24,9 @@
 		388D24FE260CD2E2008C40D7 /* SelectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388D24FD260CD2E2008C40D7 /* SelectCell.swift */; };
 		389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389CB6EE2385399B0012E155 /* GuestResponse.swift */; };
 		38ACD5D9260A243B006293E1 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38ACD5D8260A243B006293E1 /* CategoryViewController.swift */; };
+		425308EA2A4EB7F20009630E /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425308E92A4EB7F20009630E /* BackgroundTaskManager.swift */; };
 		426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426373A72457212F00BFAA78 /* RezolveGeofence.swift */; };
+		426A5E8D2AC575F200D4C5DF /* RZLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426A5E8C2AC575F200D4C5DF /* RZLocationManager.swift */; };
 		4287F55425ECDC5B00F5CC85 /* SspActViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */; };
 		42AFDA1C2A6FCE0E002EF06B /* SspActVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AFDA1B2A6FCE0E002EF06B /* SspActVideo.swift */; };
 		42C86677245AC980005FCB47 /* RezolveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C86676245AC980005FCB47 /* RezolveService.swift */; };
@@ -79,7 +81,9 @@
 		388D24FD260CD2E2008C40D7 /* SelectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCell.swift; sourceTree = "<group>"; };
 		389CB6EE2385399B0012E155 /* GuestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestResponse.swift; sourceTree = "<group>"; };
 		38ACD5D8260A243B006293E1 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		425308E92A4EB7F20009630E /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		426373A72457212F00BFAA78 /* RezolveGeofence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveGeofence.swift; sourceTree = "<group>"; };
+		426A5E8C2AC575F200D4C5DF /* RZLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RZLocationManager.swift; sourceTree = "<group>"; };
 		4287F55325ECDC5B00F5CC85 /* SspActViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActViewController.swift; sourceTree = "<group>"; };
 		42AFDA1B2A6FCE0E002EF06B /* SspActVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SspActVideo.swift; sourceTree = "<group>"; };
 		42C86676245AC980005FCB47 /* RezolveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RezolveService.swift; sourceTree = "<group>"; };
@@ -305,7 +309,9 @@
 				6A23EDDA224BE5DE18995D23 /* View Controllers */,
 				429C19FA2456F83E00686657 /* Support */,
 				3869424C2609EFCF0098007A /* DeepLinkHandler.swift */,
+				426A5E8C2AC575F200D4C5DF /* RZLocationManager.swift */,
 				38310C51262595F0008AF24A /* NotificationsHandler.swift */,
+				425308E92A4EB7F20009630E /* BackgroundTaskManager.swift */,
 			);
 			path = RezolveSDKSample;
 			sourceTree = "<group>";
@@ -438,6 +444,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				426A5E8D2AC575F200D4C5DF /* RZLocationManager.swift in Sources */,
 				3869424D2609EFCF0098007A /* DeepLinkHandler.swift in Sources */,
 				471E07A625EE323E004627C5 /* SspActViewModel.swift in Sources */,
 				389CB6EF2385399B0012E155 /* GuestResponse.swift in Sources */,
@@ -463,6 +470,7 @@
 				426373A82457212F00BFAA78 /* RezolveGeofence.swift in Sources */,
 				388D24F2260CCD70008C40D7 /* TextFieldCell.swift in Sources */,
 				0E21E3802828E9CC001D58FD /* RXPService.swift in Sources */,
+				425308EA2A4EB7F20009630E /* BackgroundTaskManager.swift in Sources */,
 				382F0CAC2626C6F600D5A97E /* SlideToActionView.swift in Sources */,
 				388D24F5260CCD95008C40D7 /* TextCell.swift in Sources */,
 				6A23E4BB0360BC5AEEAC56B9 /* LoginViewController.swift in Sources */,
