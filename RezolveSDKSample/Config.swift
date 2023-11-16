@@ -26,25 +26,25 @@ Please discuss authentication options with your project lead and/or your Rezolve
 
 class Config {
     // Data provided by Rezolve admin
-    static let demoAuthServer = ""
-    static let demoAuthUser = ""
-    static let demoAuthPassword = ""
-    static let env = RezolveEnv(rawValue: String(format: ""))!
-    static let rezolveApiKey = ""
-    static let partnerId = ""
+    static let demoAuthServer = "https://rua.sbx.eu.rezolve.com"
+    static let demoAuthUser = "testuser@example.com"
+    static let demoAuthPassword = "aaaaaaaa"
+    static let env = RezolveEnv(rawValue: String(format: "https://core.sbx.eu.rezolve.com"))!
+    static let rezolveApiKey = "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c"
+    static let partnerId = "2"
     static let entityId = ""
-    static let tokenSecret = ""
+    static let tokenSecret = "rscOHnTWg239IFFNcMxzYWhCJqBXOQxX1nt2ENlUyzHTp5AYkIJTuJj5lMWsNhaETb1yJblC9Jr6UVXvsOU37A=="
     static let sspActManagerSettings = SspActManagerSettings(
-        apiKey: "",
-        auth0ClientId: "",
-        auth0Secret: "",
-        auth0Audience: "",
-        auth0Endpoint: "",
-        sspEndpoint: "",
-        sspActEndpoint: "",
-        sspWidth: ""
+        apiKey: "08e2d4a4-c40f-4a63-b457-c1c7ef3e3d6c",
+        auth0ClientId: "gw0CEcuyQdYbx8dkRmQBighxhmPrLUzr",
+        auth0Secret: "ie26nQRBz3FPJiAED533nGBfxjT86z1JEsGBenTOG752fGvt2gqZqOK-44PG0Qhu",
+        auth0Audience: "REZOLVE-API-URLID",
+        auth0Endpoint: "https://oauth.sbx.eu.rezolve.com",
+        sspEndpoint: "https://engagement.sbx.eu.rezolve.com",
+        sspActEndpoint: "https://act.sbx.eu.rezolve.com",
+        sspWidth: "50"
     )
     static let rxpManagerSettings = RXPManagerSettings(
-        rxpEndpoint: ""
+        rxpEndpoint: "https://bff.sbx.eu.rezolve.com/api"
     )
 }
