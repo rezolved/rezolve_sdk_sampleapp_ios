@@ -9,11 +9,11 @@ final class TextCell: UITableViewCell {
         label.text = text.text
         switch text.type {
         case .header:
-            label.font = .systemFont(ofSize: 20, weight: .semibold)
+            label.font = .systemFont(ofSize: 24, weight: .semibold)
         default:
             label.font = .systemFont(ofSize: 16, weight: .regular)
         }
-        label.backgroundColor = hexStringToUIColor(hexString: text.style.backgroundColor)
+        self.backgroundColor = hexStringToUIColor(hexString: text.style.backgroundColor)
     }
 }
 
