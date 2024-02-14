@@ -1,8 +1,9 @@
 import UIKit
 import RezolveSDK
 
-protocol TextFieldCellDelegate: AnyObject {
+protocol CellDelegate: AnyObject {
     func textFieldCell(_ cell: TextFieldCell, didChangeText text: String, model: Page.Element.TextField)
+    func imageCell(_ cell: ImageCell)
 }
 
 final class TextFieldCell: UITableViewCell, UITextFieldDelegate {
@@ -10,7 +11,7 @@ final class TextFieldCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var textField: UITextField!
     
-    weak var delegate: TextFieldCellDelegate?
+    weak var delegate: CellDelegate?
     
     private var model: Page.Element.TextField?
     

@@ -118,6 +118,10 @@ extension SspActViewController: PageElementDataSource.Delegate {
         model.value = text
         reloadCell(cell: cell)
     }
+    
+    func imageCell(_ cell: ImageCell) {
+        reloadCell(cell: cell)
+    }
 }
 
 extension SspActViewController: SlideToActionViewDelegate {
