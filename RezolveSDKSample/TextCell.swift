@@ -13,5 +13,23 @@ final class TextCell: UITableViewCell {
         default:
             label.font = .systemFont(ofSize: 16, weight: .regular)
         }
+        label.backgroundColor = hexStringToUIColor(hexString: text.style.backgroundColor)
     }
+}
+
+private func hexStringToUIColor(hexString: String) -> UIColor {
+    var string = hexString.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+    
+    if (string.hasPrefix("#")) {
+        string.remove(at: string.startIndex)
+    }
+    
+    if ((string.count) != 6) {
+        return UIColor.gray
+    }
+    
+    var colorValue: UInt64 = 0
+    Scanner(string: string).scanHexInt64(&colorValue)
+    
+    return UIColor(red: CGFloat((colorValue & 0xff0000) >> 16) / 255.0, green: CGFloat((colorValue & 0x00ff00) >> 8) / 255.0, blue: CGFloat(colorValue & 0x0000ff) / 255.0, alpha: CGFloat(1.0))
 }
