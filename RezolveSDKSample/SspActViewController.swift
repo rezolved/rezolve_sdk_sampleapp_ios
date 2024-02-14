@@ -54,7 +54,9 @@ final class SspActViewController: UIViewController {
     }
     
     private func reloadCell(at indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        UIView.performWithoutAnimation {
+               self.tableView.reloadRows(at: [indexPath], with: .none)
+        }
         viewModel.validatePage()
     }
     

@@ -14,6 +14,8 @@ final class TextCell: UITableViewCell {
             label.font = .systemFont(ofSize: 16, weight: .regular)
         }
         self.backgroundColor = hexStringToUIColor(hexString: text.style.backgroundColor)
+        label.textColor = hexStringToUIColor(hexString: text.style.color)
+        label.textAlignment = .left
     }
 }
 
