@@ -54,7 +54,9 @@ final class SspActViewController: UIViewController {
     }
     
     private func reloadCell(at indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        UIView.performWithoutAnimation {
+               self.tableView.reloadRows(at: [indexPath], with: .none)
+        }
         viewModel.validatePage()
     }
     
@@ -116,6 +118,10 @@ extension SspActViewController: SspActViewModelDelegate {
 extension SspActViewController: PageElementDataSource.Delegate {
     func textFieldCell(_ cell: TextFieldCell, didChangeText text: String, model: Page.Element.TextField) {
         model.value = text
+        reloadCell(cell: cell)
+    }
+    
+    func imageCell(_ cell: ImageCell) {
         reloadCell(cell: cell)
     }
 }

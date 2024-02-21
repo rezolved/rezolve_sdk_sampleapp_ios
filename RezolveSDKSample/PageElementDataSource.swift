@@ -5,8 +5,7 @@ final class PageElementDataSource: NSObject, UITableViewDataSource {
     
     var items = [Page.Element]()
     
-    typealias Delegate = TextFieldCellDelegate
-    
+    typealias Delegate = CellDelegate
     weak var delegate: Delegate?
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,6 +28,7 @@ final class PageElementDataSource: NSObject, UITableViewDataSource {
             return tableView.dequeueReusableCell(withIdentifier: "DividerCell", for: indexPath)
         case .image(let image):
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! ImageCell
+            cell.delegate = delegate
             cell.configure(with: image.url)
             return cell
         case .video(let url):
