@@ -122,23 +122,10 @@ class ScanViewController: UIViewController {
             return
         }
         
-        //
-        
-        RezolveService.session?.triggerManager.resolve(
-            url: URL(string: "https://instant.eu.rezolve.com?deeplinkId=6s89zsKXLEb&engagementid=RoD7hkKkvEe5blqUdSNc1Q&target=sb&redirect_method=standard")!,
-            productDelegate: self,
-            onRezolveTriggerStart: { },
-            onRezolveTriggerEnd: { },
-            errorCallback: { (error) in
-                debugPrint(error)
-                //self.open(url: url)
-            }
-        )
-        
-//        DispatchQueue.global(qos: .background).async { [unowned self] in
-//            try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
-//            self.scanManager?.startAudioScan()
-//        }
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            try? self.scanManager.startImageScan(scanCameraView: scanCameraView)
+            self.scanManager?.startAudioScan()
+        }
     }
     
     private func setupLocationTracking() {
