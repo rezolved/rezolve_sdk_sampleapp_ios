@@ -15,7 +15,11 @@ final class TextCell: UITableViewCell {
         }
         self.backgroundColor = hexStringToUIColor(hexString: text.style.backgroundColor)
         label.textColor = hexStringToUIColor(hexString: text.style.color)
-        label.textAlignment = .left
+        if text.style.textAlign.rawValue == "center" {
+            label.textAlignment = .center
+        } else if text.style.textAlign.rawValue == "right" {
+            label.textAlignment = .right
+        }
     }
 }
 
